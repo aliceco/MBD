@@ -546,8 +546,8 @@ const Companypage = () => {
             <ContentSection background={ContentSectionBackground.dark}>
                 <TextSection>
                     <h1>{TranslationModel.translate(phrases.contact_us)}!</h1>
-
-                    <ContactForm />
+                    <p>foretag@nlg.medieteknik.com</p>
+                    {/*<ContactForm />*/}
                 </TextSection>
             </ContentSection>
             <Footer />
