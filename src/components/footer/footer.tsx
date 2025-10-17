@@ -99,45 +99,45 @@ const Footer: FC<{}> = (props) => {
         </>
     )
 
-    return (
-        <MBDCompanyContext.Consumer>
-            {(companies) => {
-                return (
-                    <div className='footer'>
-                        {/*{companies.all.length > 0 ? companyInfo : preparing}*/}
+        return (
+            <MBDCompanyContext.Consumer>
+                {(companies) => {
+                    return (
+                        <div className='footer'>
+                            {/*{companies.all.length > 0 ? companyInfo : preparing}*/}
 
-                        <ContentSection
-                            background={ContentSectionBackground.dark}
-                            size={ContentSectionSize.large}
-                        >
-                            <div className='footer-bottom-background'></div>
-                            <TextSection
-                                align={
-                                    isMobile
-                                        ? TextSectionAlignment.center
-                                        : TextSectionAlignment.left
-                                }
+                            <ContentSection
+                                background={ContentSectionBackground.dark}
+                                size={ContentSectionSize.large}
                             >
-                                Sektionen för Medieteknik, KTH
-                                <br />
-                                <a href='https://medieteknik.com'>
-                                    www.medieteknik.com
-                                </a>
-                                {isMobile && isSafari ? (
-                                    <></>
-                                ) : (
-                                    <>
-                                        <br />
-                                        <br />
-                                    </>
-                                )}
-                            </TextSection>
-                        </ContentSection>
-                    </div>
-                )
-            }}
-        </MBDCompanyContext.Consumer>
-    )
+                                <div className='footer-bottom-background'></div>
+                                <TextSection
+                                    align={
+                                        isMobile
+                                            ? TextSectionAlignment.center
+                                            : TextSectionAlignment.left
+                                    }
+                                >
+                                    Sektionen för Medieteknik, KTH
+                                    <br />
+                                    <a href='https://medieteknik.com'>
+                                        www.medieteknik.com
+                                    </a>
+                                    {isMobile && isSafari ? (
+                                        <></>
+                                    ) : (
+                                        <>
+                                            <br />
+                                            <br />
+                                        </>
+                                    )}
+                                </TextSection>
+                            </ContentSection>
+                        </div>
+                    )
+                }}
+            </MBDCompanyContext.Consumer>
+        )
 }
 
 export default Footer

@@ -339,7 +339,7 @@ const Studentpage = () => {
                     </MBDCompanyContext.Consumer>
                 </ContentSection>
             </div>
-            <Footer />
+            
         </div>
         
     )

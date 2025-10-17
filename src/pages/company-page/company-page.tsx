@@ -550,7 +550,6 @@ const Companypage = () => {
                     {/*<ContactForm />*/}
                 </TextSection>
             </ContentSection>
-            <Footer />
         </div>
     )
 }

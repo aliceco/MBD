@@ -146,7 +146,6 @@ const WeArePage: FC = () => {
                 ))}
             </ContentSection>
 
-            <Footer />
         </div>
     )
 }

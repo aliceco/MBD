@@ -85,7 +85,6 @@ const Contactpage: FC = () => {
                 </TextSection>
             </ContentSection>
 
-            <Footer />
         </div>
     )
 }
