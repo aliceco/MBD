@@ -78,11 +78,11 @@ const Homepage: FC = () => {
                                             <span>
                                                 Vad kul att just du hittat hit!
                                                 Medias Branschdag kommer att äga
-                                                rum {20}{' '}
+                                                rum {17}{' '}
                                                 {TranslationModel.translate(
-                                                    phrases.months.march
+                                                    phrases.months.february
                                                 )}{' '}
-                                                {2025} i kårhuset Nymble på KTH
+                                                {2026} i kårhuset Nymble på KTH
                                                 campus Valhallavägen.
                                                 <br />
                                                 <br />
@@ -111,11 +111,11 @@ const Homepage: FC = () => {
                                         en: (
                                             <span>
                                                 Fancy seeing you here! The fair
-                                                will take place on the 20th of{' '}
+                                                will take place on the 17th of{' '}
                                                 {TranslationModel.translate(
-                                                    phrases.months.march
+                                                    phrases.months.february
                                                 )}{' '}
-                                                {2025} in the student union
+                                                {2026} in the student union
                                                 house Nymble at KTH campus
                                                 Valhallavägen.
                                                 <br />
@@ -159,7 +159,7 @@ const Homepage: FC = () => {
                                     en: 'Project Leaders',
                                 })}
                             />
-                            <div className='photographer-info'>
+                            {/*<div className='photographer-info'>
                                 <img src={CameraIcon} alt='' />
                                 <a
                                     href='http://linkedin.com/in/favourezennaya'
@@ -168,7 +168,7 @@ const Homepage: FC = () => {
                                 >
                                     Favour Ezennaya
                                 </a>
-                            </div>
+                            </div>*/}
                         </>
                     }
                 />
@@ -200,7 +200,7 @@ const Homepage: FC = () => {
                                                     Läs mer om hur ni kan delta
                                                     i Medias Branschdag{' '}
                                                     {
-                                                        /*mbdDate.getStartYear()*/ 2025 // Need to hardcode as server connection is not working
+                                                        /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
                                                     }
                                                     .
                                                 </span>
@@ -211,7 +211,7 @@ const Homepage: FC = () => {
                                                     participate in Medias
                                                     Branschdag{' '}
                                                     {
-                                                        /*mbdDate.getStartYear()*/ 2023 // Need to hardcode as server connection is not working
+                                                        /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
                                                     }
                                                     . Your future employees are
                                                     waiting for you!

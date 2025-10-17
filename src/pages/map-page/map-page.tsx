@@ -100,7 +100,7 @@ const MapPage: FC = () => {
 
     return (
         <div className="masskarta-container">
-            <div className="masskarta">
+            <div >
             </div>
         </div>
 

@@ -51,14 +51,14 @@ const Companypage = () => {
                                                 <span>
                                                     Mässan kommer äga rum{' '}
                                                     <b>
-                                                        {/*våren 2025*/}
+                                                        {/*våren 2026*/}
                                                     
-                                                        {20}{' '}
+                                                        {17}{' '}
                                                         {TranslationModel.translate(
                                                             phrases.months
-                                                                .march
+                                                                .february
                                                         )}{' '}
-                                                        {2025}{' '}
+                                                        {2026}{' '}
                                                     </b>{' '}
                                                     och innehåller en heldag
                                                     spännande företag. Vi kommer
@@ -97,13 +97,13 @@ const Companypage = () => {
                                                 <span>
                                                     The job fair starts in{' '}
                                                     <b>
-                                                        {/*spring 2025*/}
-                                                        {20}{'th '}
+                                                        {/*spring 2026*/}
+                                                        {17}{'th '}
                                                         {TranslationModel.translate(
                                                             phrases.months
-                                                                .march
+                                                                .february
                                                         )}{' '}
-                                                        {2025}{' '}
+                                                        {2026}{' '}
                                                     </b>{' '}
                                                     and consists of a whole day
                                                     of exciting companies happy
