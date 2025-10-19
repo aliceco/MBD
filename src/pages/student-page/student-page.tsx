@@ -27,6 +27,7 @@ import Chip from '../../components/chip/chip'
 
 const Studentpage = () => {
     const companiesContext = useContext(MBDCompanyContext)
+    console.log(companiesContext);
     const closedDescriptionHeight = 300
 
     const windowDimensions = useWindowDimensions()
