@@ -9,7 +9,7 @@ import './student-page.css'
 
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
-import Footer from '../../components/footer/footer'
+import Footer from '../../components/footer/footer' // not in use in this page anymore
 import ContentSection from '../../components/layout/content-section/content-section'
 import TextSection, {
     TextSectionAlignment,
@@ -26,7 +26,7 @@ import useWindowDimensions from '../../hooks/useWindowDimensions'
 import Chip from '../../components/chip/chip'
 
 const Studentpage = () => {
-    const companiesContext = useContext(MBDCompanyContext)
+    const companiesContext = useContext(MBDCompanyContext) //gets company daya from nearest provider (mbd-company-provider.tsx)
     const closedDescriptionHeight = 300
 
     const windowDimensions = useWindowDimensions()
