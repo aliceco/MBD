@@ -50,6 +50,11 @@ const Studentpage = () => {
         _setOnMobile(windowDimensions.width < 700)
     }, [windowDimensions.width])
 
+    /* 
+        Run this, whenever onMobile, isMainSponsor, or isExhibitor changes
+        On desktop, pre-seöects a compamny (main sponsor)
+        Tries main sponsor first, if null or undefined, falls back to first exhibitor
+    */
     useEffect(() => {
         if (!onMobile)
             _setActiveCompany(
@@ -62,7 +67,7 @@ const Studentpage = () => {
         return Object.keys(employments).filter((id) => employments[id])
     }
 
-    const onCompanyRefChange = useCallback((node) => {
+    const onCompanyRefChange = useCallback((node) => { //
         _setCompanyDescriptionRef(node)
         if (node !== null) {
             _setShowMore(node.scrollHeight! > closedDescriptionHeight)

@@ -59,6 +59,7 @@ export default class CompanyModel {
                     return []
                 }
                 return parsedResponse.map((company: any) => {
+                   
                     let employments = JSON.parse(company.employmentsArray) ?? []
                     employments = employments.sort(function (
                         a: Employment,
@@ -76,10 +77,14 @@ export default class CompanyModel {
                         company.mapPositionX,
                         company.mapPositionY,
                         company.mapOrder,
-                        company.isSponsor === '1',
-                        company.isExhibitor === '1',
-                        company.isMainSponsor === '1',
-                        company.isLecturer === '1',
+                        /*
+                            Uses Booleans() because in production, the DB sends integers and not strings.
+                            With boolean it can take both strings and integers that ar 0 or 1 and it'll be fine.
+                        */
+                        Boolean(company.isSponsor === '1'),
+                        Boolean(company.isExhibitor === '1'),
+                        Boolean(company.isMainSponsor === '1'),
+                        Boolean(company.isLecturer === '1'),
                         employments
                     )
                 

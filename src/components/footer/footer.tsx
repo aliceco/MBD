@@ -68,7 +68,7 @@ const Footer: FC<{}> = (props) => {
 
             <MBDCompanyContext.Consumer>
                 {(companies) => {
-                    console.log(companies.isLecturer)
+                    //console.log(companies.isLecturer)
                     return companies.isLecturer.length > 0 ? (
                         <ContentSection>
                             <SectionTitle>
