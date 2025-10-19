@@ -9,7 +9,7 @@ import './student-page.css'
 
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
-import Footer from '../../components/footer/footer'
+import Footer from '../../components/footer/footer' // not in use in this page anymore
 import ContentSection from '../../components/layout/content-section/content-section'
 import TextSection, {
     TextSectionAlignment,
@@ -26,8 +26,7 @@ import useWindowDimensions from '../../hooks/useWindowDimensions'
 import Chip from '../../components/chip/chip'
 
 const Studentpage = () => {
-    const companiesContext = useContext(MBDCompanyContext)
-    console.log(companiesContext);
+    const companiesContext = useContext(MBDCompanyContext) //gets company daya from nearest provider (mbd-company-provider.tsx)
     const closedDescriptionHeight = 300
 
     const windowDimensions = useWindowDimensions()
@@ -51,6 +50,11 @@ const Studentpage = () => {
         _setOnMobile(windowDimensions.width < 700)
     }, [windowDimensions.width])
 
+    /* 
+        Run this, whenever onMobile, isMainSponsor, or isExhibitor changes
+        On desktop, pre-seöects a compamny (main sponsor)
+        Tries main sponsor first, if null or undefined, falls back to first exhibitor
+    */
     useEffect(() => {
         if (!onMobile)
             _setActiveCompany(
@@ -63,7 +67,7 @@ const Studentpage = () => {
         return Object.keys(employments).filter((id) => employments[id])
     }
 
-    const onCompanyRefChange = useCallback((node) => {
+    const onCompanyRefChange = useCallback((node) => { //
         _setCompanyDescriptionRef(node)
         if (node !== null) {
             _setShowMore(node.scrollHeight! > closedDescriptionHeight)

@@ -4,7 +4,7 @@ import {Button} from "../../components/button/button"
 import { MBDDateContext } from '../../contexts/mbd-date-provider'
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
-import Footer from '../../components/footer/footer'
+import Footer from '../../components/footer/footer' // not in use on this page anymore 
 import ContentSection, {
     ContentSectionBackground,
 } from '../../components/layout/content-section/content-section'
