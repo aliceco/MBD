@@ -29,8 +29,8 @@ const Companypage = () => {
         const lang = TranslationModel.getLanguage();
         const link =
         lang === 'se'
-        ? '/assets/docs/NLG_Produktkatalog_2526.pdf'
-        : '/assets/docs/NLG_ProductCatalog_2526.pdf';
+        ? './assets/masters/computer_science.jpg'
+        : './assets/masters/computer_science.jpg';
         
         window.open(
             link
@@ -430,7 +430,7 @@ const Companypage = () => {
                                             
                                                 <br/>
                                                 <h3>Bronspaketet</h3>
-                                                <h3>SEK 26 000</h3>
+                                                <h3>26 000kr</h3>
                                                 <br />
                                                 <p>
                                                     
@@ -464,7 +464,7 @@ const Companypage = () => {
                                             <>
                                                 <br/>
                                                 <h3>Bronze Package</h3>
-                                                <h3>26 500kr</h3>
+                                                <h3>SEK 26 500</h3>
                                                 <br />
                                                 <p>
                                                     
@@ -504,11 +504,12 @@ const Companypage = () => {
                         </div>
                     </div>}
                 </div>
-
+            
+            
             <ContentSection>
                  <br />
                 {/* Extras section */}
-                <div id='companypage-package'>
+                <div>
                     <TextSection align={TextSectionAlignment.center}>
                         <SectionTitle align={TitleSectionAlignment.center}>
                             {TranslationModel.translate(
@@ -516,40 +517,31 @@ const Companypage = () => {
                             )}
                         </SectionTitle>
                     </TextSection>
-                <div className='additional-offers'>
-                            <div>
-                                <Card light>
+                    <div className="companypage-offer">
+                        <div className="additional-offers">
+                            
+                                <Card light className="offer-card">
                                     <ContentPadding>
-                                        <ContentPadding>
                                             {TranslationModel.translate({
                                                 se: (
                                                     <>
-                                                        <h3>Event</h3>
-                                                        <h3>15 000kr</h3>
+                                                        <h3>Lunchföreläsning</h3>
+                                                        <h3>Från 20 000kr</h3>
                                                         <br />
                                                         <p>
+                                                            <b>Ingår:</b>
                                                             <ul>
                                                                 <li>
-                                                                    Exempelvis
-                                                                    en
-                                                                    liveföreläsning,
-                                                                    CV-workshop
-                                                                    eller Q&A
-                                                                    med
-                                                                    studenter
+                                                                    45 min presentation & frågestund
                                                                 </li>
                                                                 <li>
-                                                                    På eller
-                                                                    före
-                                                                    branschdagen
+                                                                    Lokalhyra
                                                                 </li>
                                                                 <li>
-                                                                    Vid mat
-                                                                    tillkommer
-                                                                    en kostnad á
-                                                                    120kr/biljett.
-                                                                    Drinkbiljetter
-                                                                    á 30kr.
+                                                                    Marknadsföring
+                                                                </li>
+                                                                <li>
+                                                                    Anmälning & logistik
                                                                 </li>
                                                             </ul>
                                                         </p>
@@ -557,89 +549,240 @@ const Companypage = () => {
                                                 ),
                                                 en: (
                                                     <>
-                                                        <h3>Event</h3>
-                                                        <h3>SEK 15 000</h3>
+                                                        <h3>Lunch Lecture</h3>
+                                                        <h3>From SEK 20 000</h3>
                                                         <br />
                                                         <p>
+                                                            <b>Includes:</b>
                                                             <ul>
                                                                 <li>
-                                                                    For example
-                                                                    a live
-                                                                    lecture, CV
-                                                                    workshop or
-                                                                    a Q&A with
-                                                                    students
+                                                                    45 min presentation & Q&A
                                                                 </li>
                                                                 <li>
-                                                                    Before or
-                                                                    during the
-                                                                    fair day
+                                                                    Venue
                                                                 </li>
-                                                                <br/>
+                                                                <li>
+                                                                    Marketing
+                                                                </li>
+                                                                <li>
+                                                                    Registration & logistics
+                                                                </li>
                                                             </ul>
                                                         </p>
                                                     </>
                                                 ),
                                             })}
                                         </ContentPadding>
-                                    </ContentPadding>
                                 </Card>
-                            </div>
-                            <Card light>
+                            
+                            <Card light className="offer-card">
                                 <ContentPadding>
-                                    <ContentPadding>
                                         {TranslationModel.translate({
                                             se: (
-                                                <>
-                                                    <h3>Annons</h3>
-                                                    <h3>1 000 kr</h3>
-                                                    <br />
-                                                    <p>
-                                                        <ul>
-                                                            <li>
-                                                                På vår
-                                                                Facebook-sida,
-                                                                Instagram eller
-                                                                hemsida
-                                                            </li>
-                                                            <li>
-                                                                Annons visas i 7
-                                                                dagar, pris
-                                                                gäller per kanal
-                                                            </li>
-                                                        </ul>
-                                                    </p>
-                                                </>
-                                            ),
-                                            en: (
-                                                <>
-                                                    <h3>Advert</h3>
-                                                    <h3>SEK 1 000</h3>
-                                                    <br />
-                                                    <p>
-                                                        <ul>
-                                                            <li>
-                                                                On our Facebook,
-                                                                Instagram or
-                                                                website
-                                                            </li>
-                                                            <li>
-                                                                The advert is
-                                                                shown for 7
-                                                                days, price is
-                                                                per channel
-                                                            </li>
-                                                        </ul>
-                                                    </p>
-                                                </>
-                                            ),
+                                                    <>
+                                                        <h3>Event hos företag</h3>
+                                                        <h3>10 000kr</h3>
+                                                        <br />
+                                                        <p>
+                                                            <b>Ingår:</b>
+                                                            <ul>
+                                                                <li>
+                                                                    Marknadsföring
+                                                                </li>
+                                                                <li>
+                                                                    Anmälning & logistik
+                                                                </li>
+                                                            </ul>
+                                                        </p>
+                                                    </>
+                                                ),
+                                                en: (
+                                                    <>
+                                                        <h3>Event at company</h3>
+                                                        <h3>SEK 10 000</h3>
+                                                        <br />
+                                                        <p>
+                                                            <b>Includes:</b>
+                                                            <ul>
+                                                                <li>
+                                                                    Marketing
+                                                                </li>
+                                                                <li>
+                                                                    Registration & logistics
+                                                                </li>
+                                                            </ul>
+                                                        </p>
+                                                    </>
+                                                ),
                                         })}
                                     </ContentPadding>
-                                </ContentPadding>
+                            </Card>
+                            <Card light className="offer-card">
+                                <ContentPadding>
+                                        {TranslationModel.translate({
+                                            se: (
+                                                    <>
+                                                        <h3>Företagspub</h3>
+                                                        <h3>40 000kr</h3>
+                                                        <br />
+                                                        <p>
+                                                            <b>Ingår:</b>
+                                                            <ul>
+                                                                <li>
+                                                                    Pubpersonal & lokal
+                                                                </li>
+                                                                <li>
+                                                                    Plats för mindre monter
+                                                                </li>
+                                                                <li>
+                                                                    Marknadsföring
+                                                                </li>
+                                                                <li>
+                                                                    300 barkuponger
+                                                                </li>
+                                                                <li>
+                                                                    Mat för upp till 100 studenter
+                                                                </li>
+                                                            </ul>
+                                                        </p>
+                                                    </>
+                                                ),
+                                                en: (
+                                                    <>
+                                                        <h3>Company Pub</h3>
+                                                        <h3>SEK 40 000</h3>
+                                                        <br />
+                                                        <p>
+                                                            <b>Includes:</b>
+                                                            <ul>
+                                                                <li>
+                                                                    Pub staff & venue
+                                                                </li>
+                                                                <li>
+                                                                    Space for small booth
+                                                                </li>
+                                                                <li>
+                                                                    Marketing
+                                                                </li>
+                                                                <li>
+                                                                    300 bar coupons
+                                                                </li>
+                                                                <li>
+                                                                    Food for up to 100 students
+                                                                </li>
+                                                            </ul>
+                                                        </p>
+                                                    </>
+                                                ),
+                                        })}
+                                    </ContentPadding>
+                            </Card>
+                            
+                        </div>
+                        <div className="additional-offers">
+                            <Card light className="offer-card">
+                                <ContentPadding>
+                                        {TranslationModel.translate({
+                                            se: (
+                                                    <>
+                                                        <h3>Andra event</h3>
+                                                        <h3>Från 7 500kr</h3>
+                                                        <br />
+                                                        <p>
+                                                            <b>Ingår exempelvis:</b>
+                                                            <ul>
+                                                                <li>
+                                                                    Lokal
+                                                                </li>
+                                                                <li>
+                                                                    Plats för mindre monter
+                                                                </li>
+                                                                <li>
+                                                                    Marknadsföring
+                                                                </li>
+                                                                <li>
+                                                                    Anmälning & logistik
+                                                                </li>
+                                                            </ul>
+                                                        </p>
+                                                    </>
+                                                ),
+                                                en: (
+                                                    <>
+                                                        <h3>Other events</h3>
+                                                        <h3>From SEK 7 500</h3>
+                                                        <br />
+                                                        <p>
+                                                            <b>Can include:</b>
+                                                            <ul>
+                                                                <li>
+                                                                    Venue
+                                                                </li>
+                                                                <li>
+                                                                    Space for smaller booth
+                                                                </li>
+                                                                <li>
+                                                                    Marketing
+                                                                </li>
+                                                                <li>
+                                                                    Registration & logistics
+                                                                </li>
+                                                            </ul>
+                                                        </p>
+                                                    </>
+                                                ),
+                                        })}
+                                    </ContentPadding>
+                            </Card>
+                            <Card light className="offer-card">
+                                <ContentPadding>
+                                        {TranslationModel.translate({
+                                            se: (
+                                                    <>
+                                                        <h3>Annonsering</h3>
+                                                        <h3>3 - 5 000kr</h3>
+                                                        <br />
+                                                        <p>
+                                                            <b>Exempelvis:</b>
+                                                            <ul>
+                                                                <li>
+                                                                    Annons på sociala medier
+                                                                </li>
+                                                                <li>
+                                                                    Affischering i sektionslokal
+                                                                </li>
+                                                                
+                                                            </ul>
+                                                        </p>
+                                                    </>
+                                                ),
+                                                en: (
+                                                    <>
+                                                        <h3>Advertising</h3>
+                                                        <h3>SEK 3 - 5 000</h3>
+                                                        <br />
+                                                        <p>
+                                                            <b>For example:</b>
+                                                            <ul>
+                                                                <li>
+                                                                    Social media post
+                                                                </li>
+                                                                <li>
+                                                                    Poster in chapter hall
+                                                                </li>
+                                                                
+                                                            </ul>
+                                                        </p>
+                                                    </>
+                                                ),
+                                        })}
+                                    </ContentPadding>
                             </Card>
                         </div>
                     </div>
+                </div>
             </ContentSection>
+            
             </ContentSection>
             {/* Email us section */}
             <ContentSection background={ContentSectionBackground.dark}>
