@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './company-page.css'
-import {Button} from "../../components/button/button"
 import { MBDDateContext } from '../../contexts/mbd-date-provider'
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
@@ -21,8 +20,24 @@ import { ContentPadding } from '../../components/content-padding'
 import { ContentPaddingThin } from '../../components/content-padding-thin'
 import TextWithContent from '../../components/text-with-content/text-with-content'
 import ContactForm from '../contact-page/contact-form/contact-form'
+import { Button, ButtonTypes } from '../../components/button/button'
+
 
 const Companypage = () => {
+
+    const openPDF = () => {
+        const lang = TranslationModel.getLanguage();
+        const link =
+        lang === 'se'
+        ? '/assets/docs/NLG_Produktkatalog_2526.pdf'
+        : '/assets/docs/NLG_ProductCatalog_2526.pdf';
+        
+        window.open(
+            link
+        )
+        
+    }
+
     return (
         <div className='companypage'>
             <div id='companypage-fair' className='companypage-fair'>
@@ -91,6 +106,13 @@ const Companypage = () => {
                                                     och mingla med våra
                                                     studenter i en mer
                                                     avslappnad miljö.
+                                                    <br/>
+                                                    <br/>
+                                                    <b>Läs om alla våra erbjudande:</b>
+                                                    <br/>
+                                                    <Button buttonType={ButtonTypes.normalCompact} onClick={openPDF}>
+                                                        {TranslationModel.translate(phrases.product_catalog)}
+                                                    </Button>
                                                 </span>
                                             ),
                                             en: (
@@ -136,21 +158,32 @@ const Companypage = () => {
                                                     can attend and network with
                                                     our students in a more
                                                     relaxed setting.
+                                                    <br/>
+                                                    <br/>
+                                                    <b>Read about all our offers:</b>
+                                                    <br/>
+                                                    <Button buttonType={ButtonTypes.normalCompact} onClick={openPDF}>
+                                                        {TranslationModel.translate(phrases.product_catalog)}
+                                                    </Button>
                                                 </span>
+                                                
                                             ),
                                         })
                                     }
                                 </MBDDateContext.Consumer>
                             </TextSection>
                         }
+                        
                         content={
                             // This is used to make the icon on the map background
                             // visibale on small screens
                             <div className='companypage-see-map-box'></div>
                         }
                     />
+                    
                 </ContentSection>
             </div>
+            
             <ContentSection>
                 <br />
                 {/* Package section */}
@@ -196,7 +229,7 @@ const Companypage = () => {
                                                             8m² för monter
                                                         </li>
                                                         <li>
-                                                            2 ståbord, 4 stolar
+                                                            2 ståbord, 4 stolar*
                                                         </li>
                                                         <li>
                                                             El & Wi-Fi
@@ -208,7 +241,7 @@ const Companypage = () => {
                                                             Logga på hemsida & sociala medier
                                                         </li>
                                                         <li>
-                                                            4 Lunch- & Sittningsbiljetter
+                                                            4 Lunch- & Sittningsbiljetter*
                                                         </li>
                                                         <li>
                                                             2 personliga företagsvärdar
@@ -223,13 +256,17 @@ const Companypage = () => {
                                                             Sponsor-logga på hemsidan
                                                         </li>
                                                         <li>
-                                                            Sponsrat inlägg på sociala medier
+                                                            Sponsrat inlägg på sociala medier*
                                                         </li>
                                                         <li>
                                                             Event i koppling till mässan
                                                         </li>
                                                     </ul>
+                                                    <p className="add-ons">
+                                                    * Extra kan köpas till
                                                 </p>
+                                                </p>
+                                                
                                             </>
                                         ),
                                         en: (
@@ -247,7 +284,7 @@ const Companypage = () => {
                                                             6m² booth space
                                                         </li>
                                                         <li>
-                                                            2 ståbord, 4 stolar
+                                                            2 tables, 4 chairs*
                                                         </li>
                                                         <li>
                                                             Electricity & Wi-Fi
@@ -259,7 +296,7 @@ const Companypage = () => {
                                                             Logo on website and social media
                                                         </li>
                                                         <li>
-                                                            4 Lunch- & Banquet tickets
+                                                            4 Lunch- & Banquet tickets*
                                                         </li>
                                                         <li>
                                                             2 personal company hosts
@@ -274,12 +311,15 @@ const Companypage = () => {
                                                             Sponsor-logo on the website
                                                         </li>
                                                         <li>
-                                                            Sponsored post on social media
+                                                            Sponsored post on social media*
                                                         </li>
                                                         <li>
                                                             Event in connection to the fair
                                                         </li>
                                                     </ul>
+                                                </p>
+                                                <p className="add-ons">
+                                                    * Additional can be purchased
                                                 </p>
                                             </>
                                         ),
@@ -307,7 +347,7 @@ const Companypage = () => {
                                                             6m² för monter
                                                         </li>
                                                         <li>
-                                                            1 ståbord, 2 stolar
+                                                            1 ståbord, 2 stolar*
                                                         </li>
                                                         <li>
                                                             El & Wi-Fi
@@ -319,7 +359,7 @@ const Companypage = () => {
                                                             Logga på hemsida & sociala medier
                                                         </li>
                                                         <li>
-                                                            2 Lunch- & Sittningsbiljetter
+                                                            2 Lunch- & Sittningsbiljetter*
                                                         </li>
                                                         <li>
                                                             Personlig företagsvärd
@@ -328,6 +368,9 @@ const Companypage = () => {
                                                             Liten logga på goodie-bag
                                                         </li>
                                                     </ul>
+                                                </p>
+                                                <p className="add-ons">
+                                                    * Extra kan köpas till
                                                 </p>
                                             </>
                                         ),
@@ -347,7 +390,7 @@ const Companypage = () => {
                                                             6m² booth space
                                                         </li>
                                                         <li>
-                                                            1 table, 2 chairs
+                                                            1 table, 2 chairs*
                                                         </li>
                                                         <li>
                                                             Electricity & Wi-Fi
@@ -359,7 +402,7 @@ const Companypage = () => {
                                                             Logo on website and social media
                                                         </li>
                                                         <li>
-                                                            2 Lunch- & Banquet tickets
+                                                            2 Lunch- & Banquet tickets*
                                                         </li>
                                                         <li>
                                                             Personal company host
@@ -368,6 +411,9 @@ const Companypage = () => {
                                                             Small logo on goodie-bag
                                                         </li>
                                                     </ul>
+                                                </p>
+                                                <p className="add-ons">
+                                                    * Additional can be purchased
                                                 </p>
                                             </>
                                         ),
@@ -396,7 +442,7 @@ const Companypage = () => {
                                                             4m² för monter
                                                         </li>
                                                         <li>
-                                                            1 ståbord, 2 stolar
+                                                            1 ståbord, 2 stolar*
                                                         </li>
                                                         <li>
                                                             El & Wi-Fi
@@ -408,6 +454,9 @@ const Companypage = () => {
                                                             Logga på hemsida & sociala medier
                                                         </li>
                                                     </ul>
+                                                </p>
+                                                <p className="add-ons">
+                                                    * Extra kan köpas till
                                                 </p>
                                             </>
                                         ),
@@ -427,7 +476,7 @@ const Companypage = () => {
                                                             4m² booth space
                                                         </li>
                                                         <li>
-                                                            1 table, 2 chairs
+                                                            1 table, 2 chairs*
                                                         </li>
                                                         <li>
                                                             Electricity & Wi-Fi
@@ -439,6 +488,10 @@ const Companypage = () => {
                                                             Logo on website and social media
                                                         </li>
                                                     </ul>
+
+                                                </p>
+                                                <p className="add-ons">
+                                                    * Additional can be purchased
                                                 </p>
                                             </>
                                         
@@ -454,7 +507,7 @@ const Companypage = () => {
 
             <ContentSection>
                  <br />
-                {/* Package section */}
+                {/* Extras section */}
                 <div id='companypage-package'>
                     <TextSection align={TextSectionAlignment.center}>
                         <SectionTitle align={TitleSectionAlignment.center}>

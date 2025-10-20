@@ -36,6 +36,15 @@ ul {
 
 .fill {
     height: 35em;
+    position: relative;
+}
+
+.add-ons {
+    padding-left: 1.2em;
+    padding-bottom: 1em;
+    position: absolute;
+    bottom: 0;
+    font-style: italic;
 }
 
 .additional-offers {
@@ -133,6 +142,28 @@ ul {
     .additional-offers div:first-child {
         margin-right: 0;
         margin-bottom:1em;
+    }
+
+    .main-offers {
+        display: flex;
+        flex-direction: column;
+        flex: 0 1 auto;
+    }
+
+    .fill {
+        height: auto;
+    }
+
+    .add-ons {
+        position: initial;
+        bottom: initial;
+        font-style: italic;
+        
+    }
+
+    .product-catalog {
+        padding-top: 2em;
+        text-align: left;
     }
     
 }

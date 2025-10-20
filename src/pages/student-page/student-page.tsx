@@ -27,6 +27,7 @@ import Chip from '../../components/chip/chip'
 
 const Studentpage = () => {
     const companiesContext = useContext(MBDCompanyContext) //gets company daya from nearest provider (mbd-company-provider.tsx)
+    console.log(companiesContext);
     const closedDescriptionHeight = 300
 
     const windowDimensions = useWindowDimensions()
@@ -34,6 +35,7 @@ const Studentpage = () => {
     const [companyDescriptionRef, _setCompanyDescriptionRef] =
         useState<HTMLDivElement>()
     const [activeCompany, _setActiveCompany] = useState<Company | null>(null)
+    console.log(activeCompany);
     const [descriptionOpen, _setDescriptionOpen] = useState<boolean>(false)
     const [descriptionHeight, _setDescriptionHeight] = useState<number>(
         closedDescriptionHeight

@@ -172,6 +172,10 @@
         "se": "Vilka är vi",
         "en": "Who are we"
     },
+    "product_catalog": {
+        "se": "Produktkatalog",
+        "en": "Product Catalog"
+    },
     "exhibitor_packages": {
         "se": "Utställarpaket",
         "en": "Exhibitor Packages"
