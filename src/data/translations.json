@@ -176,6 +176,10 @@
         "se": "Utställarpaket",
         "en": "Exhibitor Packages"
     },
+    "company_addons": {
+        "se": "Andra erbjudanden",
+        "en": "Other offers"
+    },
     "package_showcase_area": {
         "se": "Monterplats",
         "en": "Showcase area"

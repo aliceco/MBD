@@ -176,57 +176,57 @@ const Companypage = () => {
                                             })}
                     </div>*/}
                     {<div className='companypage-offer'>
+                        <div className="main-offers">
                         <Card light gold>
                             <ContentPaddingThin>
-                                <Card light>
+                                <Card light className="fill">
                                     {TranslationModel.translate({
                                         se: (
                                             <>
                                                 <br/>
                                                 <h3>Guldpaketet</h3>
-                                                <h3>58 000kr</h3>
+                                                <h3>59 500kr</h3>
                                                 <br />
                                                 <p>
-                                                    <b>På Branchdagen:</b>
                                                     <ul>
                                                         <li>
-                                                            8m² för monter centralt på mässan
+                                                            Central placering på mässan
                                                         </li>
                                                         <li>
-                                                            Två ståbord och fyra stolar
+                                                            8m² för monter
                                                         </li>
                                                         <li>
-                                                            Två personliga företagsvärdar
+                                                            2 ståbord, 4 stolar
                                                         </li>
                                                         <li>
-                                                            Fyra
-                                                            sittningsbiljetter samt
-                                                            lunch och fika för
-                                                            fyra
+                                                            El & Wi-Fi
                                                         </li>
                                                         <li>
-                                                            Exponering på
-                                                            hemsida, våra sociala
-                                                            medier samt på
-                                                            kläder under
-                                                            branschdagen
+                                                            Tillgång till företagslounge
                                                         </li>
-                                                    </ul>
-                                                    <b>Event:</b>{' '}
-                                                    <ul>
                                                         <li>
-                                                            Exempelvis en
-                                                            lunchföreläsning
-                                                            eller pub - mat till 50 personer ingår<br></br>
-                                                            Kostnad för drinkbiljetter tillkommer á 30kr
+                                                            Logga på hemsida & sociala medier
                                                         </li>
-                                                    </ul>
-                                                    <b>Annons:</b>
-                                                    <ul>
                                                         <li>
-                                                            På
-                                                            hemsida, Instagram
-                                                            och Facebook.
+                                                            4 Lunch- & Sittningsbiljetter
+                                                        </li>
+                                                        <li>
+                                                            2 personliga företagsvärdar
+                                                        </li>
+                                                        <li>
+                                                            Stor logga på goodie-bag
+                                                        </li>
+                                                        <li>
+                                                            Logga på kläder under mässan
+                                                        </li>
+                                                        <li>
+                                                            Sponsor-logga på hemsidan
+                                                        </li>
+                                                        <li>
+                                                            Sponsrat inlägg på sociala medier
+                                                        </li>
+                                                        <li>
+                                                            Event i koppling till mässan
                                                         </li>
                                                     </ul>
                                                 </p>
@@ -236,38 +236,48 @@ const Companypage = () => {
                                             <>
                                                 <br/>
                                                 <h3>Gold Package</h3>
-                                                <h3>SEK 58 000</h3>
+                                                <h3>SEK 59 500</h3>
                                                 <br />
                                                 <p>
-                                                    <b>On the day of the fair:</b>
                                                     <ul>
                                                         <li>
-                                                            8m² for a stand
+                                                            Central placement at fair
                                                         </li>
                                                         <li>
-                                                            Two standing tables and four chairs
+                                                            6m² booth space
                                                         </li>
                                                         <li>
-                                                            Two personal company hosts
+                                                            2 ståbord, 4 stolar
                                                         </li>
                                                         <li>
-                                                            Four dinner tickets, and lunch and coffee for four
+                                                            Electricity & Wi-Fi
                                                         </li>
                                                         <li>
-                                                            Exposure on the website, our social media and on clothes during the fair
+                                                            Access to company lounge
                                                         </li>
-                                                    </ul>
-                                                    <b>Event:</b>{' '}
-                                                    <ul>
                                                         <li>
-                                                            For example a lunch lecture or a pub - food for 50 people is included<br></br>
-                                                            The cost of drink tickets is SEK 30 per ticket
+                                                            Logo on website and social media
                                                         </li>
-                                                    </ul>
-                                                    <b>Advert:</b>
-                                                    <ul>
                                                         <li>
-                                                            On website, Instagram and Facebook
+                                                            4 Lunch- & Banquet tickets
+                                                        </li>
+                                                        <li>
+                                                            2 personal company hosts
+                                                        </li>
+                                                        <li>
+                                                            Big logo on goodie-bag
+                                                        </li>
+                                                        <li>
+                                                            Logo on clothes during the fair
+                                                        </li>
+                                                        <li>
+                                                            Sponsor-logo on the website
+                                                        </li>
+                                                        <li>
+                                                            Sponsored post on social media
+                                                        </li>
+                                                        <li>
+                                                            Event in connection to the fair
                                                         </li>
                                                     </ul>
                                                 </p>
@@ -279,38 +289,43 @@ const Companypage = () => {
                         </Card>
                         <Card light silver>
                             <ContentPaddingThin>
-                                <Card light>
+                                <Card light className="fill">
                                     {TranslationModel.translate({
                                         se: (
                                             <>
                                                 <br/>
                                                 <h3>Silverpaketet</h3>
-                                                <h3>36 000kr</h3>
+                                                <h3>37 950kr</h3>
                                                 <br />
                                                 <p>
-                                                    <b>På Branchdagen:</b>
+                                                    
                                                     <ul>
+                                                        <li>
+                                                            Bra placering på mässan
+                                                        </li>
                                                         <li>
                                                             6m² för monter
                                                         </li>
                                                         <li>
-                                                            Ett ståbord och två stolar
+                                                            1 ståbord, 2 stolar
                                                         </li>
                                                         <li>
-                                                            En
-                                                            personlig
-                                                            företagsvärd
+                                                            El & Wi-Fi
                                                         </li>
                                                         <li>
-                                                            Två
-                                                            sittningsbiljetter samt
-                                                            lunch och fika för
-                                                            två
+                                                            Tillgång till företagslounge
                                                         </li>
                                                         <li>
-                                                            Exponering på
-                                                            hemsida och våra sociala
-                                                            medier
+                                                            Logga på hemsida & sociala medier
+                                                        </li>
+                                                        <li>
+                                                            2 Lunch- & Sittningsbiljetter
+                                                        </li>
+                                                        <li>
+                                                            Personlig företagsvärd
+                                                        </li>
+                                                        <li>
+                                                            Liten logga på goodie-bag
                                                         </li>
                                                     </ul>
                                                 </p>
@@ -319,26 +334,38 @@ const Companypage = () => {
                                         en: (
                                             <>
                                                 <br/>
-                                                <h3>Silverpaketet</h3>
-                                                <h3>SEK 36 000</h3>
+                                                <h3>Silver Package</h3>
+                                                <h3>SEK 37 950</h3>
                                                 <br />
                                                 <p>
-                                                    <b>On the day of the fair:</b>
+                                                
                                                     <ul>
                                                         <li>
-                                                            6m² for a stand
+                                                            Good placement on the fair
                                                         </li>
                                                         <li>
-                                                            One standing table and two chairs
+                                                            6m² booth space
                                                         </li>
                                                         <li>
-                                                            One personal company host
+                                                            1 table, 2 chairs
                                                         </li>
                                                         <li>
-                                                            Two dinner tickets, and lunch and coffee for two
+                                                            Electricity & Wi-Fi
                                                         </li>
                                                         <li>
-                                                            Exposure on the website and our social media
+                                                            Access to company lounge
+                                                        </li>
+                                                        <li>
+                                                            Logo on website and social media
+                                                        </li>
+                                                        <li>
+                                                            2 Lunch- & Banquet tickets
+                                                        </li>
+                                                        <li>
+                                                            Personal company host
+                                                        </li>
+                                                        <li>
+                                                            Small logo on goodie-bag
                                                         </li>
                                                     </ul>
                                                 </p>
@@ -350,36 +377,35 @@ const Companypage = () => {
                         </Card>
                         <Card light bronze>
                             <ContentPaddingThin>
-                                <Card light>
+                                <Card light className="fill">
                                     {TranslationModel.translate({
                                         se: (
                                             <>
+                                            
                                                 <br/>
                                                 <h3>Bronspaketet</h3>
-                                                <h3>27 000kr</h3>
+                                                <h3>SEK 26 000</h3>
                                                 <br />
                                                 <p>
-                                                    <b>På Branchdagen:</b>
+                                                    
                                                     <ul>
+                                                        <li>
+                                                            Plats på mässan
+                                                        </li>
                                                         <li>
                                                             4m² för monter
                                                         </li>
                                                         <li>
-                                                            Ett
-                                                            ståbord
+                                                            1 ståbord, 2 stolar
                                                         </li>
                                                         <li>
-                                                            En
-                                                            företagsvärd
+                                                            El & Wi-Fi
                                                         </li>
                                                         <li>
-                                                            Fika för
-                                                            två
+                                                            Tillgång till företagslounge
                                                         </li>
                                                         <li>
-                                                            Exponering på
-                                                            hemsida och våra sociala
-                                                            medier
+                                                            Logga på hemsida & sociala medier
                                                         </li>
                                                     </ul>
                                                 </p>
@@ -388,36 +414,56 @@ const Companypage = () => {
                                         en: (
                                             <>
                                                 <br/>
-                                                <h3>Bronspaketet</h3>
-                                                <h3>SEK 27 000</h3>
+                                                <h3>Bronze Package</h3>
+                                                <h3>26 500kr</h3>
                                                 <br />
                                                 <p>
-                                                    <b>On the day of the fair:</b>
+                                                    
                                                     <ul>
                                                         <li>
-                                                            4m² for a stand
+                                                            Spot at fair
                                                         </li>
                                                         <li>
-                                                            One standing table
+                                                            4m² booth space
                                                         </li>
                                                         <li>
-                                                            One company host
+                                                            1 table, 2 chairs
                                                         </li>
                                                         <li>
-                                                            Coffee for two
+                                                            Electricity & Wi-Fi
                                                         </li>
                                                         <li>
-                                                            Exposure on the website and our social media
+                                                            Access to company lounge
+                                                        </li>
+                                                        <li>
+                                                            Logo on website and social media
                                                         </li>
                                                     </ul>
                                                 </p>
                                             </>
+                                        
                                         ),
                                     })}
                                 </Card>
                             </ContentPaddingThin>
                         </Card>
-                        <div className='additional-offers'>
+                        
+                        </div>
+                    </div>}
+                </div>
+
+            <ContentSection>
+                 <br />
+                {/* Package section */}
+                <div id='companypage-package'>
+                    <TextSection align={TextSectionAlignment.center}>
+                        <SectionTitle align={TitleSectionAlignment.center}>
+                            {TranslationModel.translate(
+                                phrases.company_addons
+                            )}
+                        </SectionTitle>
+                    </TextSection>
+                <div className='additional-offers'>
                             <div>
                                 <Card light>
                                     <ContentPadding>
@@ -539,8 +585,8 @@ const Companypage = () => {
                                 </ContentPadding>
                             </Card>
                         </div>
-                    </div>}
-                </div>
+                    </div>
+            </ContentSection>
             </ContentSection>
             {/* Email us section */}
             <ContentSection background={ContentSectionBackground.dark}>
