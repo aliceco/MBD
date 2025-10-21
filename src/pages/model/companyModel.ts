@@ -78,10 +78,6 @@ export default class CompanyModel {
                         company.mapPositionX,
                         company.mapPositionY,
                         company.mapOrder,
-                        /*
-                            Uses Booleans() because in production, the DB sends integers and not strings.
-                            With boolean it can take both strings and integers that ar 0 or 1 and it'll be fine.
-                        */
                         company.isSponsor === 1,
                         company.isExhibitor === 1,
                         company.isMainSponsor === 1,
