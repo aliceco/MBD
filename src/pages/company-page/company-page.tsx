@@ -29,8 +29,8 @@ const Companypage = () => {
         const lang = TranslationModel.getLanguage();
         const link =
         lang === 'se'
-        ? './assets/masters/computer_science.jpg'
-        : './assets/masters/computer_science.jpg';
+        ? './assets/docs/NLG_ProduktKatalog_2526.pdf'
+        : './assets/docs/NLG_ProductCatalog_2526.pdf';
         
         window.open(
             link
