@@ -9,6 +9,7 @@ import MBDCompanyProvider from './contexts/mbd-company-provider';
 import { theme } from './theme/material-ui'
 import { ThemeProvider } from '@material-ui/core/styles';
 import './index.css';
+import ScrollToTop from "./hooks/scrollToTop"
 
 const App: FC = () => {
     return (
@@ -19,6 +20,7 @@ const App: FC = () => {
                     <PageWrapper>
                         <MBDCompanyProvider>
                             <MBDDateProvider>
+                                <ScrollToTop/>
                                 <Switch>
                                     {
                                         Object.values(Routes).map(route => {
