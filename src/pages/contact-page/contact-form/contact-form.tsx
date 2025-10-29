@@ -28,24 +28,29 @@ const ContactForm: FC = () => {
         fetch(BACKEND_PATH + 'sendMail.php', {
             method: 'POST',
             body: formData,
-        })
-            .then(() =>
-                setDoneMessage(
-                    TranslationModel.translate({
-                        se: 'Ditt meddelande är skickat.',
-                        en: 'Your message is sent.',
-                    })
-                )
-            )
-            .catch(() =>
+        }) 
+            .then(async (res) => {
+                const text = await res.text();
+                if(text.trim() ==='1') {
+                    setDoneMessage(
+                        TranslationModel.translate({
+                            se: 'Ditt meddelande är skickat.',
+                            en: 'Your message is sent.',
+                        })
+                    )
+                } else {
+                    throw new Error('Mail failed')
+                }
+            })
+            .catch( () => {
                 setDoneMessage(
                     TranslationModel.translate({
                         se: 'Något gick fel, testa gärna igen.',
                         en: 'Something went wrong, pls test again.',
                     })
                 )
-            )
-            .finally(() => setLoading(false))
+            })
+            .finally( () => setLoading(false))
     }
 
     return (
@@ -96,7 +101,7 @@ const ContactForm: FC = () => {
                     />
                 </div>
             </form>
-            {doneMessage ? <p>{doneMessage}</p> : ''}
+            {doneMessage ? <p>{doneMessage}</p> : ''} 
             <br />
             <Button
                 onClick={() => sendEmail()}
