@@ -41,8 +41,8 @@ const Routes = {
         WeArePage
     ),
     companyPage: new Route('/company', phrases.for_companies, Companypage),
-    studentPage: new Route('/exhibitors', phrases.exhibitors, Studentpage),
-    mapPage: new Route('/map', phrases.map, MapPage),
+    //studentPage: new Route('/exhibitors', phrases.exhibitors, Studentpage),
+    //mapPage: new Route('/map', phrases.map, MapPage),
 
     contactPage: new Route('/contact', phrases.contact, Contactpage),
 

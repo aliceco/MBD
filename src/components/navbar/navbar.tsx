@@ -3,11 +3,17 @@ import './navbar.css'
 
 import Routes from '../../routes/routes'
 import { NavLink } from 'react-router-dom'
-
 import mbdLogo from '../../assets/mbd-logo/mbd-logo-yellow.svg'
+import HamburgerButton from '../hamburger-button/hamburger-button'
+import TranslationModel from '../../pages/model/translationModel'
+import LanguageSelect from './language-select/language-select'
+import { Line, LineType } from '../lines/line'
+import phrases from '../../data/translations.json'
+
+
+// Un-used
 import kthLogo from '../../assets/KTH_logo.png'
 import medieteknikLogo from '../../assets/medieteknik_logo.png'
-import HamburgerButton from '../hamburger-button/hamburger-button'
 import InstagramIconWhite from '../../assets/icons/other/instagram_white.png'
 import FacebookIconWhite from '../../assets/icons/other/facebook_white.png'
 import LinkedIconWhite from '../../assets/icons/other/linked_in_white.png'
@@ -15,37 +21,34 @@ import InstagramIconYellow from '../../assets/icons/other/instagram_icon_yellow.
 import FacebookIconYellow from '../../assets/icons/other/facebook_icon_yellow.png'
 import LinkedinIconYellow from '../../assets/icons/other/linkedin_icon_yellow.png'
 
-import TranslationModel from '../../pages/model/translationModel'
-import LanguageSelect from './language-select/language-select'
-import { Line, LineType } from '../lines/line'
-
 const Navbar = () => {
     const [mobileMenuOpen, toogleMobileMenuOpen] = useState(false)
-    const [instagranIcon, setInstagranIcon] = useState(InstagramIconWhite)
-    const [FacebookIcon, setFacebookIcon] = useState(FacebookIconWhite)
-    const [LinkedInIcon, setLinkedInIcon] = useState(LinkedIconWhite)
+    // const [instagranIcon, setInstagranIcon] = useState(InstagramIconWhite)
+    // const [FacebookIcon, setFacebookIcon] = useState(FacebookIconWhite)
+    // const [LinkedInIcon, setLinkedInIcon] = useState(LinkedIconWhite)
 
-    const openFacebook = () => {
-        window.open(
-            'https://www.facebook.com/mediasbranschdag',
-            'Medias Branschdag Facebook'
-        )
-    }
-    const openInstagram = () => {
-        window.open(
-            'https://www.instagram.com/mediasbranschdag/',
-            'Medias Branschdag Instagram'
-        )
-    }
-    const openLinkedin = () => {
-        window.open(
-            'https://www.linkedin.com/company/medias-branschdag/',
-            'Medias Branschdag LinkedIn'
-        )
-    }
+    // const openFacebook = () => {
+    //     window.open(
+    //         'https://www.facebook.com/mediasbranschdag',
+    //         'Medias Branschdag Facebook'
+    //     )
+    // }
+    // const openInstagram = () => {
+    //     window.open(
+    //         'https://www.instagram.com/mediasbranschdag/',
+    //         'Medias Branschdag Instagram'
+    //     )
+    // }
+    // const openLinkedin = () => {
+    //     window.open(
+    //         'https://www.linkedin.com/company/medias-branschdag/',
+    //         'Medias Branschdag LinkedIn'
+    //     )
+    // }
 
     return (
         <div className='navbar'>
+            {/* MBD logo */}
             <div className='navbar-leading navbar-padding'>
                 <NavLink className='no-select' exact to='/'>
                     <img
@@ -55,6 +58,8 @@ const Navbar = () => {
                     />
                 </NavLink>
             </div>
+            
+            {/* All text inside the navbar */}
             <div
                 className={`navbar-content navbar-padding ${
                     mobileMenuOpen ? 'active' : ''
@@ -63,6 +68,36 @@ const Navbar = () => {
                 {Object.values(Routes)
                     .filter((route) => route.inMenu)
                     .map((route) => {
+                       if (route.name.en === 'For Business' || route.name.se === 'För företag') {
+                            console.log(route.name);
+                            return (
+                        <div className='navbar-dropdown' key={route.path}>
+                            <button className='navbar-link'>
+                                {TranslationModel.translate(route.name)}
+                            </button>
+                            <div className='dropdown-menu'>
+                                {/* Define your dropdown items */}
+                                {/* <NavLink
+                                to='/company'
+                                className='dropdown-item'
+                                activeClassName='active'
+                                onClick={() => toogleMobileMenuOpen(!mobileMenuOpen)}
+                                >
+                                {TranslationModel.translate(phrases.exhibitor_packages)}
+                                </NavLink>
+                                <NavLink
+                                to='/medieteknik'
+                                className='dropdown-item'
+                                activeClassName='active'
+                                onClick={() => toogleMobileMenuOpen(!mobileMenuOpen)}
+                                >
+                                {TranslationModel.translate(phrases.who_are_we)}
+                                </NavLink> */}
+                            </div>
+                        </div>
+                    );
+                        }
+
                         return (
                             <NavLink
                                 exact
@@ -80,38 +115,11 @@ const Navbar = () => {
                     })}
             </div>
             <div className='navbar-trailing navbar-padding'>
-                <div className='navbar-trailing-item'>
-                    <LanguageSelect />
-                </div>
+               
 
                 <div className='navbar-trailing-item'>
                     <Line lineType={LineType.vertical} />
                 </div>
-
-                <img
-                    className='side-logo navbar-trailing-item '
-                    src={instagranIcon}
-                    onMouseEnter={() => setInstagranIcon(InstagramIconYellow)}
-                    onMouseOut={() => setInstagranIcon(InstagramIconWhite)}
-                    alt=''
-                    onClick={openInstagram}
-                />
-                <img
-                    className='side-logo navbar-trailing-item '
-                    src={FacebookIcon}
-                    onMouseEnter={() => setFacebookIcon(FacebookIconYellow)}
-                    onMouseOut={() => setFacebookIcon(FacebookIconWhite)}
-                    alt=''
-                    onClick={openFacebook}
-                />
-                <img
-                    className='side-logo navbar-trailing-item '
-                    src={LinkedInIcon}
-                    onMouseEnter={() => setLinkedInIcon(LinkedinIconYellow)}
-                    onMouseOut={() => setLinkedInIcon(LinkedIconWhite)}
-                    alt=''
-                    onClick={openLinkedin}
-                />
 
                 <div className='navbar-mobile-menu-button navbar-trailing-item '>
                     <HamburgerButton
@@ -120,6 +128,10 @@ const Navbar = () => {
                         }}
                         isActive={mobileMenuOpen}
                     />
+                </div>
+
+                 <div className='navbar-trailing-item'>
+                    <LanguageSelect />
                 </div>
             </div>
         </div>
