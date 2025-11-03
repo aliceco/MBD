@@ -3,7 +3,7 @@
 
     $mailContent = $_POST;
 
-    $to = "branschdag@medieteknik.com";
+    $to = "webb@nlg.medieteknik.com";
 
 	$subject = $mailContent['subject'];
     $name = $mailContent['name'];
