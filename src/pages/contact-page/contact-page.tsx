@@ -81,7 +81,7 @@ const Contactpage: FC = () => {
                 <TextSection>
                     <h1>{TranslationModel.translate(phrases.contact_us)}!</h1>
                     <p>foretag@nlg.medieteknik.com</p>
-                    {/*<ContactForm />*/}
+                    <ContactForm />
                 </TextSection>
             </ContentSection>
 
