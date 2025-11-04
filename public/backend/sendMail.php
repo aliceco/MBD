@@ -3,7 +3,7 @@
 
     $mailContent = $_POST;
 
-    $to = "webb@nlg.medieteknik.com";
+    $to = "alicecohen.r@gmail.com";
 
 	$subject = $mailContent['subject'];
     $name = $mailContent['name'];
@@ -13,7 +13,7 @@
     . "Kontaktas via: " . $senderMail . "\n\n"
     . "Meddelande:" . "\n" . $mailContent['message'];
 
-    $headers = "From: notifikation@branschdag.com";
+    $headers = "webb@nlg.medieteknik.com";
 	if( mail($to,$subject,$message,$headers) ){
         echo true;
     }
