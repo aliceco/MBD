@@ -9,9 +9,12 @@ import BACKEND_PATH from '../../../backend-environment'
 import LoadingText from '../../../components/loading-text'
 
 const ContactForm: FC = () => {
-    const [name, setName] = useState('')
+    const [companyName, setCompanyName] = useState('')
+    // const [name, setName] = useState('')
+
+    const [contactPerson, setContactPerson] = useState('')
     const [email, setEmail] = useState('')
-    const [subject, setSubject] = useState('')
+    // const [subject, setSubject] = useState('')
     const [message, setMessage] = useState('')
 
     const [doneMessage, setDoneMessage] = useState<React.ReactNode>('')
@@ -19,10 +22,17 @@ const ContactForm: FC = () => {
 
     const sendEmail = () => {
         let formData = new FormData()
-        formData.append('name', name)
+        formData.append('companyName', companyName)
+        formData.append('contactPerson', contactPerson)
         formData.append('email', email)
-        formData.append('subject', subject)
+        formData.append('subject', "Mejl från Kontaktformulär") //pre-created subject
         formData.append('message', message)
+
+        // Before change 4/11-2025
+        // formData.append('name', name)
+        // formData.append('email', email)
+        // formData.append('subject', "Mejl från Kontaktformulär") //pre-created subject
+        // formData.append('message', message)
 
         setLoading(true)
         fetch(BACKEND_PATH + 'sendMail.php', {
@@ -55,31 +65,38 @@ const ContactForm: FC = () => {
 
     return (
         <div>
-            <form className='contactform' onSubmit={() => sendEmail()}>
+            <form className='contactform' onSubmit={(e) => {
+                e.preventDefault(); 
+                sendEmail();       
+            }}
+            >
                 <div className='contact-input-info'>
                     <div>
                         <InputInfo
                             name='företagsnamn'
-                            onInput={setName}
+                            onInput={setCompanyName}
                             inputType='text'
                             placeholder={TranslationModel.translate(
                                 phrases.sign_up.company_name
                             )}
                             placeholderHeader = {true}
                             obligatory = {true}
+                            required = {true}
                         />
                     </div>
                     <br />
                     <div>
                         <InputInfo
                             name='kontaktperson'
-                            onInput={setName}
+                            onInput={setContactPerson}
                             inputType='text'
                             placeholder={TranslationModel.translate(
                                 phrases.contact_form.contact_person
                             )}
                             placeholderHeader = {true}
                             obligatory = {true}
+                            required = {true}
+
                         />
                     </div>
                     <br />
@@ -87,12 +104,14 @@ const ContactForm: FC = () => {
                         <InputInfo
                             name='email'
                             onInput={setEmail}
-                            inputType='text'
+                            inputType='email'
                             placeholder={TranslationModel.translate(
                                 phrases.contact_form.email
                             )}
                             placeholderHeader = {true}
                             obligatory = {true}
+                            required = {true}
+
                         />
                     </div>
                 </div>
@@ -107,25 +126,40 @@ const ContactForm: FC = () => {
                         )}
                         placeholderHeader = {true}
                         obligatory = {true}
+                        required = {true}
+
                     />
                 </div>
+                <div>
+                    <button className='submit-form-button'>
+                       <Button
+                         buttonType={ButtonTypes.normalCompact}
+                       >
+                        {loading ? (
+                            <LoadingText />
+                        ) : (
+                            TranslationModel.translate(phrases.contact_form.send)
+                        )}
+                       </Button>
+                    </button>
+                </div>
+                
             </form>
             {doneMessage ? <p>{doneMessage}</p> : ''} 
-            <br />
-            <Button
-                onClick={() => sendEmail()}
-                buttonType={ButtonTypes.normalCompact}
-            >
+            
+            {/* Old Button that was instead of the button in the form */}
+            {/* <br />
+             
+             <Button
+                    buttonType={ButtonTypes.normalCompact}
+                >
                 {loading ? (
                     <LoadingText />
                 ) : (
                     TranslationModel.translate(phrases.contact_form.send)
                 )}
-            </Button>
+            </Button> */}
 
-            <a href='mailto:foretag@nlg.medieteknik.com'>
-                <h4>foretag@nlg.medieteknik.com</h4>
-            </a>
         </div>
     )
 }

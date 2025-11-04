@@ -5,11 +5,23 @@
 
     $to = "alicecohen.r@gmail.com";
 
-	$subject = $mailContent['subject'];
-    $name = $mailContent['name'];
+	// $subject = $mailContent['subject'];
+    // $name = $mailContent['name'];
+    // $senderMail = $mailContent['email'];
+
+    //  $message = "Från: " . $name . "\n"
+    // . "Kontaktas via: " . $senderMail . "\n\n"
+    // . "Meddelande:" . "\n" . $mailContent['message'];
+
+
+    $subject = $mailContent['subject'];
+    $comapanyName = $mailContent['companyName'];
+    $contactPerson = $mailContent['contactPerson'];
     $senderMail = $mailContent['email'];
 
-    $message = "Från: " . $name . "\n"
+    $message = 
+    "Från företaget: " . $comapanyName . "\n"
+    . "Kontaktperson: " . $contactPerson . "\n\n"
     . "Kontaktas via: " . $senderMail . "\n\n"
     . "Meddelande:" . "\n" . $mailContent['message'];
 

@@ -345,8 +345,8 @@
     },
     "contact_form": {
         "contact_information": {
-            "se": "Fyll i kontaktformuläret för att kontakta oss, eller mejla direkt till foretag@nlg.medieteknik.com",
-            "en": "Fill in this contact form to contact us, or email directly at foretag@nlg.medieteknik.com"
+            "se": "Kontakta oss genom att fylla i detta formulär, eller mejla direkt till foretag@nlg.medieteknik.com",
+            "en": "Contact us by using this form, or email directly at foretag@nlg.medieteknik.com"
         },
         "contact_form": {
             "se": "Kontaktaformulär",

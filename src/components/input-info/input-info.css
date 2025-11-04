@@ -21,26 +21,13 @@
     border-bottom: 1px solid var(--theme-light-color-normal);
 } 
 
-/* trying to change the colour of the border when it is selected (DO NOT WORK) */
 .input-info-textarea:focus, .input-info-input:focus {
     border-bottom: 1px solid var(--theme-primary-color-normal);
 
 } 
 
-    
+
 .input-info-textarea {
     height: 5em;
     resize: none;
 }
-
-/* .input-info-placeholder-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
-    min-width: 75px;
-    
-    font-weight: bold;
-    color: var(--theme-text-dark);
-    background-color: var(--theme-light-color-dark);
-} */

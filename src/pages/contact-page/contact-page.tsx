@@ -1,8 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import './contact-page.css'
 
-import Footer from '../../components/footer/footer'
-
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
 import ContentSection, {
