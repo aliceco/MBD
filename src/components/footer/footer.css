@@ -161,6 +161,10 @@
     
   }
 
+  .footer-logo{
+    margin-right: 3em;
+  }
+
   .footer-list {
     flex-direction: row;
     align-items: flex-start;
