@@ -112,8 +112,8 @@
         "en": "on Instagram"
     },
     "follow_social_media": {
-        "se": "Följ oss på sociala medier",
-        "en": "Follow us on social media"
+        "se": "Följ oss",
+        "en": "Follow us"
     },
     "main_sponsor": {
         "se": "Huvudsponsor",
@@ -122,6 +122,10 @@
     "main_sponsors": {
         "se": "Huvudsponsorer",
         "en": "Main sponsors"
+    },
+    "sponsored_by": {
+        "se": "Sponsrat av",
+        "en": "Sponsored by"
     },
     "exhibitors": {
         "se": "Utställare",
@@ -150,6 +154,11 @@
     "for_students": {
         "se": "För studenter",
         "en": "For students"
+    },
+
+    "location": {
+        "se": "Plats",
+        "en": "Location"
     },
     
     "about_us": {
