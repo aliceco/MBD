@@ -3,6 +3,7 @@
     column-gap: 1em;
     row-gap: 1.5em;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .contactform .contact-input-info {
@@ -14,9 +15,7 @@
 }
 
 @media screen and (max-width: 650px) {
-    .contactform {
-        flex-direction: column;
-    }
+    
 
     .contactform .contact-input-message {
         height: 10em;

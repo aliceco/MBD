@@ -331,28 +331,38 @@
         "en": "for taking our photos!"
     },
     "contact_us": {
-        "se": "Maila oss",
+        "se": "Kontakta oss",
         "en": "Contact us"
     },
-    "name": {
-        "se": "Namn",
-        "en": "Name"
-    },
-    "email": {
-        "se": "E-post",
-        "en": "E-mail"
-    },
-    "subject": {
-        "se": "Ämne",
-        "en": "Subject"
-    },
-    "message": {
-        "se": "Meddelande",
-        "en": "Message"
-    },
-    "send": {
-        "se": "Skicka",
-        "en": "Send"
+    "contact_form": {
+        "contact_information": {
+            "se": "Fyll i kontaktformuläret för att kontakta oss, eller mejla direkt till foretag@nlg.medieteknik.com",
+            "en": "Fill in this contact form to contact us, or email directly at foretag@nlg.medieteknik.com"
+        },
+        "contact_form": {
+            "se": "Kontaktaformulär",
+            "en": "Contact form"
+        },
+        "contact_person": {
+            "se": "Kontaktperson",
+            "en": "Contact person"
+        },
+        "email": {
+            "se": "E-post",
+            "en": "E-mail"
+        },
+        "subject": {
+            "se": "Ämne",
+            "en": "Subject"
+        },
+        "message": {
+            "se": "Meddelande",
+            "en": "Message"
+        },
+        "send": {
+            "se": "Skicka",
+            "en": "Send"
+        }
     },
     "map": {
         "se": "Mässkarta",
@@ -409,7 +419,7 @@
         },
         "contact_email": {
             "se": "E-post",
-            "en": "Contact email"
+            "en": "E-mail"
         },
         "invoice_address": {
             "se": "Faktureringsaddress",

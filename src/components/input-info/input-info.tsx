@@ -1,6 +1,5 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 import './input-info.css';
-import Card from '../card/card';
 import { InputInfoHeader } from './input-info-header/input-info-header';
 
 interface InputInfoProps {
@@ -8,24 +7,24 @@ interface InputInfoProps {
     name: string,
     placeholder: ReactNode;
     onInput: (arg0: string) => void,
-    placeholderHeader?: boolean,
+    placeholderHeader?: boolean, //Should show placeholder text as a header instead (does not do this?)
     obligatory?: boolean,
     noCard?: boolean,
     defaultValue?: string | number,
     value?: string | number,
     max?: string,
     min?: string,
+    required?: boolean,
     onKeyDown?: (e: KeyboardEvent) => void
 }
 export const InputInfo: FC<InputInfoProps> = (props) => {
-
     let input;
     switch(props.inputType){
         case 'textarea':
             input = <textarea
             onInput={(event) => props.onInput(event.currentTarget.value)}
             name=""
-            placeholder={props.placeholder?.toString()}
+            placeholder={""}
             className="input-info-textarea"
             value={props.value}></textarea>
             break;
@@ -33,12 +32,13 @@ export const InputInfo: FC<InputInfoProps> = (props) => {
             input = <input
             onInput={(event) => props.onInput(event.currentTarget.value)}
             className="input-info-input"
-            placeholder={props.placeholder?.toString()}
+            placeholder={""}
             type={props.inputType}
             defaultValue={props.defaultValue}
             value={props.value}
             max={props.max}
             min={props.min}
+            
             />
             break;
     }
@@ -47,12 +47,6 @@ export const InputInfo: FC<InputInfoProps> = (props) => {
         <div className="input-info-container">
             {
                 input
-            }
-            { 
-                props.placeholderHeader ? <></> : 
-                <div className="input-info-placeholder-info">
-                    {props.placeholder}
-                </div> 
             }
         </div>
     )
@@ -63,7 +57,7 @@ export const InputInfo: FC<InputInfoProps> = (props) => {
                 {props.placeholder}
             </InputInfoHeader>
         : <></> }
-        {props.noCard ? cont : <Card>{cont}</Card>}           
+        {cont}
     </>);
 }
 

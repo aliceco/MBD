@@ -787,9 +787,9 @@ const Companypage = () => {
             {/* Email us section */}
             <ContentSection background={ContentSectionBackground.dark}>
                 <TextSection>
-                    <h1>{TranslationModel.translate(phrases.contact_us)}!</h1>
-                    <p>foretag@nlg.medieteknik.com</p>
-                    {/*<ContactForm />*/}
+                    <h1>{TranslationModel.translate(phrases.contact_form.contact_form)}!</h1>
+                    <p>{TranslationModel.translate(phrases.contact_form.contact_information)}!</p>
+                    <ContactForm />
                 </TextSection>
             </ContentSection>
         </div>

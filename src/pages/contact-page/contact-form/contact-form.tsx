@@ -59,12 +59,27 @@ const ContactForm: FC = () => {
                 <div className='contact-input-info'>
                     <div>
                         <InputInfo
-                            name='name'
+                            name='företagsnamn'
                             onInput={setName}
                             inputType='text'
                             placeholder={TranslationModel.translate(
-                                phrases.name
+                                phrases.sign_up.company_name
                             )}
+                            placeholderHeader = {true}
+                            obligatory = {true}
+                        />
+                    </div>
+                    <br />
+                    <div>
+                        <InputInfo
+                            name='kontaktperson'
+                            onInput={setName}
+                            inputType='text'
+                            placeholder={TranslationModel.translate(
+                                phrases.contact_form.contact_person
+                            )}
+                            placeholderHeader = {true}
+                            obligatory = {true}
                         />
                     </div>
                     <br />
@@ -74,30 +89,24 @@ const ContactForm: FC = () => {
                             onInput={setEmail}
                             inputType='text'
                             placeholder={TranslationModel.translate(
-                                phrases.email
+                                phrases.contact_form.email
                             )}
-                        />
-                    </div>
-                    <br />
-                    <div>
-                        <InputInfo
-                            name='subject'
-                            onInput={setSubject}
-                            inputType='text'
-                            placeholder={TranslationModel.translate(
-                                phrases.subject
-                            )}
+                            placeholderHeader = {true}
+                            obligatory = {true}
                         />
                     </div>
                 </div>
+                {/* Message text  */}
                 <div className='contact-input-message'>
                     <InputInfo
                         name='message'
                         onInput={setMessage}
                         inputType='textarea'
                         placeholder={TranslationModel.translate(
-                            phrases.message
+                            phrases.contact_form.message
                         )}
+                        placeholderHeader = {true}
+                        obligatory = {true}
                     />
                 </div>
             </form>
@@ -110,12 +119,12 @@ const ContactForm: FC = () => {
                 {loading ? (
                     <LoadingText />
                 ) : (
-                    TranslationModel.translate(phrases.send)
+                    TranslationModel.translate(phrases.contact_form.send)
                 )}
             </Button>
 
-            <a href='mailto:branschdag@medieteknik.com'>
-                <h4>branschdag@medieteknik.com</h4>
+            <a href='mailto:foretag@nlg.medieteknik.com'>
+                <h4>foretag@nlg.medieteknik.com</h4>
             </a>
         </div>
     )
