@@ -787,7 +787,7 @@ const Companypage = () => {
             {/* Email us section */}
             <ContentSection background={ContentSectionBackground.dark}>
                 <TextSection>
-                    <h1>{TranslationModel.translate(phrases.contact_form.contact_form)}!</h1>
+                    <h1>{TranslationModel.translate(phrases.contact_form.contact_form)}</h1>
                     <p>{TranslationModel.translate(phrases.contact_form.contact_information)}!</p>
                     <ContactForm />
                 </TextSection>

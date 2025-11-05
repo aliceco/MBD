@@ -19,6 +19,9 @@ const ContactForm: FC = () => {
 
     const [doneMessage, setDoneMessage] = useState<React.ReactNode>('')
     const [loading, setLoading] = useState(false)
+    const [messageSent, setMessageSent] = useState(false)
+
+    
 
     const sendEmail = () => {
         let formData = new FormData()
@@ -35,6 +38,7 @@ const ContactForm: FC = () => {
         // formData.append('message', message)
 
         setLoading(true)
+        
         fetch(BACKEND_PATH + 'sendMail.php', {
             method: 'POST',
             body: formData,
@@ -47,7 +51,8 @@ const ContactForm: FC = () => {
                             se: 'Ditt meddelande är skickat.',
                             en: 'Your message is sent.',
                         })
-                    )
+                    );
+                    setMessageSent(true);
                 } else {
                     throw new Error('Mail failed')
                 }
@@ -65,7 +70,13 @@ const ContactForm: FC = () => {
 
     return (
         <div>
-            <form className='contactform' onSubmit={(e) => {
+            {/* condition ? om sant : om falskt */}
+            { messageSent ? 
+                <div>
+                    <p>Tack för ditt mejl, vi återkommer så fort vi kan!</p>
+                </div>
+                :
+                <form className='contactform' onSubmit={(e) => {
                 e.preventDefault(); 
                 sendEmail();       
             }}
@@ -143,25 +154,11 @@ const ContactForm: FC = () => {
                        </Button>
                     </button>
                 </div>
-                
             </form>
+            }
             {doneMessage ? <p>{doneMessage}</p> : ''} 
-            
-            {/* Old Button that was instead of the button in the form */}
-            {/* <br />
-             
-             <Button
-                    buttonType={ButtonTypes.normalCompact}
-                >
-                {loading ? (
-                    <LoadingText />
-                ) : (
-                    TranslationModel.translate(phrases.contact_form.send)
-                )}
-            </Button> */}
-
         </div>
     )
-}
+}   
 
 export default ContactForm
