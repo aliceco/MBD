@@ -3,16 +3,7 @@
 
     $mailContent = $_POST;
 
-    $to = "alicecohen.r@gmail.com";
-
-	// $subject = $mailContent['subject'];
-    // $name = $mailContent['name'];
-    // $senderMail = $mailContent['email'];
-
-    //  $message = "Från: " . $name . "\n"
-    // . "Kontaktas via: " . $senderMail . "\n\n"
-    // . "Meddelande:" . "\n" . $mailContent['message'];
-
+    $to = "foretag@nlg.medieteknik.com";
 
     $subject = $mailContent['subject'];
     $comapanyName = $mailContent['companyName'];
@@ -25,7 +16,7 @@
     . "Kontaktas via: " . $senderMail . "\n\n"
     . "Meddelande:" . "\n" . $mailContent['message'];
 
-    $headers = "webb@nlg.medieteknik.com";
+    $headers = "webb@nlg.medieteknik.com"; //Has to be a valid end existing email to work
 	if( mail($to,$subject,$message,$headers) ){
         echo true;
     }

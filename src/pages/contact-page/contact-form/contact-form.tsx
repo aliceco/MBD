@@ -10,35 +10,23 @@ import LoadingText from '../../../components/loading-text'
 
 const ContactForm: FC = () => {
     const [companyName, setCompanyName] = useState('')
-    // const [name, setName] = useState('')
-
     const [contactPerson, setContactPerson] = useState('')
     const [email, setEmail] = useState('')
-    // const [subject, setSubject] = useState('')
     const [message, setMessage] = useState('')
 
     const [doneMessage, setDoneMessage] = useState<React.ReactNode>('')
     const [loading, setLoading] = useState(false)
     const [messageSent, setMessageSent] = useState(false)
 
-    
-
     const sendEmail = () => {
         let formData = new FormData()
         formData.append('companyName', companyName)
         formData.append('contactPerson', contactPerson)
         formData.append('email', email)
-        formData.append('subject', "Mejl från Kontaktformulär") //pre-created subject
+        formData.append('subject', "Mejl från Kontaktformulär") //pre-created subject for email
         formData.append('message', message)
 
-        // Before change 4/11-2025
-        // formData.append('name', name)
-        // formData.append('email', email)
-        // formData.append('subject', "Mejl från Kontaktformulär") //pre-created subject
-        // formData.append('message', message)
-
         setLoading(true)
-        
         fetch(BACKEND_PATH + 'sendMail.php', {
             method: 'POST',
             body: formData,
@@ -70,7 +58,7 @@ const ContactForm: FC = () => {
 
     return (
         <div>
-            {/* condition ? om sant : om falskt */}
+            {/* Conditional rendering: shows form iv messageSent is false, shows the other div if true*/}
             { messageSent ? 
                 <div>
                     <p>Tack för ditt mejl, vi återkommer så fort vi kan!</p>
@@ -83,6 +71,7 @@ const ContactForm: FC = () => {
             >
                 <div className='contact-input-info'>
                     <div>
+                        {/* InputInfo = input fields */}
                         <InputInfo
                             name='företagsnamn'
                             onInput={setCompanyName}
@@ -141,6 +130,7 @@ const ContactForm: FC = () => {
 
                     />
                 </div>
+                {/* Submit button */}
                 <div>
                     <button className='submit-form-button'>
                        <Button

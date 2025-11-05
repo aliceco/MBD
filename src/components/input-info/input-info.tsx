@@ -7,7 +7,7 @@ interface InputInfoProps {
     name: string,
     placeholder: ReactNode;
     onInput: (arg0: string) => void,
-    placeholderHeader?: boolean, 
+    placeholderHeader?: boolean,
     obligatory?: boolean,
     noCard?: boolean,
     defaultValue?: string | number,
@@ -18,10 +18,10 @@ interface InputInfoProps {
     onKeyDown?: (e: KeyboardEvent) => void
 }
 
-
 export const InputInfo: FC<InputInfoProps> = (props) => {
     let input;
     switch(props.inputType){
+        // Input for big text area
         case 'textarea':
             input = <textarea
             onInput={(event) => props.onInput(event.currentTarget.value)}
@@ -33,13 +33,14 @@ export const InputInfo: FC<InputInfoProps> = (props) => {
             >
             </textarea>
             break;
+        // Email input field
         case 'email':
             input = (
                 <input
                     onInput={(event) => props.onInput(event.currentTarget.value)}
                     className="input-info-input"
                     placeholder=""
-                    type="email" //validates the email input (needs to include a @)
+                    type="email" 
                     defaultValue={props.defaultValue}
                     value={props.value}
                     max={props.max}
@@ -48,6 +49,7 @@ export const InputInfo: FC<InputInfoProps> = (props) => {
                 />
             );
             break;
+        // Degault input field
         default:
             input = <input
             onInput={(event) => props.onInput(event.currentTarget.value)}
@@ -63,21 +65,17 @@ export const InputInfo: FC<InputInfoProps> = (props) => {
             break;
     }
 
-    const cont = (
-        <div className="input-info-container">
-            {
-                input
-            }
-        </div>
-    )
-
     return (<>
+        {/* Title for input fields */}
         { props.placeholderHeader ? 
             <InputInfoHeader obligatory={props.obligatory}>
                 {props.placeholder}
             </InputInfoHeader>
         : <></> }
-        {cont}
+        {/* Input fields */}
+        <div className="input-info-container">
+            {input}
+        </div>
     </>);
 }
 
