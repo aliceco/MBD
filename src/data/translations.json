@@ -112,8 +112,8 @@
         "en": "on Instagram"
     },
     "follow_social_media": {
-        "se": "Följ oss på sociala medier",
-        "en": "Follow us on social media"
+        "se": "Följ oss",
+        "en": "Follow us"
     },
     "main_sponsor": {
         "se": "Huvudsponsor",
@@ -122,6 +122,10 @@
     "main_sponsors": {
         "se": "Huvudsponsorer",
         "en": "Main sponsors"
+    },
+    "sponsored_by": {
+        "se": "Sponsrat av",
+        "en": "Sponsored by"
     },
     "exhibitors": {
         "se": "Utställare",
@@ -150,6 +154,11 @@
     "for_students": {
         "se": "För studenter",
         "en": "For students"
+    },
+
+    "location": {
+        "se": "Plats",
+        "en": "Location"
     },
     
     "about_us": {
@@ -331,28 +340,38 @@
         "en": "for taking our photos!"
     },
     "contact_us": {
-        "se": "Maila oss",
+        "se": "Kontakta oss",
         "en": "Contact us"
     },
-    "name": {
-        "se": "Namn",
-        "en": "Name"
-    },
-    "email": {
-        "se": "E-post",
-        "en": "E-mail"
-    },
-    "subject": {
-        "se": "Ämne",
-        "en": "Subject"
-    },
-    "message": {
-        "se": "Meddelande",
-        "en": "Message"
-    },
-    "send": {
-        "se": "Skicka",
-        "en": "Send"
+    "contact_form": {
+        "contact_information": {
+            "se": "Kontakta oss genom att fylla i detta formulär, eller mejla direkt till foretag@nlg.medieteknik.com",
+            "en": "Contact us by using this form, or email directly at foretag@nlg.medieteknik.com"
+        },
+        "contact_form": {
+            "se": "Kontaktaformulär",
+            "en": "Contact form"
+        },
+        "contact_person": {
+            "se": "Kontaktperson",
+            "en": "Contact person"
+        },
+        "email": {
+            "se": "E-post",
+            "en": "E-mail"
+        },
+        "subject": {
+            "se": "Ämne",
+            "en": "Subject"
+        },
+        "message": {
+            "se": "Meddelande",
+            "en": "Message"
+        },
+        "send": {
+            "se": "Skicka",
+            "en": "Send"
+        }
     },
     "map": {
         "se": "Mässkarta",
@@ -409,7 +428,7 @@
         },
         "contact_email": {
             "se": "E-post",
-            "en": "Contact email"
+            "en": "E-mail"
         },
         "invoice_address": {
             "se": "Faktureringsaddress",

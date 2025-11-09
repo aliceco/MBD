@@ -1,8 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import './contact-page.css'
 
-import Footer from '../../components/footer/footer'
-
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
 import ContentSection, {
@@ -79,9 +77,8 @@ const Contactpage: FC = () => {
             {/* Contact form*/}
             <ContentSection background={ContentSectionBackground.dark}>
                 <TextSection>
-                    <h1>{TranslationModel.translate(phrases.contact_us)}!</h1>
-                    <p>foretag@nlg.medieteknik.com</p>
-                    <p>OBS! Kontaktformulär ur funktion</p>
+                    <h1>{TranslationModel.translate(phrases.contact_form.contact_form)}</h1>
+                    <p>{TranslationModel.translate(phrases.contact_form.contact_information)}!</p>
                     <ContactForm />
                 </TextSection>
             </ContentSection>
