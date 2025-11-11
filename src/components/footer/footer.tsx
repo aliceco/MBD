@@ -57,7 +57,6 @@ const Footer: FC<{}> = (props) => {
                         
                         <img
                             src='https://storage.googleapis.com/medieteknik-static/static/dark_logobig.webp'
-                            className='media-logo'
                             width={320}
                             height={128}
                             loading={'lazy'}
@@ -69,7 +68,7 @@ const Footer: FC<{}> = (props) => {
                         
                         {/* Sponsored Logo */}
                         <li className='footer-item center-sponsor'>
-                            <p className=''>
+                            <p>
                                 {TranslationModel.translate(
                                 phrases.sponsored_by)}
                             </p>
@@ -82,21 +81,20 @@ const Footer: FC<{}> = (props) => {
                                 <img
                                     src='./assets/companies/eyevinn.png'
                                     width={240}
-                                    className=''
                                 />
                             </a>
                         </li>
                         
                         {/* Location */}
-                        <li className='footer-item location'>
-                            <h4 className=''>
+                        <li className='footer-item'>
+                            <h4>
                                 {TranslationModel.translate(
                                 phrases.location)}
                             </h4>
 
-                            <p className=''>
+                            <p>
                                 Drotting Kristinas väg 15 <br /> 100 44 Stockholm <br />{' '}
-                                <span className=''>
+                                <span>
                                     c/o THSMEDIES
                                 </span>
                             </p>
@@ -104,10 +102,9 @@ const Footer: FC<{}> = (props) => {
 
                         {/* Contact */}
                         <li className='footer-item contact'>
-                            <h4 className=''>
+                            <h4>
                                 <NavLink
                                     exact to='/contact'
-                                    className=''
                                 >
                                     <span className='contact-link'>
                                         {TranslationModel.translate(
@@ -120,7 +117,6 @@ const Footer: FC<{}> = (props) => {
                             <div className='contact-details'>
                                 <a
                                     href='mailto:foretag@nlg.medieteknik.com'
-                                    className=''
                                 >
                                     <span>foretag@nlg.medieteknik.com</span>
                                 </a>
@@ -131,7 +127,7 @@ const Footer: FC<{}> = (props) => {
                                 phrases.follow_social_media)}
                             </h4>
 
-                            <div className=''>
+                            <div>
                                 <img
                                     className='social-logo'
                                     src={instagramIcon}
