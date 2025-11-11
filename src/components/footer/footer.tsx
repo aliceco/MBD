@@ -14,9 +14,11 @@ import { NavLink } from 'react-router-dom'
 import InstagramIconWhite from '../../assets/icons/other/instagram_white.png'
 import FacebookIconWhite from '../../assets/icons/other/facebook_white.png'
 import LinkedIconWhite from '../../assets/icons/other/linked_in_white.png'
+import TiktokIconWhite from '../../assets/icons/other/tiktok_icon_white.png'
 import InstagramIconYellow from '../../assets/icons/other/instagram_icon_yellow.png'
 import FacebookIconYellow from '../../assets/icons/other/facebook_icon_yellow.png'
 import LinkedinIconYellow from '../../assets/icons/other/linkedin_icon_yellow.png'
+import TiktokIconYellow from '../../assets/icons/other/tiktok_icon_yellow.png'
 
 
 const Footer: FC<{}> = (props) => {
@@ -25,6 +27,7 @@ const Footer: FC<{}> = (props) => {
     const [instagramIcon, setInstagramIcon] = useState(InstagramIconWhite)
     const [FacebookIcon, setFacebookIcon] = useState(FacebookIconWhite)
     const [LinkedInIcon, setLinkedInIcon] = useState(LinkedIconWhite)
+    const [TiktokIcon, setTiktokIcon] = useState(TiktokIconWhite)
 
     const openFacebook = () => {
         window.open(
@@ -42,6 +45,12 @@ const Footer: FC<{}> = (props) => {
         window.open(
             'https://www.linkedin.com/company/medias-branschdag/',
             'Medias Branschdag LinkedIn'
+        )
+    }
+    const openTiktok = () => {
+        window.open(
+            'https://www.tiktok.com/@nlg_medieteknik',
+            'NLG TikTok'
         )
     }
 
@@ -151,6 +160,14 @@ const Footer: FC<{}> = (props) => {
                                     onMouseOut={() => setLinkedInIcon(LinkedIconWhite)}
                                     alt=''
                                     onClick={openLinkedin}
+                                />
+                                <img
+                                    className='social-logo'
+                                    src={TiktokIcon}
+                                    onMouseEnter={() => setTiktokIcon(TiktokIconYellow)}
+                                    onMouseOut={() => setTiktokIcon(TiktokIconWhite)}
+                                    alt=''
+                                    onClick={openTiktok}
                                 />
                             </div>
 
