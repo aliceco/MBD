@@ -76,6 +76,33 @@
     display: none;
 }
 
+.navbar-item {
+  position: relative; /* so dropdown is positioned relative to this parent */
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;  /* below NavLink */
+  background-color: var(--theme-dark-color-normal);
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 10px 0;
+  min-width: 150px;
+  z-index: 1000;
+  color: white;
+  border: none;
+  border-radius: 5%;
+}
+
+.dropdown li {
+  padding: 5px 15px;
+}
+
+/* .dropdown li:hover {
+  background-color: var(--theme-dark-color-light);
+}
+ */
+
 
 @media (max-width: 850px) {
     .side-logo {
