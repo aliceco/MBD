@@ -10,6 +10,8 @@ import { Button, ButtonTypes } from '../button/button'
 
 import { isMobile } from 'react-device-detect'
 
+import { NavLink } from 'react-router-dom'
+
 
 
 interface NavigationCardProps {
@@ -17,7 +19,8 @@ interface NavigationCardProps {
     icon: string,
     title: string,
     description: string,
-    buttonText: string
+    buttonText: string,
+    nav: string
 }
 
 const NavigationCard: FC<NavigationCardProps> = (props) => {
@@ -32,7 +35,9 @@ const NavigationCard: FC<NavigationCardProps> = (props) => {
                             <p> 
                                 {props.description}
                             </p>
-                            <Button buttonType={ButtonTypes.normalCompact}> {props.buttonText}</Button>
+                            <NavLink to={props.nav}>
+                                <Button buttonType={ButtonTypes.normalCompact}> {props.buttonText}</Button>
+                            </NavLink>
                         </div>
                     </ContentPadding>
                 </div>

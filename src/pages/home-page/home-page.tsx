@@ -284,6 +284,7 @@ const Homepage: FC = () => {
                         title="Företag?"
                         description="Vill ni nå ut till hundratals civilingenjörsstudenter på KTH? Läs mer om hur ni kan delta i Medias Branschdag 2026."
                         buttonText="För företag"
+                        nav="/company"
                     />
 
                     <NavigationCard 
@@ -292,6 +293,7 @@ const Homepage: FC = () => {
                         title="Student?"
                         description="Nån text om vad man kan göra som student"
                         buttonText="För studenter"
+                        nav="/exhibitors"
                     />
                 </div>
             </ContentSection>
