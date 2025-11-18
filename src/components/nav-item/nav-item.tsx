@@ -13,11 +13,11 @@ interface NavItemProps {
   label: React.ReactNode
   path: string
   items: DropdownItem[]
+
 }
 
 const NavItem: FC<NavItemProps> = (props) => {
   const [isOpen, setIsOpen] = useState(false)
-
   const hasItems = props.items && props.items.length > 0
 
   return (
@@ -33,12 +33,13 @@ const NavItem: FC<NavItemProps> = (props) => {
         activeClassName="navbar-link active"
         to={props.path}
         key={props.path}
+        
       >
         {props.label}
       </NavLink>
 
       {isOpen && hasItems && (
-        <ul className="dropdown">
+        <ul className="dropdown-menu">
           {props.items.map((item) => (
             <li key={item.path}>
               <NavLink

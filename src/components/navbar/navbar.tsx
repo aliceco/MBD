@@ -20,10 +20,18 @@ const Navbar = () => {
 
     return (
         <div className='navbar'>
-            {/* First part of navbar */}
+            {/* Company hpver fpr the menu 
+                 Current issues:
+                - Won't work well on mobile so should add a conditional rendering that checks
+                  if you're on mobile
+                - The menu isn't closing down when you click on a link in mobile
+                    - due to no on-click that changes the mobileMenuOpen state
 
+                */}
+
+            {/* First part of navbar */}
             {/*MBD logo */}
-            <div className='navbar-leading navbar-padding'>
+            <div className='navbar-leading'>
                 <NavLink className='no-select' exact to='/'>
                     <img
                         className='navbar-mbd-logo'
@@ -32,91 +40,108 @@ const Navbar = () => {
                     />
                 </NavLink>
             </div>
+
             {/* Navbar texts */}
             <div
                 className={`navbar-content navbar-padding ${
                     mobileMenuOpen ? 'active' : ''
                 }`}
             >
-               {/* Home */}
-                <NavItem
-                    label = {TranslationModel.translate(Routes.homePage.name)}
-                    path = {Routes.homePage.path}
-                    items = {[]} 
-                />
+                <div className='navbar-list'>
+                    {/* Home */}
+                    <NavItem
+                        label={TranslationModel.translate(Routes.homePage.name)}
+                        path={Routes.homePage.path}
+                        items={[]}
+                        // onClick={() =>
+                        //     togleMobileMenuOpen(!mobileMenuOpen)
+                        // }
+                    />
 
-                {/* Company hpver fpr the menu 
-                 Current issues:
-                - Very long and repetetive code SOLVED
-                - Won't work well on mobile so should add a conditional rendering that checks
-                  if you're on mobile
-                - Have created a component but no idea how to do that SOLVED
-                - Can we make the entire thing a component? like the whole div? SOLVED
-                */}
-                {/* For Companies */}
-                <NavItem 
-                    label = {TranslationModel.translate(Routes.companyPage.name)}
-                    path = {Routes.companyPage.path}
-                    items={[
-                        {
-                            label: TranslationModel.translate(Routes.whatIsPage.name),
-                            path: Routes.whatIsPage.path
-                        },
-                        {
-                            label: TranslationModel.translate(phrases.exhibitor_packages),
-                            path: Routes.companyPage.path
-                        },
-                        {
-                            label: TranslationModel.translate(Routes.contactPage.name),
-                            path: Routes.contactPage.path
-                        }
-                    ]}
-                />
+                    {/* For Companies */}
+                    <NavItem
+                        label={TranslationModel.translate(
+                            Routes.companyPage.name
+                        )}
+                        path={Routes.companyPage.path}
+                        items={[
+                            {
+                                label: TranslationModel.translate(
+                                    Routes.whatIsPage.name
+                                ),
+                                path: Routes.whatIsPage.path,
+                            },
+                            {
+                                label: TranslationModel.translate(
+                                    phrases.exhibitor_packages
+                                ),
+                                path: Routes.companyPage.path,
+                            },
+                            {
+                                label: TranslationModel.translate(
+                                    Routes.contactPage.name
+                                ),
+                                path: Routes.contactPage.path,
+                            },
+                        ]}
+                    />
 
-                {/* For Students */}
-                <NavItem 
-                    label = {TranslationModel.translate(phrases.for_students)}
-                    path = {''} // doesn't have a page yet
-                    items={[
-                        {
-                            label: TranslationModel.translate(Routes.studentPage.name),
-                            path: Routes.studentPage.path
-                        },
-                        {
-                            label: TranslationModel.translate(Routes.mapPage.name),
-                            path: Routes.mapPage.path
-                        },
-                        {
-                            label: TranslationModel.translate(phrases.for_students),
-                            path: '' // This page doesn't exist yet
-                        }
-                    ]}
-                />
-
-               
+                    {/* For Students */}
+                    <NavItem
+                        label={TranslationModel.translate(phrases.for_students)}
+                        path={''} // doesn't have a page yet
+                        items={[
+                            {
+                                label: TranslationModel.translate(
+                                    Routes.studentPage.name
+                                ),
+                                path: Routes.studentPage.path,
+                            },
+                            {
+                                label: TranslationModel.translate(
+                                    Routes.mapPage.name
+                                ),
+                                path: Routes.mapPage.path,
+                            },
+                            {
+                                label: TranslationModel.translate(
+                                    phrases.for_students
+                                ),
+                                path: '', // This page doesn't exist yet
+                            },
+                        ]}
+                    />
+                </div>
+                <div className='navbar-list'>
+                    <NavItem
+                        label={TranslationModel.translate(
+                            Routes.contactPage.name
+                        )}
+                        path={Routes.contactPage.path}
+                        items={[]}
+                    />
+                    {/* Om oss */}
+                    <NavItem
+                        label={TranslationModel.translate(phrases.about_us)}
+                        path={''} //Does not yet have a page
+                        items={[]}
+                    />
+                </div>
             </div>
 
-            {/* Language flag */}
-            <div className='navbar-trailing navbar-padding'>
-                <NavItem
-                    label = {TranslationModel.translate(Routes.contactPage.name)}
-                    path = {Routes.contactPage.path}
-                    items = {[]} 
-                />
-                {/* Om oss */}
-               <NavItem
-                    label = {TranslationModel.translate(phrases.about_us)}
-                    path = {''} //Does not yet have a page
-                    items = {[]} 
-                />
-                <div className='navbar-trailing-item'>
+            <div className='navbar-trailing'>
+
+                 <div className='navbar-trailing-item'>
                     <Line lineType={LineType.vertical} />
                 </div>
+                
+                {/* Language flag */}
                 <div className='navbar-trailing-item'>
                     <LanguageSelect />
                 </div>
 
                 {/* Line */}
+                
                 <div className='navbar-mobile-menu-button navbar-trailing-item '>
                     <HamburgerButton
                         onClick={() => {
@@ -208,5 +233,5 @@ export default Navbar
 //                                     >
 //                                         {TranslationModel.translate(route.name)}
 //                                     </NavLink>
-//                                 )   
+//                                 )
 //                         })}
