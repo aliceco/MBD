@@ -68,6 +68,11 @@
     max-width: 200px;
 }
 
+.navigation-cards {
+    display: flex;
+    justify-content: space-around;
+}
+
 @media screen and (max-width: 700px) {
 
     .homepage-instagram-section {
@@ -100,5 +105,11 @@
 
     .signature-cont img {
         max-width: 130px;
+    }
+
+    .navigation-cards {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 30px;
     }
 }

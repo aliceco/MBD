@@ -40,6 +40,13 @@ import { isMobile, isSafari } from 'react-device-detect'
 import NicoleSignature from '../../assets/signatures/nicole_nordlund.png'
 import JohnSignature from '../../assets/signatures/john_brink.png'
 
+import NavigationCard from '../../components/navigation-card/navigation-card'
+import companyBackgroundImage from '../../assets/backgrounds/laptop.png'
+import companyIcon from '../../assets/icons/other/company.svg'
+
+import studentBackgroundImage from '../../assets/backgrounds/kth_stone_ground.jpg'
+import studentIcon from '../../assets/icons/other/book.png'
+
 const Homepage: FC = () => {
     const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([])
     const [projectLeaders, setProjectLeaders] = useState<TeamMember[]>([])
@@ -268,9 +275,31 @@ const Homepage: FC = () => {
                 </ContentSection>
             </CenterBackground>
 
+            {/* Navigation cards */}
+            <ContentSection>
+                <div className='navigation-cards'>
+                    <NavigationCard 
+                        backgroundImage={companyBackgroundImage}
+                        icon={companyIcon}
+                        title="Företag?"
+                        description="Vill ni nå ut till hundratals civilingenjörsstudenter på KTH? Läs mer om hur ni kan delta i Medias Branschdag 2026."
+                        buttonText="För företag"
+                    />
+
+                    <NavigationCard 
+                        backgroundImage={studentBackgroundImage}
+                        icon={studentIcon}
+                        title="Student?"
+                        description="Nån text om vad man kan göra som student"
+                        buttonText="För studenter"
+                    />
+                </div>
+            </ContentSection>
+
+
             {/* Instagram section */}
             {instagramPosts.length > 0 ? (
-                <ContentSection>
+                <ContentSection size={ContentSectionSize.small}>
                     <SectionTitle>
                         Medias branschdag{' '}
                         {TranslationModel.translate(phrases.on_instagram)}

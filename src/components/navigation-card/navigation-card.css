@@ -1,0 +1,26 @@
+.nav-card {
+    width: 300px;
+    height: 300px;
+}
+
+.nav-card-info-container {
+
+    text-align: center;
+    color: white;
+}
+
+.nav-card-image {
+    height:100%;
+    width: 100%;
+    padding: 0 0;
+
+    background-size: cover;
+    background-position: top;
+    
+    text-align: center;
+    overflow: hidden;
+}
+
+.nav-card-icon {
+    width: 50px;
+}
