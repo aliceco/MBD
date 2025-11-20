@@ -3,34 +3,26 @@ import './navbar.css'
 
 import Routes from '../../routes/routes'
 import { NavLink } from 'react-router-dom'
-
-import mbdLogo from '../../assets/mbd-logo/mbd-logo-yellow.svg'
-
-import HamburgerButton from '../hamburger-button/hamburger-button'
+import NavItem from './nav-item/nav-item'
 
 import TranslationModel from '../../pages/model/translationModel'
 import LanguageSelect from './language-select/language-select'
-import { Line, LineType } from '../lines/line'
 import phrases from '../../data/translations.json'
 
-import NavItem from '../nav-item/nav-item'
+import mbdLogo from '../../assets/mbd-logo/mbd-logo-yellow.svg'
+import { Line, LineType } from '../lines/line'
+import HamburgerButton from '../hamburger-button/hamburger-button'
 
 const Navbar = () => {
     const [mobileMenuOpen, togleMobileMenuOpen] = useState(false)
-
+    const closeMobileMenu = () => {
+        if (mobileMenuOpen == true) {
+            togleMobileMenuOpen(!mobileMenuOpen)
+        }
+    }
     return (
         <div className='navbar'>
-            {/* Company hpver fpr the menu 
-                 Current issues:
-                - Won't work well on mobile so should add a conditional rendering that checks
-                  if you're on mobile
-                - The menu isn't closing down when you click on a link in mobile
-                    - due to no on-click that changes the mobileMenuOpen state
-
-                */}
-
-            {/* First part of navbar */}
-            {/*MBD logo */}
+            {/* MBD logo */}
             <div className='navbar-leading'>
                 <NavLink className='no-select' exact to='/'>
                     <img
@@ -41,7 +33,7 @@ const Navbar = () => {
                 </NavLink>
             </div>
 
-            {/* Navbar texts */}
+            {/* Navbar text content */}
             <div
                 className={`navbar-content navbar-padding ${
                     mobileMenuOpen ? 'active' : ''
@@ -50,12 +42,11 @@ const Navbar = () => {
                 <div className='navbar-list'>
                     {/* Home */}
                     <NavItem
-                        label={TranslationModel.translate(Routes.homePage.name)}
-                        path={Routes.homePage.path}
-                        items={[]}
-                        // onClick={() =>
-                        //     togleMobileMenuOpen(!mobileMenuOpen)
-                        // }
+                        label={TranslationModel.translate(Routes.homePage.name)} //Name of label e.g. "Home"
+                        path={Routes.homePage.path} //Route path
+                        items={[]} //Empty items => Does not have a dropdown menu
+                        mobileMenuOpen={mobileMenuOpen}
+                        onClick={closeMobileMenu}
                     />
 
                     {/* For Companies */}
@@ -84,6 +75,8 @@ const Navbar = () => {
                                 path: Routes.contactPage.path,
                             },
                         ]}
+                        mobileMenuOpen={mobileMenuOpen}
+                        onClick={closeMobileMenu}
                     />
 
                     {/* For Students */}
@@ -110,8 +103,11 @@ const Navbar = () => {
                                 path: '', // This page doesn't exist yet
                             },
                         ]}
+                        mobileMenuOpen={mobileMenuOpen}
+                        onClick={closeMobileMenu}
                     />
                 </div>
+                {/* Contact and About us */}
                 <div className='navbar-list'>
                     <NavItem
                         label={TranslationModel.translate(
@@ -119,29 +115,30 @@ const Navbar = () => {
                         )}
                         path={Routes.contactPage.path}
                         items={[]}
+                        mobileMenuOpen={mobileMenuOpen}
+                        onClick={closeMobileMenu}
                     />
-                    {/* Om oss */}
                     <NavItem
                         label={TranslationModel.translate(phrases.about_us)}
                         path={''} //Does not yet have a page
                         items={[]}
+                        mobileMenuOpen={mobileMenuOpen}
+                        onClick={closeMobileMenu}
                     />
                 </div>
             </div>
 
             <div className='navbar-trailing'>
-
-                 <div className='navbar-trailing-item'>
+                {/* Line */}
+                <div className='navbar-trailing-item'>
                     <Line lineType={LineType.vertical} />
                 </div>
-                
+
                 {/* Language flag */}
                 <div className='navbar-trailing-item'>
                     <LanguageSelect />
                 </div>
 
-                {/* Line */}
-                
                 <div className='navbar-mobile-menu-button navbar-trailing-item '>
                     <HamburgerButton
                         onClick={() => {
