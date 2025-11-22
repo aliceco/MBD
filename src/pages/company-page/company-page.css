@@ -190,6 +190,12 @@ ul {
         padding-top: 2em;
         text-align: left;
     }
+
+    .navigation-cards {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 30px;
+    }
     
 }
 
@@ -201,4 +207,10 @@ ul {
     .companypage-sales-members {
         grid-template-columns: repeat(1, 1fr) !important;
     }
+}
+
+
+.navigation-cards {
+    display: flex;
+    justify-content: space-around;
 }
