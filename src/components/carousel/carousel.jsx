@@ -1,0 +1,80 @@
+import React, { useState } from "react";
+import "./carousel.css";
+
+// Inspired by this 3D carousel demo:  
+// https://codesandbox.io/p/sandbox/react-carousel-3d-9x3wt  
+// (author unknown)
+
+export default (props) => {
+  const [activeSlide, setactiveSlide] = useState(props.activeSlide);
+
+  const getStyles = (index) => {
+    if (activeSlide === index)
+      return {
+        opacity: 1,
+        transform: "translateX(0px) translateZ(0px) rotateY(0deg)",
+        zIndex: 15
+      };
+    else if (activeSlide - 1 === index)
+      return {
+        opacity: 1,
+        transform: "translateX(-400px) translateZ(-400px) rotateY(0deg)",
+        zIndex: 9
+      };
+    else if (activeSlide + 1 === index)
+      return {
+        opacity: 1,
+        transform: "translateX(400px) translateZ(-400px) rotateY(0deg)",
+        zIndex: 9
+      };
+    else if (activeSlide - 2 === index)
+      return {
+        opacity: 1,
+        transform: "translateX(-480px) translateZ(-500px) rotateY(0deg)",
+        zIndex: 8
+      };
+    else if (activeSlide + 2 === index)
+      return {
+        opacity: 1,
+        transform: "translateX(480px) translateZ(-500px) rotateY(0deg)",
+        zIndex: 8
+      };
+    else if (index < activeSlide - 2)
+      return {
+        opacity: 0,
+        transform: "translateX(-480px) translateZ(-500px) rotateY(0deg)",
+        zIndex: 7
+      };
+    else if (index > activeSlide + 2)
+      return {
+        opacity: 0,
+        transform: "translateX(480px) translateZ(-500px) rotateY(0deg)",
+        zIndex: 7
+      };
+  };
+
+  return (
+    <>
+      {/* carousel */}
+      <div className="slideC">
+        {props.data.map((item, i) => (
+          <React.Fragment key={item.id}>
+            <div
+              className="slide"
+              style={{
+                
+                ...getStyles(i)
+              }}
+              onClick={() => setactiveSlide(i)}
+            >
+              {item.card}
+            </div>
+            
+          </React.Fragment>
+        ))}
+      </div>
+      {/* carousel */}
+
+    </>
+  );
+};
