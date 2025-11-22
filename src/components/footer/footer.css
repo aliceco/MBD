@@ -68,12 +68,14 @@
   margin:0;
   padding: 0;
   margin-bottom: 1em;
-  flex-wrap: nowrap;
+  display: flex;
+  justify-content: center;
 }
 
 .contact-details a {
   text-decoration: underline;
 }
+
 
 .contact-details a:hover {
   color: var(--theme-primary-color-normal);
@@ -85,6 +87,11 @@
     cursor: pointer;
 }
 
+.center-sponsor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 /* Medium screens (tablets)*/
 
@@ -114,7 +121,12 @@
 
   .center-sponsor {
     text-align: left;
+    display: block;
 }
+
+  .contact-details {
+    display:block;
+  }
 
 }
 
@@ -142,9 +154,7 @@
     text-align: left;
   }
 
-  .center-sponsor {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+  .contact-details {
+    display:block;
+  }
 }

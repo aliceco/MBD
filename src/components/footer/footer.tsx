@@ -127,7 +127,7 @@ const Footer: FC<{}> = (props) => {
                                 <a
                                     href='mailto:foretag@nlg.medieteknik.com'
                                 >
-                                    <span>foretag@nlg.medieteknik.com</span>
+                                    <p>foretag@nlg.medieteknik.com</p>
                                 </a>
                             </div>
 
