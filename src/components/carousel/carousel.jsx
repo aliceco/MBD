@@ -9,6 +9,13 @@ export default (props) => {
   const [activeSlide, setactiveSlide] = useState(props.activeSlide);
 
   const getStyles = (index) => {
+    if (index - activeSlide > (props.data.length - 2)){
+        index = index - props.data.length;
+    }
+    else if (index - activeSlide < -(props.data.length - 2)){
+        index = index + props.data.length;
+    }
+
     if (activeSlide === index)
       return {
         opacity: 1,

@@ -358,7 +358,7 @@ const Companypage = () => {
                             card:
                             (<Card light silver>
                             <ContentPaddingThin>
-                                <Card silver className="fill">
+                                <Card light className="fill">
                                     {TranslationModel.translate({
                                         se: (
                                             <>

@@ -4,6 +4,7 @@
   transform-style: preserve-3d;
   width: 362px;
   margin: 0 auto;
+  height:35em;
 }
 
 .slide {
@@ -11,6 +12,7 @@
     visibility 500ms ease 0s;
   top: 0;
   cursor: pointer;
+  position: absolute;
 }
 
 .slide {
