@@ -9,6 +9,8 @@ export default (props) => {
   const [activeSlide, setactiveSlide] = useState(props.activeSlide);
 
   const getStyles = (index) => {
+
+    /* Makes sure slides wrap around */
     if (index - activeSlide > (props.data.length - 2)){
         index = index - props.data.length;
     }
@@ -16,12 +18,15 @@ export default (props) => {
         index = index + props.data.length;
     }
 
+    /* Middle slide */
     if (activeSlide === index)
       return {
         opacity: 1,
         transform: "translateZ(0px) rotateY(0deg)",
         zIndex: 15
       };
+
+    /* Slides to the left and right */
     else if (activeSlide - 1 === index)
       return {
         opacity: 1,
@@ -34,6 +39,8 @@ export default (props) => {
         transform: "translateX(400px) translateZ(-400px) rotateY(0deg)",
         zIndex: 9
       };
+
+    /* Second slides to the left and right - */
     else if (activeSlide - 2 === index)
       return {
         opacity: 1,
@@ -46,6 +53,8 @@ export default (props) => {
         transform: "translateX(480px) translateZ(-500px) rotateY(0deg)",
         zIndex: 8
       };
+    
+    /* Hide all other slides */
     else if (index < activeSlide - 2)
       return {
         opacity: 0,
@@ -65,15 +74,16 @@ export default (props) => {
       {/* carousel */}
       <div className="slideC">
         {props.data.map((item, i) => (
-          <React.Fragment key={item.id}>
+          <React.Fragment key={item.id}>  {/* Use React.Fragment to avoid extra divs */}
             <div
               className="slide"
               style={{
-                
                 ...getStyles(i)
               }}
+
               onClick={() => setactiveSlide(i)}
               onMouseEnter={(e) => {
+                {/* Slightly enlarge slide on hover if not active */}
                 if (i !== activeSlide) {e.currentTarget.style.transform += " scale(1.05)"};
               }}
 
@@ -87,7 +97,6 @@ export default (props) => {
           </React.Fragment>
         ))}
       </div>
-      {/* carousel */}
 
     </>
   );
