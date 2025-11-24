@@ -31,9 +31,19 @@ import companyIcon from '../../assets/icons/other/company.svg'
 import studentBackgroundImage from '../../assets/backgrounds/kth_stone_ground.jpg'
 import studentIcon from '../../assets/icons/other/book.png'
 
+import { isMobile } from 'react-device-detect'
+import useWindowDimensions from '../../hooks/useWindowDimensions'
 
 
 const Companypage = () => {
+
+    const windowDimensions = useWindowDimensions();
+
+    const [onDesktop, _setOnDesktop] = useState(false);
+
+    useEffect(() => {
+            _setOnDesktop(windowDimensions.width >= 850)
+        }, [windowDimensions.width]);
 
     const openPDF = () => {
         const lang = TranslationModel.getLanguage();
@@ -47,6 +57,303 @@ const Companypage = () => {
         )
         
     }
+
+    const mainOffers = [
+        {id: 1,
+        card: (<Card light gold>
+        <ContentPaddingThin>
+            <Card light className="fill">
+                {TranslationModel.translate({
+                    se: (
+                        <>
+                            <br/>
+                            <h3>Guldpaketet</h3>
+                            <h3>59 500kr</h3>
+                            <br />
+                            <p>
+                                <ul>
+                                    <li>
+                                        Central placering på mässan
+                                    </li>
+                                    <li>
+                                        8m² för monter
+                                    </li>
+                                    <li>
+                                        2 ståbord, 4 stolar*
+                                    </li>
+                                    <li>
+                                        El & Wi-Fi
+                                    </li>
+                                    <li>
+                                        Tillgång till företagslounge
+                                    </li>
+                                    <li>
+                                        Logga på hemsida & sociala medier
+                                    </li>
+                                    <li>
+                                        4 Lunch- & Sittningsbiljetter*
+                                    </li>
+                                    <li>
+                                        2 personliga företagsvärdar
+                                    </li>
+                                    <li>
+                                        Stor logga på goodie-bag
+                                    </li>
+                                    <li>
+                                        Logga på kläder under mässan
+                                    </li>
+                                    <li>
+                                        Sponsor-logga på hemsidan
+                                    </li>
+                                    <li>
+                                        Sponsrat inlägg på sociala medier*
+                                    </li>
+                                    <li>
+                                        Event i koppling till mässan
+                                    </li>
+                                </ul>
+                                <p className="add-ons">
+                                * Extra kan köpas till
+                            </p>
+                            </p>
+                            
+                        </>
+                    ),
+                    en: (
+                        <>
+                            <br/>
+                            <h3>Gold Package</h3>
+                            <h3>SEK 59 500</h3>
+                            <br />
+                            <p>
+                                <ul>
+                                    <li>
+                                        Central placement at fair
+                                    </li>
+                                    <li>
+                                        6m² booth space
+                                    </li>
+                                    <li>
+                                        2 tables, 4 chairs*
+                                    </li>
+                                    <li>
+                                        Electricity & Wi-Fi
+                                    </li>
+                                    <li>
+                                        Access to company lounge
+                                    </li>
+                                    <li>
+                                        Logo on website and social media
+                                    </li>
+                                    <li>
+                                        4 Lunch- & Banquet tickets*
+                                    </li>
+                                    <li>
+                                        2 personal company hosts
+                                    </li>
+                                    <li>
+                                        Big logo on goodie-bag
+                                    </li>
+                                    <li>
+                                        Logo on clothes during the fair
+                                    </li>
+                                    <li>
+                                        Sponsor-logo on the website
+                                    </li>
+                                    <li>
+                                        Sponsored post on social media*
+                                    </li>
+                                    <li>
+                                        Event in connection to the fair
+                                    </li>
+                                </ul>
+                            </p>
+                            <p className="add-ons">
+                                * Additional can be purchased
+                            </p>
+                        </>
+                        ),
+                        })}
+                    </Card>
+                </ContentPaddingThin>
+            </Card>)},
+        {id: 2, 
+         card:
+            (<Card light silver>
+                <ContentPaddingThin>
+                    <Card light className="fill">
+                        {TranslationModel.translate({
+                            se: (
+                            <>
+                                <br/>
+                                <h3>Silverpaketet</h3>
+                                <h3>37 950kr</h3>
+                                <br />
+                                <p>
+                                                
+                                    <ul>
+                                        <li>
+                                            Bra placering på mässan
+                                        </li>
+                                        <li>
+                                            6m² för monter
+                                        </li>
+                                        <li>
+                                            1 ståbord, 2 stolar*
+                                        </li>
+                                        <li>
+                                            El & Wi-Fi
+                                        </li>
+                                        <li>
+                                            Tillgång till företagslounge
+                                        </li>
+                                        <li>
+                                            Logga på hemsida & sociala medier
+                                        </li>
+                                        <li>
+                                            2 Lunch- & Sittningsbiljetter*
+                                        </li>
+                                        <li>
+                                            Personlig företagsvärd
+                                        </li>
+                                        <li>
+                                            Liten logga på goodie-bag
+                                        </li>
+                                    </ul>
+                                </p>
+                                <p className="add-ons">
+                                    * Extra kan köpas till
+                                </p>
+                            </>
+                            ),
+                            en: (
+                                <>
+                                    <br/>
+                                    <h3>Silver Package</h3>
+                                    <h3>SEK 37 950</h3>
+                                    <br />
+                                    <p>
+                                    
+                                        <ul>
+                                            <li>
+                                                Good placement on the fair
+                                            </li>
+                                            <li>
+                                                6m² booth space
+                                            </li>
+                                            <li>
+                                                1 table, 2 chairs*
+                                            </li>
+                                            <li>
+                                                Electricity & Wi-Fi
+                                            </li>
+                                            <li>
+                                                Access to company lounge
+                                            </li>
+                                            <li>
+                                                Logo on website and social media
+                                            </li>
+                                            <li>
+                                                2 Lunch- & Banquet tickets*
+                                            </li>
+                                            <li>
+                                                Personal company host
+                                            </li>
+                                            <li>
+                                                Small logo on goodie-bag
+                                            </li>
+                                        </ul>
+                                    </p>
+                                    <p className="add-ons">
+                                        * Additional can be purchased
+                                    </p>
+                                </>
+                            ),
+                        })}
+                    </Card>
+                </ContentPaddingThin>
+            </Card>)},
+        {id: 3,
+            card: (<Card light bronze>
+            <ContentPaddingThin>
+                <Card light className="fill">
+                    {TranslationModel.translate({
+                        se: (
+                            <>
+                            
+                                <br/>
+                                <h3>Bronspaketet</h3>
+                                <h3>26 000kr</h3>
+                                <br />
+                                <p>
+                                    
+                                    <ul>
+                                        <li>
+                                            Plats på mässan
+                                        </li>
+                                        <li>
+                                            4m² för monter
+                                        </li>
+                                        <li>
+                                            1 ståbord, 2 stolar*
+                                        </li>
+                                        <li>
+                                            El & Wi-Fi
+                                        </li>
+                                        <li>
+                                            Tillgång till företagslounge
+                                        </li>
+                                        <li>
+                                            Logga på hemsida & sociala medier
+                                        </li>
+                                    </ul>
+                                </p>
+                                <p className="add-ons">
+                                    * Extra kan köpas till
+                                </p>
+                            </>
+                        ),
+                        en: (
+                            <>
+                                <br/>
+                                <h3>Bronze Package</h3>
+                                <h3>SEK 26 500</h3>
+                                <br />
+                                <p>
+                                    
+                                    <ul>
+                                        <li>
+                                            Spot at fair
+                                        </li>
+                                        <li>
+                                            4m² booth space
+                                        </li>
+                                        <li>
+                                            1 table, 2 chairs*
+                                        </li>
+                                        <li>
+                                            Electricity & Wi-Fi
+                                        </li>
+                                        <li>
+                                            Access to company lounge
+                                        </li>
+                                        <li>
+                                            Logo on website and social media
+                                        </li>
+                                    </ul>
+
+                                </p>
+                                <p className="add-ons">
+                                    * Additional can be purchased
+                                </p>
+                            </>
+                        
+                        ),
+                    })}
+                </Card>
+            </ContentPaddingThin>
+        </Card>)}
+    ]
 
     
     return (
@@ -210,304 +517,21 @@ const Companypage = () => {
                     </TextSection>
                     
 
-                    <div className="companypage-offer-carousel">
-                        <Slider activeSlide={1} data={[
-                            {id: 1, 
-                            card:
-                            (<Card light silver>
-                            <ContentPaddingThin>
-                                <Card light className="fill">
-                                    {TranslationModel.translate({
-                                        se: (
-                                            <>
-                                                <br/>
-                                                <h3>Silverpaketet</h3>
-                                                <h3>37 950kr</h3>
-                                                <br />
-                                                <p>
-                                                    
-                                                    <ul>
-                                                        <li>
-                                                            Bra placering på mässan
-                                                        </li>
-                                                        <li>
-                                                            6m² för monter
-                                                        </li>
-                                                        <li>
-                                                            1 ståbord, 2 stolar*
-                                                        </li>
-                                                        <li>
-                                                            El & Wi-Fi
-                                                        </li>
-                                                        <li>
-                                                            Tillgång till företagslounge
-                                                        </li>
-                                                        <li>
-                                                            Logga på hemsida & sociala medier
-                                                        </li>
-                                                        <li>
-                                                            2 Lunch- & Sittningsbiljetter*
-                                                        </li>
-                                                        <li>
-                                                            Personlig företagsvärd
-                                                        </li>
-                                                        <li>
-                                                            Liten logga på goodie-bag
-                                                        </li>
-                                                    </ul>
-                                                </p>
-                                                <p className="add-ons">
-                                                    * Extra kan köpas till
-                                                </p>
-                                            </>
-                                        ),
-                                        en: (
-                                            <>
-                                                <br/>
-                                                <h3>Silver Package</h3>
-                                                <h3>SEK 37 950</h3>
-                                                <br />
-                                                <p>
-                                                
-                                                    <ul>
-                                                        <li>
-                                                            Good placement on the fair
-                                                        </li>
-                                                        <li>
-                                                            6m² booth space
-                                                        </li>
-                                                        <li>
-                                                            1 table, 2 chairs*
-                                                        </li>
-                                                        <li>
-                                                            Electricity & Wi-Fi
-                                                        </li>
-                                                        <li>
-                                                            Access to company lounge
-                                                        </li>
-                                                        <li>
-                                                            Logo on website and social media
-                                                        </li>
-                                                        <li>
-                                                            2 Lunch- & Banquet tickets*
-                                                        </li>
-                                                        <li>
-                                                            Personal company host
-                                                        </li>
-                                                        <li>
-                                                            Small logo on goodie-bag
-                                                        </li>
-                                                    </ul>
-                                                </p>
-                                                <p className="add-ons">
-                                                    * Additional can be purchased
-                                                </p>
-                                            </>
-                                        ),
-                                    })}
-                                </Card>
-                            </ContentPaddingThin>
-                        </Card>)},
-                            {id: 2,
-                            card: (<Card light gold>
-                            <ContentPaddingThin>
-                                <Card light className="fill">
-                                    {TranslationModel.translate({
-                                        se: (
-                                            <>
-                                                <br/>
-                                                <h3>Guldpaketet</h3>
-                                                <h3>59 500kr</h3>
-                                                <br />
-                                                <p>
-                                                    <ul>
-                                                        <li>
-                                                            Central placering på mässan
-                                                        </li>
-                                                        <li>
-                                                            8m² för monter
-                                                        </li>
-                                                        <li>
-                                                            2 ståbord, 4 stolar*
-                                                        </li>
-                                                        <li>
-                                                            El & Wi-Fi
-                                                        </li>
-                                                        <li>
-                                                            Tillgång till företagslounge
-                                                        </li>
-                                                        <li>
-                                                            Logga på hemsida & sociala medier
-                                                        </li>
-                                                        <li>
-                                                            4 Lunch- & Sittningsbiljetter*
-                                                        </li>
-                                                        <li>
-                                                            2 personliga företagsvärdar
-                                                        </li>
-                                                        <li>
-                                                            Stor logga på goodie-bag
-                                                        </li>
-                                                        <li>
-                                                            Logga på kläder under mässan
-                                                        </li>
-                                                        <li>
-                                                            Sponsor-logga på hemsidan
-                                                        </li>
-                                                        <li>
-                                                            Sponsrat inlägg på sociala medier*
-                                                        </li>
-                                                        <li>
-                                                            Event i koppling till mässan
-                                                        </li>
-                                                    </ul>
-                                                    <p className="add-ons">
-                                                    * Extra kan köpas till
-                                                </p>
-                                                </p>
-                                                
-                                            </>
-                                        ),
-                                        en: (
-                                            <>
-                                                <br/>
-                                                <h3>Gold Package</h3>
-                                                <h3>SEK 59 500</h3>
-                                                <br />
-                                                <p>
-                                                    <ul>
-                                                        <li>
-                                                            Central placement at fair
-                                                        </li>
-                                                        <li>
-                                                            6m² booth space
-                                                        </li>
-                                                        <li>
-                                                            2 tables, 4 chairs*
-                                                        </li>
-                                                        <li>
-                                                            Electricity & Wi-Fi
-                                                        </li>
-                                                        <li>
-                                                            Access to company lounge
-                                                        </li>
-                                                        <li>
-                                                            Logo on website and social media
-                                                        </li>
-                                                        <li>
-                                                            4 Lunch- & Banquet tickets*
-                                                        </li>
-                                                        <li>
-                                                            2 personal company hosts
-                                                        </li>
-                                                        <li>
-                                                            Big logo on goodie-bag
-                                                        </li>
-                                                        <li>
-                                                            Logo on clothes during the fair
-                                                        </li>
-                                                        <li>
-                                                            Sponsor-logo on the website
-                                                        </li>
-                                                        <li>
-                                                            Sponsored post on social media*
-                                                        </li>
-                                                        <li>
-                                                            Event in connection to the fair
-                                                        </li>
-                                                    </ul>
-                                                </p>
-                                                <p className="add-ons">
-                                                    * Additional can be purchased
-                                                </p>
-                                            </>
-                                        ),
-                                    })}
-                                </Card>
-                            </ContentPaddingThin>
-                        </Card>)},
-                        {id: 3,
-                         card: (<Card light bronze>
-                            <ContentPaddingThin>
-                                <Card light className="fill">
-                                    {TranslationModel.translate({
-                                        se: (
-                                            <>
-                                            
-                                                <br/>
-                                                <h3>Bronspaketet</h3>
-                                                <h3>26 000kr</h3>
-                                                <br />
-                                                <p>
-                                                    
-                                                    <ul>
-                                                        <li>
-                                                            Plats på mässan
-                                                        </li>
-                                                        <li>
-                                                            4m² för monter
-                                                        </li>
-                                                        <li>
-                                                            1 ståbord, 2 stolar*
-                                                        </li>
-                                                        <li>
-                                                            El & Wi-Fi
-                                                        </li>
-                                                        <li>
-                                                            Tillgång till företagslounge
-                                                        </li>
-                                                        <li>
-                                                            Logga på hemsida & sociala medier
-                                                        </li>
-                                                    </ul>
-                                                </p>
-                                                <p className="add-ons">
-                                                    * Extra kan köpas till
-                                                </p>
-                                            </>
-                                        ),
-                                        en: (
-                                            <>
-                                                <br/>
-                                                <h3>Bronze Package</h3>
-                                                <h3>SEK 26 500</h3>
-                                                <br />
-                                                <p>
-                                                    
-                                                    <ul>
-                                                        <li>
-                                                            Spot at fair
-                                                        </li>
-                                                        <li>
-                                                            4m² booth space
-                                                        </li>
-                                                        <li>
-                                                            1 table, 2 chairs*
-                                                        </li>
-                                                        <li>
-                                                            Electricity & Wi-Fi
-                                                        </li>
-                                                        <li>
-                                                            Access to company lounge
-                                                        </li>
-                                                        <li>
-                                                            Logo on website and social media
-                                                        </li>
-                                                    </ul>
-
-                                                </p>
-                                                <p className="add-ons">
-                                                    * Additional can be purchased
-                                                </p>
-                                            </>
-                                        
-                                        ),
-                                    })}
-                                </Card>
-                            </ContentPaddingThin>
-                        </Card>)}
-
-                        ]}/>
+                    <div className="companypage-offer">
+                        {
+                            onDesktop ?
+                            <Slider activeSlide={0} data={mainOffers}/>
+                            :
+                            <div className='companypage-offer'>
+                                <div className="main-offers">
+                                    {mainOffers.map((offer)=>(
+                                        <div key={offer.id}>
+                                            {offer.card}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
             
@@ -523,7 +547,7 @@ const Companypage = () => {
                             )}
                         </SectionTitle>
                     </TextSection>
-                    <div className="companypage-offer">
+                    <div className="companypage-offer grid">
                         <div className="additional-offers">
                             
                                 <Card light className="offer-card">
@@ -788,10 +812,9 @@ const Companypage = () => {
                     </div>
                 </div>
             </ContentSection>
-            
-            </ContentSection>
-            
-            <ContentSection>
+
+            <ContentSection style={{ marginTop: '0px'}}>
+
                 <div className='navigation-cards'>
                     <NavigationCard 
                         backgroundImage={companyBackgroundImage}
@@ -812,6 +835,10 @@ const Companypage = () => {
                     />
                 </div>
             </ContentSection>
+            
+        </ContentSection>
+
+            
 
         </div>
     )

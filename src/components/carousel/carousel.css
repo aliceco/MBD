@@ -5,6 +5,8 @@
   width: 362px;
   margin: 0 auto;
   height:35em;
+  align-self: center;
+
 }
 
 .slide {
@@ -13,6 +15,7 @@
   top: 0;
   cursor: pointer;
   position: absolute;
+
 }
 
 .slide {

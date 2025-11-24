@@ -19,7 +19,7 @@ export default (props) => {
     if (activeSlide === index)
       return {
         opacity: 1,
-        transform: "translateX(0px) translateZ(0px) rotateY(0deg)",
+        transform: "translateZ(0px) rotateY(0deg)",
         zIndex: 15
       };
     else if (activeSlide - 1 === index)
@@ -73,6 +73,13 @@ export default (props) => {
                 ...getStyles(i)
               }}
               onClick={() => setactiveSlide(i)}
+              onMouseEnter={(e) => {
+                if (i !== activeSlide) {e.currentTarget.style.transform += " scale(1.05)"};
+              }}
+
+              onMouseLeave={(e) => {
+                if (i !== activeSlide) {e.currentTarget.style.transform = e.currentTarget.style.transform.replace(" scale(1.05)", "")};
+            }}
             >
               {item.card}
             </div>
