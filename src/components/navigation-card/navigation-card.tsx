@@ -17,9 +17,9 @@ import { NavLink } from 'react-router-dom'
 interface NavigationCardProps {
     backgroundImage: string,
     icon: string,
-    title: string,
+    title: React.ReactNode,
     description: string,
-    buttonText: string,
+    buttonText: React.ReactNode,
     nav: string
 }
 
@@ -28,18 +28,16 @@ const NavigationCard: FC<NavigationCardProps> = (props) => {
     return (
             <Card className='nav-card'>
                 <div style={{backgroundImage: `url(${props.backgroundImage})`}} className='nav-card-image'>  
-                    <ContentPadding>
-                        <div className='nav-card-info-container'>       
-                            <img src={props.icon} alt='' className='nav-card-icon'/>
-                            <h3> {props.title} </h3>
-                            <p> 
-                                {props.description}
-                            </p>
-                            <NavLink to={props.nav}>
-                                <Button buttonType={ButtonTypes.normalCompact}> {props.buttonText}</Button>
-                            </NavLink>
-                        </div>
-                    </ContentPadding>
+                    <div className='nav-card-info-container'>       
+                        <img src={props.icon} alt='' className='nav-card-icon'/>
+                        <h3 className='nav-card-title'> {props.title}? </h3>
+                        <p className='nav-card-description'> 
+                            {props.description}
+                        </p>
+                        <NavLink to={props.nav} className='nav-card-button'>
+                            <Button buttonType={ButtonTypes.normalCompact}> {props.buttonText}</Button>
+                        </NavLink>
+                    </div>
                 </div>
        
             </Card>

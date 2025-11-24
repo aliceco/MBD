@@ -147,6 +147,10 @@
         "se": "Introfilm gjord av Kommunikationsnämnden.",
         "en": "Intro movie made by Kommunikationsnämnden."
     },
+    "company": {
+        "se": "Företag",
+        "en": "Company"
+    },
     "for_companies": {
         "se": "För företag",
         "en": "For companies"

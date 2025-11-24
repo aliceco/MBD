@@ -47,6 +47,8 @@ import companyIcon from '../../assets/icons/other/company.svg'
 import studentBackgroundImage from '../../assets/backgrounds/kth_stone_ground.jpg'
 import studentIcon from '../../assets/icons/other/book.png'
 
+import masterBackground from '../../assets/master_background.png'
+
 const Homepage: FC = () => {
     const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([])
     const [projectLeaders, setProjectLeaders] = useState<TeamMember[]>([])
@@ -62,7 +64,7 @@ const Homepage: FC = () => {
     }, [])
 
     return (
-        <div className='homepage'>
+        <div className='homepage' style={{backgroundImage: `url(${masterBackground})`, backgroundSize: 'cover'}}>
             {/* Logo and countdown */}
             <IntroScreen noButton={false}>
                 <div className='homepage-intro-content'>
@@ -71,8 +73,144 @@ const Homepage: FC = () => {
             </IntroScreen>
 
             {/* Introduction page */}
-            <ContentSection background={ContentSectionBackground.light}>
-                <TextWithContent
+            <ContentSection>
+                <TextSection>
+                            <h1>
+                                Medias Branschdag
+                            </h1>
+                            <MBDDateContext.Consumer>
+                                {(mbdDate) =>
+                                    TranslationModel.translate({
+                                        se: (
+                                            <span className='homepag-text'>
+                                                Vad kul att just du hittat hit!
+                                                Medias Branschdag kommer att äga
+                                                rum {17}{' '}
+                                                {TranslationModel.translate(
+                                                    phrases.months.february
+                                                )}{' '}
+                                                {2026} i kårhuset Nymble på KTH
+                                                campus Valhallavägen.
+                                                <br />
+                                                <br />
+                                                Studerar du medieteknik,
+                                                datateknik eller maskininlärning
+                                                och letar efter din framtida
+                                                arbetsplats eller är ett företag
+                                                som söker din framtida kollega
+                                                är Medias Branschdag dagen för
+                                                dig. Mässan ger dig som student
+                                                möjlighet att hitta extrajobb,
+                                                examensjobb eller helt enkelt
+                                                bara knyta värdefulla kontakter
+                                                inför framtiden. Till
+                                                utställande företag garanterar
+                                                vi en maxad dag med allt vad
+                                                medieteknik har att erbjuda.
+                                                Helt enkelt något du inte vill
+                                                missa!
+                                                <br />
+                                                <br />
+                                                Ses vi där? Klart vi gör!
+                                            </span>
+                                        ),
+
+                                        en: (
+                                            <span className='homepag-text'>
+                                                Fancy seeing you here! The fair
+                                                will take place on the 17th of{' '}
+                                                {TranslationModel.translate(
+                                                    phrases.months.february
+                                                )}{' '}
+                                                {2026} in the student union
+                                                house Nymble at KTH campus
+                                                Valhallavägen.
+                                                <br />
+                                                <br />
+                                                If you are a media technology,
+                                                computer science or machine
+                                                learning student looking for a
+                                                future employer or a company
+                                                looking for your future employee
+                                                Media Branchday is the place to
+                                                be. The fair gives students the
+                                                opportunity to find a part-time
+                                                job, thises job or valuable
+                                                contact for the future. For
+                                                companies, we are guaranteeing a
+                                                full day with everything Media
+                                                technology has to offer. You
+                                                don't want to miss this!
+                                                <br />
+                                                <br />
+                                                Will we see you there? Of course
+                                                we will!
+                                            </span>
+                                        ),
+                                    })
+                                }
+                            </MBDDateContext.Consumer>
+                        </TextSection>
+            </ContentSection>
+
+            {/* Navigation cards */}
+            <ContentSection>
+                <div className='navigation-cards'>
+                    <NavigationCard 
+                        backgroundImage={companyBackgroundImage}
+                        icon={companyIcon}
+                        title= {TranslationModel.translate(phrases.company)}
+                        description="Vill ni nå ut till hundratals civilingenjörsstudenter på KTH? Läs mer om hur ni kan delta i Medias Branschdag 2026."
+                        buttonText= {TranslationModel.translate(phrases.for_companies)}
+                        nav="/company"
+                    />
+
+                    <NavigationCard 
+                        backgroundImage={studentBackgroundImage}
+                        icon={studentIcon}
+                        title= "Student"
+                        description="Nån text om vad man kan göra som student"
+                        buttonText={TranslationModel.translate(phrases.for_students)}
+                        nav="/exhibitors"
+                    />
+                </div>
+            </ContentSection>
+
+
+            {/* Instagram section  Currently not in use*/}
+            {/* {instagramPosts.length > 0 ? (
+                <ContentSection size={ContentSectionSize.small}>
+                    <SectionTitle>
+                        Medias branschdag{' '}
+                        {TranslationModel.translate(phrases.on_instagram)}
+                    </SectionTitle>
+                    <div className='homepage-instagram-section'>
+                        {instagramPosts ? (
+                            instagramPosts.slice(0, 6).map((post) => {
+                                return (
+                                    <InstagramCard
+                                        key={post.id}
+                                        imageUrl={post.imageUrl}
+                                        linkToPost={post.linkToPost}
+                                    />
+                                )
+                            })
+                        ) : (
+                            <></>
+                        )}
+                    </div>
+                </ContentSection>
+            ) : (
+                <></>
+            )} */}
+
+        </div>
+    )
+}
+
+export default Homepage
+
+{/* <TextWithContent
                     text={
                         <TextSection>
                             <h1>
@@ -166,7 +304,7 @@ const Homepage: FC = () => {
                                     en: 'Project Leaders',
                                 })}
                             />
-                            {/*<div className='photographer-info'>
+                            <div className='photographer-info'>
                                 <img src={CameraIcon} alt='' />
                                 <a
                                     href='http://linkedin.com/in/favourezennaya'
@@ -175,70 +313,12 @@ const Homepage: FC = () => {
                                 >
                                     Favour Ezennaya
                                 </a>
-                            </div>*/}
+                            </div>
                         </>
                     }
-                />
-            </ContentSection>
+                /> */}
 
-            {/* Read more section */}
-            <CenterBackground background={ReadMoreBackground}>
-                <ContentSection size={ContentSectionSize.small}>
-                    <TextSection align={TextSectionAlignment.center}>
-                        <div className='read-more-section'>
-                            <div className='read-more'>
-                                <CircleIcon imagePath={CompanyIcon} />
-                                <br />
-                                <h1>
-                                    {TranslationModel.translate(
-                                        phrases.are_you_company
-                                    )}
-                                </h1>
-                                <MBDDateContext.Consumer>
-                                    {(mbdDate) =>
-                                        TranslationModel.translate({
-                                            se: (
-                                                <span>
-                                                    Vill ni nå ut till
-                                                    hundratals
-                                                    civilingenjörsstudenter på
-                                                    KTH?
-                                                    <br />
-                                                    Läs mer om hur ni kan delta
-                                                    i Medias Branschdag{' '}
-                                                    {
-                                                        /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
-                                                    }
-                                                    .
-                                                </span>
-                                            ),
-                                            en: (
-                                                <span>
-                                                    Read more about how you can
-                                                    participate in Medias
-                                                    Branschdag{' '}
-                                                    {
-                                                        /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
-                                                    }
-                                                    . Your future employees are
-                                                    waiting for you!
-                                                </span>
-                                            ),
-                                        })
-                                    }
-                                </MBDDateContext.Consumer>
-                                <br />
-                                <br />
-                                <NavLink to='/company'>
-                                    <Button
-                                        buttonType={ButtonTypes.normalCompact}
-                                    >
-                                        {TranslationModel.translate(
-                                            phrases.read_more
-                                        )}
-                                    </Button>
-                                </NavLink>
-                            </div>
+
                             {/*
                             <div className='read-more'>
                                 <CircleIcon imagePath={BookIcon}/>
@@ -270,64 +350,69 @@ const Homepage: FC = () => {
                                     </Button>
                                 </NavLink>
                             </div>*/}
-                        </div>
-                    </TextSection>
-                </ContentSection>
-            </CenterBackground>
-
-            {/* Navigation cards */}
-            <ContentSection>
-                <div className='navigation-cards'>
-                    <NavigationCard 
-                        backgroundImage={companyBackgroundImage}
-                        icon={companyIcon}
-                        title="Företag?"
-                        description="Vill ni nå ut till hundratals civilingenjörsstudenter på KTH? Läs mer om hur ni kan delta i Medias Branschdag 2026."
-                        buttonText="För företag"
-                        nav="/company"
-                    />
-
-                    <NavigationCard 
-                        backgroundImage={studentBackgroundImage}
-                        icon={studentIcon}
-                        title="Student?"
-                        description="Nån text om vad man kan göra som student"
-                        buttonText="För studenter"
-                        nav="/exhibitors"
-                    />
-                </div>
-            </ContentSection>
 
 
-            {/* Instagram section */}
-            {instagramPosts.length > 0 ? (
-                <ContentSection size={ContentSectionSize.small}>
-                    <SectionTitle>
-                        Medias branschdag{' '}
-                        {TranslationModel.translate(phrases.on_instagram)}
-                    </SectionTitle>
-                    <div className='homepage-instagram-section'>
-                        {instagramPosts ? (
-                            instagramPosts.slice(0, 6).map((post) => {
-                                return (
-                                    <InstagramCard
-                                        key={post.id}
-                                        imageUrl={post.imageUrl}
-                                        linkToPost={post.linkToPost}
-                                    />
-                                )
-                            })
-                        ) : (
-                            <></>
-                        )}
-                    </div>
-                </ContentSection>
-            ) : (
-                <></>
-            )}
 
-        </div>
-    )
-}
+            {/* Read more section */}
+            // // <CenterBackground background={ReadMoreBackground}>
+            // //     <ContentSection size={ContentSectionSize.small}>
+            // //         <TextSection align={TextSectionAlignment.center}>
+            // //             <div className='read-more-section'>
+            // //                 <div className='read-more'>
+            // //                     <CircleIcon imagePath={CompanyIcon} />
+            // //                     <br />
+            // //                     <h1>
+            // //                         {TranslationModel.translate(
+            // //                             phrases.are_you_company
+            // //                         )}
+            // //                     </h1>
+            // //                     <MBDDateContext.Consumer>
+            // //                         {(mbdDate) =>
+            // //                             TranslationModel.translate({
+            // //                                 se: (
+            // //                                     <span>
+            // //                                         Vill ni nå ut till
+            // //                                         hundratals
+            // //                                         civilingenjörsstudenter på
+            // //                                         KTH?
+            // //                                         <br />
+            // //                                         Läs mer om hur ni kan delta
+            // //                                         i Medias Branschdag{' '}
+            // //                                         {
+            // //                                             /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
+            // //                                         }
+            // //                                         .
+            // //                                     </span>
+            // //                                 ),
+            // //                                 en: (
+            // //                                     <span>
+            // //                                         Read more about how you can
+            // //                                         participate in Medias
+            // //                                         Branschdag{' '}
+            // //                                         {
+            // //                                             /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
+            // //                                         }
+            // //                                         . Your future employees are
+            // //                                         waiting for you!
+            // //                                     </span>
+            // //                                 ),
+            // //                             })
+            // //                         }
+            // //                     </MBDDateContext.Consumer>
+            //                     <br />
+            //                     <br />
+            //                     <NavLink to='/company'>
+            //                         <Button
+            //                             buttonType={ButtonTypes.normalCompact}
+            //                         >
+            //                             {TranslationModel.translate(
+            //                                 phrases.read_more
+            //                             )}
+            //                         </Button>
+            //                     </NavLink>
+            //                 </div>
 
-export default Homepage
+            //             </div>
+            //         </TextSection>
+            //     </ContentSection>
+            // </CenterBackground>

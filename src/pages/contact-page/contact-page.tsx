@@ -11,6 +11,8 @@ import ProfileCard from '../../components/profile-card/profile-card'
 import TextSection from '../../components/text-section/text-section'
 import ContactForm from './contact-form/contact-form'
 
+import masterBackground from '../../assets/master_background.png'
+
 import Background from '../../assets/backgrounds/team.jpg'
 import IntroScreen from '../../components/intro-screen/intro-screen'
 import SectionTitle from '../../components/section-title/section-title'
@@ -25,8 +27,16 @@ const Contactpage: FC = () => {
     }, [])
 
     return (
-        <div className='contactpage'>
-            <div className="intro-screen-title">{TranslationModel.translate(phrases.the_project_group)}</div>
+        <div
+            className='contactpage'
+            style={{
+                backgroundImage: `url(${masterBackground})`,
+                backgroundSize: 'cover',
+            }}
+        >
+            <div className='intro-screen-title'>
+                {TranslationModel.translate(phrases.contact_us)}
+            </div>
 
             {/*IntroScreen for a group picture (or other pic to appear at the top)*/}
             {/*
@@ -41,7 +51,7 @@ const Contactpage: FC = () => {
             </IntroScreen>*/}
 
             {/* List of every memeber in PG */}
-            <ContentSection>
+            {/* <ContentSection>
                 <div className='contactpage-pg-members'>
                     {pgMembers.map((member) => {
                         return (
@@ -59,7 +69,32 @@ const Contactpage: FC = () => {
                     })}
                 </div>
                 
-                {/*
+            </ContentSection> */}
+            {/* Contact form*/}
+            <ContentSection>
+                <TextSection>
+                    <h1>
+                        {TranslationModel.translate(
+                            phrases.contact_form.contact_form
+                        )}
+                    </h1>
+                    <p>
+                        {TranslationModel.translate(
+                            phrases.contact_form.contact_information
+                        )}
+                        !
+                    </p>
+                    <ContactForm />
+                </TextSection>
+            </ContentSection>
+        </div>
+    )
+}
+
+export default Contactpage
+
+{
+    /*
                 <div className='photographer-thanks'>
                     {TranslationModel.translate(phrases.photo_thanks_start)}{' '}
                     <a
@@ -71,20 +106,5 @@ const Contactpage: FC = () => {
                     </a>{' '}
                     {TranslationModel.translate(phrases.photo_thanks_end)}!
                 </div>
-                */}
-
-            </ContentSection>
-            {/* Contact form*/}
-            <ContentSection background={ContentSectionBackground.dark}>
-                <TextSection>
-                    <h1>{TranslationModel.translate(phrases.contact_form.contact_form)}</h1>
-                    <p>{TranslationModel.translate(phrases.contact_form.contact_information)}!</p>
-                    <ContactForm />
-                </TextSection>
-            </ContentSection>
-
-        </div>
-    )
+                */
 }
-
-export default Contactpage
