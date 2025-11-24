@@ -130,7 +130,7 @@ const Navbar = () => {
 
             <div className='navbar-trailing'>
                 {/* Line */}
-                <div className='navbar-trailing-item'>
+                <div className='navbar-trailing-item' id='line'>
                     <Line lineType={LineType.vertical} />
                 </div>
 

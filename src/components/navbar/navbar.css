@@ -94,6 +94,11 @@
     padding: 0;
 }
 
+/* Hide mobile dropwdown on desktop*/
+.mobile-dropdown-menu {
+    display: none;
+}
+
 /* TRAILING SECTION */
 .navbar-trailing {
     display: flex;
@@ -111,6 +116,8 @@
 .navbar-mobile-menu-button {
     display: none;
 }
+
+
 
 /* MOBILE STYLES */
 @media (max-width: 850px) {
@@ -159,8 +166,14 @@
         font-size: 25px;
     }
 
+    #line {
+        display: none;
+    } 
+
    /* Mobile dropdown menu styles */
     .mobile-dropdown-menu {
+        display: flex;
+        flex-direction: column;
         margin: 15px;
         list-style: none;
         border: none;
