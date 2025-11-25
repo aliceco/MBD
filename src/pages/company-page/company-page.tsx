@@ -159,14 +159,12 @@ const Companypage = () => {
                 <br />
                 {/* Package section */}
                 <div id='companypage-package'>
-                    <TextSection align={TextSectionAlignment.center}>
-                        <SectionTitle align={TitleSectionAlignment.center}>
-                            {TranslationModel.translate(
-                                phrases.exhibitor_packages
-                            )}
-                        </SectionTitle>
-                    </TextSection>
-
+                    <SectionTitle align={TitleSectionAlignment.center}>
+                        {TranslationModel.translate(
+                            phrases.exhibitor_packages
+                        )}
+                    </SectionTitle>
+                    
                     <div className="companypage-offer">
                         {
                             onDesktop ?
