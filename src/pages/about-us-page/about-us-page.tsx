@@ -9,14 +9,16 @@ import ContentSection, {
 import { TeamMember, getAllTeamMembers } from '../model/teamModel'
 import ProfileCard from '../../components/profile-card/profile-card'
 import TextSection from '../../components/text-section/text-section'
+import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/intro-screen-title'
 
 import Background from '../../assets/backgrounds/team.jpg'
 import IntroScreen from '../../components/intro-screen/intro-screen'
-import SectionTitle from '../../components/section-title/section-title'
+import SectionTitle , {TitleSectionAlignment}from '../../components/section-title/section-title'
 import BigBG from '../../assets/backgrounds/kth_stone_ground.jpg'
 
 import masterBackground from '../../assets/master_background.png'
 import teamImage from '../../assets/backgrounds/team2026.jpg'
+
 
 const AboutUsPage: FC = () => {
     const [pgMembers, setPgMembers] = useState<TeamMember[]>([])
@@ -34,7 +36,7 @@ const AboutUsPage: FC = () => {
                 backgroundSize: 'cover',
             }}
         >
-            <div className='about-title'>Näringslivsgruppen</div>
+            <IntroScreenTitle noGradient = {true} >Näringslivsgruppen</IntroScreenTitle>
 
             <ContentSection>
                 <div className='nlg-content'>
@@ -62,10 +64,13 @@ const AboutUsPage: FC = () => {
                     </TextSection>
                 </div>
             </ContentSection>
-
-            <div className='about-title'>
+            <TextSection>
+                
+            </TextSection>
+            <SectionTitle align={TitleSectionAlignment.center}>
                 {TranslationModel.translate(phrases.the_project_group)}
-            </div>
+            </SectionTitle>
+
             {/* List of every memeber in PG */}
             <ContentSection>
                 <div className='aboutpage-pg-members'>

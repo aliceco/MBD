@@ -17,6 +17,7 @@ import Background from '../../assets/backgrounds/team.jpg'
 import IntroScreen from '../../components/intro-screen/intro-screen'
 import SectionTitle from '../../components/section-title/section-title'
 import BigBG from '../../assets/backgrounds/kth_stone_ground.jpg'
+import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/intro-screen-title'
 
 const Contactpage: FC = () => {
     const [pgMembers, setPgMembers] = useState<TeamMember[]>([])
@@ -34,9 +35,8 @@ const Contactpage: FC = () => {
                 backgroundSize: 'cover',
             }}
         >
-            <div className='intro-screen-title'>
-                {TranslationModel.translate(phrases.contact_us)}
-            </div>
+            <IntroScreenTitle noGradient = {true} > {TranslationModel.translate(phrases.contact_us)} </IntroScreenTitle>
+
 
             {/*IntroScreen for a group picture (or other pic to appear at the top)*/}
             {/*

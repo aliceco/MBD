@@ -15,19 +15,6 @@ ul {
     padding: 0px 30px;
 }
 
-.companypage h1 {
-    padding: 35px;
-    padding-bottom: 0px;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0 0;
-
-    text-transform: uppercase;
-    font-weight: 900;
-    text-align: center;
-    color: #ffd521;
-}
-
 .companypage-fair {
     position: relative;
     overflow: hidden;

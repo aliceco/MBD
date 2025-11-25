@@ -3,15 +3,7 @@ import './home-page.css'
 
 import IntroScreen from '../../components/intro-screen/intro-screen'
 
-import IntroScreenBackground from '../../assets/backgrounds/nymble_beach_flag.jpg'
-import ReadMoreBackground from '../../assets/backgrounds/laptop.png'
 import AnimatedMBDLogo from '../../components/animated-mbd-logo/animated-mbd-logo'
-import CompanyIcon from '../../assets/icons/other/company.svg'
-import FacebookIcon from '../../assets/icons/other/facebook.svg'
-import InstagramIcon from '../../assets/icons/other/instagram_white.svg'
-import LinkedinIcon from '../../assets/icons/other/linkedin.svg'
-import CameraIcon from '../../assets/icons/other/camera.svg'
-
 import Countdown from '../../components/countdown/countdown'
 import { MBDDateContext } from '../../contexts/mbd-date-provider'
 import ContentSection, {
@@ -22,46 +14,19 @@ import TextSection, {
     TextSectionAlignment,
 } from '../../components/text-section/text-section'
 
-import TranslationModel from '../model/translationModel'
-import phrases from '../../data/translations.json'
-import TextWithContent from '../../components/text-with-content/text-with-content'
-import ProfileCard from '../../components/profile-card/profile-card'
-import CenterBackground from '../../components/center-background/center-background'
-import CircleIcon from '../../components/circle-icon/circle-icon'
-import { Button, ButtonTypes } from '../../components/button/button'
-import { InstagramModel, InstagramPost } from '../model/instagramModel'
-import InstagramCard from '../../components/instagram-post/instagram-card'
-import SectionTitle from '../../components/section-title/section-title'
-import Footer from '../../components/footer/footer'
-import { getProjectLeaders, TeamMember } from '../model/teamModel'
-import { NavLink } from 'react-router-dom'
-import { isMobile, isSafari } from 'react-device-detect'
-
-import NicoleSignature from '../../assets/signatures/nicole_nordlund.png'
-import JohnSignature from '../../assets/signatures/john_brink.png'
-
+// Navigation cards
 import NavigationCard from '../../components/navigation-card/navigation-card'
 import companyBackgroundImage from '../../assets/backgrounds/laptop.png'
 import companyIcon from '../../assets/icons/other/company.svg'
-
 import studentBackgroundImage from '../../assets/backgrounds/kth_stone_ground.jpg'
 import studentIcon from '../../assets/icons/other/book.png'
 
 import masterBackground from '../../assets/master_background.png'
+import TranslationModel from '../model/translationModel'
+import phrases from '../../data/translations.json'
 
 const Homepage: FC = () => {
-    const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([])
-    const [projectLeaders, setProjectLeaders] = useState<TeamMember[]>([])
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-
-        // Should only be loaded once
-        InstagramModel.getInstagramImages().then((posts) => {
-            setInstagramPosts(posts)
-        })
-        getProjectLeaders().then(setProjectLeaders)
-    }, [])
+    
 
     return (
         <div className='homepage' style={{backgroundImage: `url(${masterBackground})`, backgroundSize: 'cover'}}>
@@ -209,6 +174,44 @@ const Homepage: FC = () => {
 }
 
 export default Homepage
+
+//Old Unused Imports
+// import IntroScreenBackground from '../../assets/backgrounds/nymble_beach_flag.jpg'
+// import ReadMoreBackground from '../../assets/backgrounds/laptop.png'
+// import CompanyIcon from '../../assets/icons/other/company.svg'
+// import FacebookIcon from '../../assets/icons/other/facebook.svg'
+// import InstagramIcon from '../../assets/icons/other/instagram_white.svg'
+// import LinkedinIcon from '../../assets/icons/other/linkedin.svg'
+// import CameraIcon from '../../assets/icons/other/camera.svg'
+// import TextWithContent from '../../components/text-with-content/text-with-content'
+// import ProfileCard from '../../components/profile-card/profile-card'
+// import CenterBackground from '../../components/center-background/center-background'
+// import CircleIcon from '../../components/circle-icon/circle-icon'
+// import { Button, ButtonTypes } from '../../components/button/button'
+// import InstagramCard from '../../components/instagram-post/instagram-card'
+// import SectionTitle from '../../components/section-title/section-title'
+// import Footer from '../../components/footer/footer'
+// import { isMobile, isSafari } from 'react-device-detect'
+// import { InstagramModel, InstagramPost } from '../model/instagramModel'
+// import { getProjectLeaders, TeamMember } from '../model/teamModel'
+
+// Old Website
+
+//Inside const Homepage = {}
+// const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([])
+    // const [projectLeaders, setProjectLeaders] = useState<TeamMember[]>([])
+
+    //Not in use
+    // useEffect(() => {
+    //     window.scrollTo(0, 0)
+
+    //     // Should only be loaded once
+    //     InstagramModel.getInstagramImages().then((posts) => {
+    //         setInstagramPosts(posts)
+    //     })
+    //     getProjectLeaders().then(setProjectLeaders)
+    // }, [])
+
 
 {/* <TextWithContent
                     text={

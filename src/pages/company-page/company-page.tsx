@@ -3,6 +3,7 @@ import './company-page.css'
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
 
+import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/intro-screen-title'
 import ContentSection from '../../components/layout/content-section/content-section'
 import TextSection, {TextSectionAlignment} from '../../components/text-section/text-section'
 import SectionTitle, {TitleSectionAlignment} from '../../components/section-title/section-title'
@@ -102,8 +103,7 @@ const Companypage = () => {
     return (
         <div className='companypage' style={{backgroundImage: `url(${background})`, backgroundSize: 'cover'}}>
 
-            <h1>{TranslationModel.translate(phrases.for_companies)}</h1>
-
+            <IntroScreenTitle noGradient = {true}>{TranslationModel.translate(phrases.for_companies)}</IntroScreenTitle>
             <div id='companypage-fair' className='companypage-fair'>
                 
                 <ContentSection>
