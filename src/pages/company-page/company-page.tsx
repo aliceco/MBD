@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
 import './company-page.css'
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
@@ -31,6 +31,39 @@ import texts from './texts'
 
 
 const Companypage = () => {
+
+    const allSections = useRef<HTMLDivElement[]>([]);
+    const elemRef = useCallback((el: HTMLDivElement | null) => {
+        if (el && !allSections.current.includes(el)) {
+            allSections.current.push(el);
+        }
+    }, []);
+
+    const [hash, setHash] = useState('')
+
+    useEffect(() => {
+        const onScroll = () => {
+            if (window.pageYOffset < 150) {
+                window.history.replaceState(null, "", window.location.pathname);
+                setHash('')
+            }
+            allSections.current.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top > 0 && rect.top < 150) {
+                    window.history.replaceState(null, "", `#${section.id}`);
+                    setHash(section.id);
+                }
+            });
+        };
+
+        window.addEventListener("scroll", onScroll);
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+        };
+    }, []);
+
+
 
     /* Used for conditionally rendering carousel with sponsor packages */
     const windowDimensions = useWindowDimensions();
@@ -104,7 +137,7 @@ const Companypage = () => {
         <div className='companypage' style={{backgroundImage: `url(${background})`, backgroundSize: 'cover'}}>
 
             <IntroScreenTitle noGradient = {true}>{TranslationModel.translate(phrases.for_companies)}</IntroScreenTitle>
-            <div id='companypage-fair' className='companypage-fair'>
+            <div  className='companypage-fair'>
                 
                 <ContentSection>
                     {/* About the fair + map */}
@@ -158,7 +191,7 @@ const Companypage = () => {
             <ContentSection>
                 <br />
                 {/* Package section */}
-                <div id='companypage-package'>
+                <div id='packages' ref={elemRef}>
                     <SectionTitle align={TitleSectionAlignment.center}>
                         {TranslationModel.translate(
                             phrases.exhibitor_packages

@@ -58,15 +58,15 @@ const Navbar = () => {
                         items={[
                             {
                                 label: TranslationModel.translate(
-                                    Routes.whatIsPage.name
+                                    phrases.exhibitor_packages
                                 ),
-                                path: Routes.whatIsPage.path,
+                                path: `${Routes.companyPage.path}#packages`,    // hash route enables scrolling to specific component
                             },
                             {
                                 label: TranslationModel.translate(
-                                    phrases.exhibitor_packages
+                                    Routes.whatIsPage.name
                                 ),
-                                path: Routes.companyPage.path,
+                                path: Routes.whatIsPage.path,
                             },
                             {
                                 label: TranslationModel.translate(

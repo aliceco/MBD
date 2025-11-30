@@ -10,6 +10,7 @@ import { theme } from './theme/material-ui'
 import { ThemeProvider } from '@material-ui/core/styles';
 import './index.css';
 import ScrollToTop from "./hooks/scrollToTop"
+import ScrollToHash from "./hooks/scrollToHash"
 
 const App: FC = () => {
     return (
@@ -20,7 +21,8 @@ const App: FC = () => {
                     <PageWrapper>
                         <MBDCompanyProvider>
                             <MBDDateProvider>
-                                <ScrollToTop/>
+                                <ScrollToTop/>  {/* Scrolls to top on route change */}
+                                <ScrollToHash/>  {/* Scrolls to specific section on hash change */}
                                 <Switch>
                                     {
                                         Object.values(Routes).map(route => {
