@@ -32,26 +32,27 @@ import texts from './texts'
 
 const Companypage = () => {
 
-    const allSections = useRef<HTMLDivElement[]>([]);
+    /* Changing the hash based on scroll position */
+    const allSections = useRef<HTMLDivElement[]>([]);   
+
+    // Adds sections to ref array (simply add id to sections to be included)
     const elemRef = useCallback((el: HTMLDivElement | null) => {
         if (el && !allSections.current.includes(el)) {
             allSections.current.push(el);
         }
     }, []);
 
-    const [hash, setHash] = useState('')
 
     useEffect(() => {
         const onScroll = () => {
-            if (window.pageYOffset < 150) {
+            if (window.pageYOffset < 150) { // Remove hash at top of page
                 window.history.replaceState(null, "", window.location.pathname);
-                setHash('')
             }
+
             allSections.current.forEach(section => {
                 const rect = section.getBoundingClientRect();
                 if (rect.top > 0 && rect.top < 150) {
                     window.history.replaceState(null, "", `#${section.id}`);
-                    setHash(section.id);
                 }
             });
         };
@@ -73,7 +74,8 @@ const Companypage = () => {
             _setOnDesktop(windowDimensions.width >= 850)
         }, [windowDimensions.width]);
 
-
+    
+    /* Opening the correct PDF based on app language */
     const openPDF = () => {
         const lang = TranslationModel.getLanguage();
         const link =
@@ -191,7 +193,7 @@ const Companypage = () => {
             <ContentSection>
                 <br />
                 {/* Package section */}
-                <div id='packages' ref={elemRef}>
+                <div id='packages' ref={elemRef}>   {/* Allows for scrolling and hash changes */}
                     <SectionTitle align={TitleSectionAlignment.center}>
                         {TranslationModel.translate(
                             phrases.exhibitor_packages
