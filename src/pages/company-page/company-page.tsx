@@ -253,7 +253,7 @@ const Companypage = () => {
             {/* Navigation cards to other pages */}
             <ContentSection style={{ marginTop: '0px'}}>
 
-                <div className='navigation-cards'>
+                <div className='navigation-cards-company'>
                     <NavigationCard 
                         backgroundImage={companyBackgroundImage}
                         icon={companyIcon}

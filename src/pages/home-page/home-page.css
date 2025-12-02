@@ -11,10 +11,10 @@
     margin: auto;
 }
 
-.navigation-cards {
+.navigation-cards-home {
     display: flex;
     justify-content: space-around;
-    padding: 0 50px 50px 50px;
+    padding: 40px 40px 40px 40px;
 }
 
 @media screen and (max-width: 850px) {

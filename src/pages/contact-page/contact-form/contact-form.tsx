@@ -60,8 +60,18 @@ const ContactForm: FC = () => {
         <div>
             {/* Conditional rendering: shows form iv messageSent is false, shows the other div if true*/}
             { messageSent ? 
-                <div>
-                    <p>Tack för ditt mejl, vi återkommer så fort vi kan!</p>
+                <div className='message-sent'>
+                    <p>{TranslationModel.translate(phrases.contact_form.message_sent)}</p>
+                    <Button
+                            buttonType={ButtonTypes.normalCompact}
+                            onClick= {() => setMessageSent(false)}
+                        >
+                            {loading ? (
+                                <LoadingText />
+                            ) : (
+                                TranslationModel.translate(phrases.contact_form.send_again)
+                            )}
+                    </Button>
                 </div>
                 :
                 <form className='contactform' onSubmit={(e) => {

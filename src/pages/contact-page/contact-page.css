@@ -1,3 +1,7 @@
+/* .contactpage {
+    height: inherit;
+} */
+ 
 .contactpage-pg-members {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
