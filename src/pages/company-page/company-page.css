@@ -56,9 +56,10 @@ ul {
     width: 15em;
 }
 
-.navigation-cards {
+.navigation-cards-company {
     display: flex;
     justify-content: space-around;
+    padding: 0 40px 40px 40px;
 }
 
 .add-ons { /* Used in texts.tsx */

@@ -357,7 +357,7 @@
             "en": "Contact us by using this form, or email directly at foretag@nlg.medieteknik.com"
         },
         "contact_form": {
-            "se": "Kontaktaformulär",
+            "se": "Kontaktformulär",
             "en": "Contact form"
         },
         "contact_person": {
@@ -379,6 +379,14 @@
         "send": {
             "se": "Skicka",
             "en": "Send"
+        }, 
+        "message_sent": {
+            "se": "Tack för ditt mejl, vi hör av oss så snart som möjligt",
+            "en": "Thank you for your email, we will be in touch shortly"
+        }, 
+        "send_again": {
+            "se": "Skicka ett nytt meddelande",
+            "en": "Send a new message"
         }
     },
     "map": {

@@ -27,7 +27,6 @@ import phrases from '../../data/translations.json'
 
 const Homepage: FC = () => {
     
-
     return (
         <div className='homepage' style={{backgroundImage: `url(${masterBackground})`, backgroundSize: 'cover'}}>
             {/* Logo and countdown */}
@@ -36,7 +35,6 @@ const Homepage: FC = () => {
                     <AnimatedMBDLogo />
                 </div>
             </IntroScreen>
-
             {/* Introduction page */}
             <ContentSection>
                 <TextSection>
@@ -116,30 +114,32 @@ const Homepage: FC = () => {
                                 }
                             </MBDDateContext.Consumer>
                         </TextSection>
+
+                        {/* Navigation cards */}
+                        <ContentSection>
+                            <div className='navigation-cards-home'>
+                                <NavigationCard 
+                                    backgroundImage={companyBackgroundImage}
+                                    icon={companyIcon}
+                                    title= {TranslationModel.translate(phrases.company)}
+                                    description="Vill ni nå ut till hundratals civilingenjörsstudenter på KTH? Läs mer om hur ni kan delta i Medias Branschdag 2026."
+                                    buttonText= {TranslationModel.translate(phrases.for_companies)}
+                                    nav="/company"
+                                />
+
+                                <NavigationCard 
+                                    backgroundImage={studentBackgroundImage}
+                                    icon={studentIcon}
+                                    title= "Student"
+                                    description="Nån text om vad man kan göra som student"
+                                    buttonText={TranslationModel.translate(phrases.for_students)}
+                                    nav="/exhibitors"
+                                />
+                            </div>
+                        </ContentSection>
             </ContentSection>
 
-            {/* Navigation cards */}
-            <ContentSection>
-                <div className='navigation-cards'>
-                    <NavigationCard 
-                        backgroundImage={companyBackgroundImage}
-                        icon={companyIcon}
-                        title= {TranslationModel.translate(phrases.company)}
-                        description="Vill ni nå ut till hundratals civilingenjörsstudenter på KTH? Läs mer om hur ni kan delta i Medias Branschdag 2026."
-                        buttonText= {TranslationModel.translate(phrases.for_companies)}
-                        nav="/company"
-                    />
-
-                    <NavigationCard 
-                        backgroundImage={studentBackgroundImage}
-                        icon={studentIcon}
-                        title= "Student"
-                        description="Nån text om vad man kan göra som student"
-                        buttonText={TranslationModel.translate(phrases.for_students)}
-                        nav="/exhibitors"
-                    />
-                </div>
-            </ContentSection>
+            
 
 
             {/* Instagram section  Currently not in use*/}
