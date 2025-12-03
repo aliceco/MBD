@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "title": { "se": "Interaktiv Medieteknik", "en": "Interactive Media Technology" },
         "background": "./assets/masters/interactive_media_technology.jpg",
         "kth_link": "https://www.kth.se/en/studies/master/interactive-media-technology/msc-interactive-media-technology-1.593765",
@@ -12,6 +13,7 @@
         ]
     },
     {
+        "id": 2,
         "title": { "se": "Datalogi", "en": "Computer Sience" },
         "background": "./assets/masters/computer_science.jpg",
         "kth_link": "https://www.kth.se/en/studies/master/computer-science/description-1.419974",
@@ -93,6 +95,7 @@
         ]
     },
     {
+        "id": 3,
         "title": { "se": "Maskininlärning", "en": "Machine learning" },
         "background": "./assets/masters/machine_learning.jpg",
         "kth_link": "https://www.kth.se/en/studies/master/machine-learning/msc-machine-learning-1.48533",
@@ -105,6 +108,7 @@
         ]
     },
     {
+        "id": 4,
         "title": { "se": "ICT Innovation", "en": "ICT Innovation" },
         "background": "./assets/masters/ict_innovation.jpg",
         "kth_link": "https://www.kth.se/en/studies/master/ict-innovation",
@@ -166,6 +170,7 @@
         ]
     },
     {
+        "id": 5,
         "title": { "se": "Hållbar Digitalisering", "en": "Sustainable Digitalisation" },
         "background": "./assets/masters/sustainable_digitalisation.jpg",
         "kth_link": "https://www.kth.se/en/studies/master/sustainable-digitalisation",

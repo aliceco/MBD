@@ -18,7 +18,6 @@ import Slider from '../../components/carousel/carousel'
 import NavigationCard from '../../components/navigation-card/navigation-card'
 
 
-import background from "../../assets/master_background.png"
 import companyBackgroundImage from '../../assets/backgrounds/laptop.png'
 import companyIcon from '../../assets/icons/other/company.svg'
 import studentBackgroundImage from '../../assets/backgrounds/kth_stone_ground.jpg'
@@ -136,7 +135,7 @@ const Companypage = () => {
 
     
     return (
-        <div className='companypage' style={{backgroundImage: `url(${background})`, backgroundSize: 'cover'}}>
+        <div className='companypage'>
 
             <IntroScreenTitle noGradient = {true}>{TranslationModel.translate(phrases.for_companies)}</IntroScreenTitle>
             <div  className='companypage-fair'>

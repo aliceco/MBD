@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react'
+import React, { FC, Fragment, useEffect, useState } from 'react'
 
 import Footer from '../../components/footer/footer'
 import './we-are-page.css'
@@ -21,9 +21,28 @@ import TextWithContent from '../../components/text-with-content/text-with-conten
 import { MBDDateContext } from '../../contexts/mbd-date-provider'
 import MapBackground from '../../assets/backgrounds/we-are-medieteknik.png'
 
+import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/intro-screen-title'
+
+import HalfHalfCard from '../../components/half-half-card/half-half-card'
+import useWindowDimensions from '../../hooks/useWindowDimensions'
+
 const WeArePage: FC = () => {
+
+    const windowDimensions = useWindowDimensions();
+        const [onMobile, _setOnMobile] = useState(false);
+    
+        useEffect(() => {
+                _setOnMobile(windowDimensions.width <= 850)
+            }, [windowDimensions.width]);
+
     return (
         <div className='what-is-page'>
+
+            <IntroScreenTitle noGradient = {true}>{TranslationModel.translate(
+                phrases.we_are_media_technology.about_media_technology
+                )}</IntroScreenTitle>
+
+
             <div id='companypage-fair' className='companypage-fair'>
                 <div
                     className='media-background'
@@ -31,14 +50,12 @@ const WeArePage: FC = () => {
                 ></div>
 
                 <ContentSection>
-                    <TextWithContent
-                        text={
-                            <TextSection>
+                    <TextSection>
                                 <h1>
                                     <SectionTitle>
                                         {TranslationModel.translate(
                                             phrases.we_are_media_technology
-                                                .about_media_technology
+                                                .what_is_media_technology
                                         )}
                                     </SectionTitle>
                                 </h1>
@@ -97,38 +114,56 @@ const WeArePage: FC = () => {
                                     }
                                 </MBDDateContext.Consumer>
                             </TextSection>
-                        }
-                        content={
-                            // This is used to make the icon on the map background
-                            // visibale on small screens
-                            <div className='companypage-see-map-box'></div>
-                        }
-                    />
                 </ContentSection>
             </div>
 
+            
+
             <div id='master-programmes' />
-            <ContentSection background={ContentSectionBackground.dark}>
+            <ContentSection>
                 <SectionTitle align={TitleSectionAlignment.center}>
                     {TranslationModel.translate(
                         phrases.we_are_media_technology.masters
                     )}
                 </SectionTitle>
+        
                 <div className='master-container'>
-                    {Masters.map((field) => (
-                        <div key={field.title.se}>
-                            <FieldCard
-                                field={field}
-                                key={field.title.se}
-                                onClick={() => {}}
-                                showDesc
-                                background={field.background}
-                            />
+                    {Masters.map((field) => {
+                        const isOdd = onMobile? false : !(field.id%2);
+                        const partOne = {
+                            width: '60%',
+                            content: <div className='content'>
+                                        <h3>{TranslationModel.translate(field.title)}</h3>
+                                        <p>{TranslationModel.translate(field.desc)}</p>
+                                    </div>
+                        }
+                        const partTwo = {
+                            width: '40%',
+                            content: <img src={field.background} className='image'/>
+                        }
+
+                        return(
+                        <div key={field.id}>
+                            <HalfHalfCard
+                                left_width={onMobile? undefined : (isOdd? partOne.width : partTwo.width)}
+                                right_width={onMobile? undefined : isOdd? partTwo.width : partOne.width}
+                                left_content={isOdd? partOne.content : partTwo.content}
+                                right_content={isOdd? partTwo.content : partOne.content}
+                                />
                         </div>
-                    ))}
+                    )})}
                 </div>
             </ContentSection>
-            <div id='undergraduate-fields' />
+
+        </div>
+    )
+}
+
+export default WeArePage
+
+/* OLD CARDS DISPLAYING INFO ABOUT UNDERGRADUATE AREAS */
+/*
+<div id='undergraduate-fields' />
             <ContentSection>
                 <SectionTitle align={TitleSectionAlignment.center}>
                     {TranslationModel.translate(
@@ -145,9 +180,4 @@ const WeArePage: FC = () => {
                     </Fragment>
                 ))}
             </ContentSection>
-
-        </div>
-    )
-}
-
-export default WeArePage
+*/
