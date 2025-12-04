@@ -2,6 +2,10 @@
     background-color: var(--theme-dark-color-normal);
 }
 
+.homepag-text {
+    font-size: 20px;
+}
+
 .homepage-intro-content {
     flex: 1;
     display: flex;

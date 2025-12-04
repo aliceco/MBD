@@ -7,6 +7,7 @@ export class TeamMember {
             se: string
             en: string
         },
+        public priority: string,
         public imagePath: string,
         public email: string,
         public linkedInURL: string
@@ -16,10 +17,11 @@ export class TeamMember {
         const img = json.image !== '' ? json.image : 'placeholder.png'
         return new TeamMember(
             json.name,
-            {
+            { //position
                 se: json.desc_se,
                 en: json.desc_en,
             },
+            json.priority,
             '/assets/team/' + img,
             json.email,
             json.linkedin
@@ -29,6 +31,7 @@ export class TeamMember {
 
 async function parseMembersJson(response: Response): Promise<TeamMember[]> {
     const teamMembersJson = await response.json()
+    console.log(teamMembersJson)
     let teamMembers: TeamMember[] = []
     teamMembersJson.forEach((json: any) => {
         teamMembers.push(TeamMember.memberFromJSON(json))

@@ -45,6 +45,7 @@ const AlumniInterviews: FC<{}> = (props) => {
                                 name={alumni.name}
                                 linkedinLink={alumni.linkedIn ?? undefined}
                                 role={TranslationModel.translate(alumni.job)}
+                                priority={''} //
                             />
                         }
                         reverse={!!(i % 2)}

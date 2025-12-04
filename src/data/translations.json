@@ -241,7 +241,7 @@
         "se": "e",
         "en": "th"
     },
-    "sales_team": {
+    "our_sales_team": {
         "se": "Företagsansvariga",
         "en": "Our sales team"
     },
@@ -306,6 +306,22 @@
     "the_project_group": {
         "se": "Projektgruppen",
         "en": "The Project Group"
+    },
+    "project_leaders": {
+        "se": "Projektledarna",
+        "en": "Project Leaders"
+    },
+    "sales_team": {
+        "se": "Företagsgruppen",
+        "en": "Sales team"
+    },
+    "event_team": {
+        "se": "Eventgruppen",
+        "en": "Event team"
+    },
+    "marketing_team": {
+        "se": "Marknadsföringsgruppen",
+        "en": "Marketing team"
     },
     "project_leader": {
         "se": "Projektledare",

@@ -1,21 +1,5 @@
-.aboutpage {
-    background-image: url("../../assets/master_background.png");
-    background-size: cover;
-    background-position-x: center;
-    overflow: hidden;
-}
-
-.about-title {
-    padding: 35px 35px 0px 35px;
-    box-sizing: border-box;
-    font-size: 40px;
-    width: 100%;
-
-    text-transform: uppercase;
-    font-weight: 900;
-    text-align: center;
-    color: #ffd521;
-
+.aboutpage-teams {
+    margin-top: 50px;
 }
 
 .aboutpage-pg-members {
@@ -24,7 +8,6 @@
     column-gap: 20px;
     row-gap: 20px;
 }
-
 .nlg-content {
     display: flex;
     flex-direction: column;
@@ -36,7 +19,8 @@
     margin-bottom: 35px;
 }
 
-.photographer-thanks {
+/* If you'd want to give credits to photographers */
+/* .photographer-thanks {
     padding-top: 2em;
     text-align: center;
 }
@@ -44,36 +28,28 @@
 .photographer-thanks a {
     font-weight: bold;
     border-bottom: 2px solid var(--theme-primary-color-normal);
-}
+} */
 
+#project-leaders {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
 @media screen and (max-width: 900px) {
-    .aboutpage-pg-members {
+    .aboutpage-pg-members, #project-leaders {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #project-leaders {
+        padding: 0;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .aboutpage-pg-members {
+    .aboutpage-pg-members, #project-leaders {
         grid-template-columns: repeat(1, 1fr);
     }
 }
-
-
-
-/* Animation
-@keyframes paning-background-animation {
-    0% {
-        background-position: 0% 100%;
-    }
-    50% {
-        background-position: 90% 100%;
-    }
-}
-@keyframes paning-background-animation {
-    50% {
-        background-position: 90% 100%;
-    }
-    100% {
-        background-position: 0% 100%;
-    }
-} */
