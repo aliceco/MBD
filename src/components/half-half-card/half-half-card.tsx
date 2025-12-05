@@ -1,23 +1,12 @@
 import React, { FC, useState, ReactNode } from 'react'
 import './half-half-card.css'
 import Card from '../card/card'
-import TextSection from '../text-section/text-section'
-import { ContentPadding } from '../content-padding'
-import TranslationModel from '../../pages/model/translationModel'
-
-import phrases from '../../data/translations.json'
-import { Button, ButtonTypes } from '../button/button'
-
-import { isMobile } from 'react-device-detect'
-
-import { NavLink } from 'react-router-dom'
-
-import master from "./assets/masters/machine_learning.jpg"
-
 
 interface CardProps {
     left_width?: string,
     right_width?: string,
+    left_max_h?: string,
+    right_max_h?: string,
     left_content: ReactNode,
     right_content: ReactNode
 }
@@ -28,10 +17,10 @@ const HalfHalfCard: FC<CardProps> = (props) => {
         <div className='half-card'>
             <Card transparent>
                 <div className='half-card-container'>
-                    <div className='left' style={{width: props.left_width}}>
+                    <div className='left' style={{width: props.left_width, height:props.left_max_h}}>
                         {props.left_content}
                     </div>
-                    <div className='right' style={{width:props.right_width}}>
+                    <div className='right' style={{width:props.right_width, height:props.right_max_h}}>
                         {props.right_content}
                     </div>
                 </div>

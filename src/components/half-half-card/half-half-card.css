@@ -18,12 +18,17 @@
     min-height: 100%;
     object-fit: cover;
     size-adjust: initial;
+    align-self: center;
 }
 
-.half-card .left{
-    max-height: 200px;
+.half-card .left {
+    display:flex;
     overflow: hidden;
-    justify-content: center;
+}
+
+.half-card .right {
+    display:flex;
+    overflow: hidden;
 }
 
 .half-card .content {
@@ -62,6 +67,6 @@
 /* Large screens (desktops)*/
 @media (min-width: 1280px) {
     .half-card-container{
-        height: 200px;
+        height: auto;
     }
 }

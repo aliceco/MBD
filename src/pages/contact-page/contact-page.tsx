@@ -6,7 +6,12 @@ import phrases from '../../data/translations.json'
 import ContentSection, {
     ContentSectionBackground,
 } from '../../components/layout/content-section/content-section'
-import { TeamMember, getAllTeamMembers } from '../model/teamModel'
+import { TeamMember, 
+    getMarketingTeamMembers, 
+    getEventTeamMembers, 
+    getProjectLeaders, 
+    getSalesTeamMemebers 
+} from '../model/teamModel'
 import ProfileCard from '../../components/profile-card/profile-card'
 import TextSection, {TextSectionAlignment}from '../../components/text-section/text-section'
 import ContactForm from './contact-form/contact-form'
@@ -16,14 +21,53 @@ import masterBackground from '../../assets/master_background.png'
 
 import SectionTitle from '../../components/section-title/section-title'
 import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/intro-screen-title'
+import HalfHalfCard from '../../components/half-half-card/half-half-card'
+import teamContact from './team-contact.json'
+import useWindowDimensions from '../../hooks/useWindowDimensions'
+
 
 const Contactpage: FC = () => {
-    const [pgMembers, setPgMembers] = useState<TeamMember[]>([])
+
+    const windowDimensions = useWindowDimensions();
+            const [onMobile, _setOnMobile] = useState(false);
+        
+            useEffect(() => {
+                    _setOnMobile(windowDimensions.width <= 850)
+                }, [windowDimensions.width]);
+    
+    const [pgLeaders, setPgLeaders] = useState<TeamMember[]>([])
+    const [pgMarketing, setPgMarketing] = useState<TeamMember[]>([])
+    const [pgSales, setPgSales] = useState<TeamMember[]>([])
+    const [pgEvent, setPgEvent] = useState<TeamMember[]>([])
+
+
+    const [allMembers, setAllMembers] = useState<TeamMember[][]>([]);
 
     useEffect(() => {
-        window.scrollTo(0, 0)
-        getAllTeamMembers().then(setPgMembers)
-    }, [])
+        window.scrollTo(0, 0);
+
+        Promise.all([
+            getProjectLeaders(),
+            getMarketingTeamMembers(),
+            getSalesTeamMemebers(),
+            getEventTeamMembers()
+        ]).then(([leaders, marketing, sales, event]) => {
+            setPgLeaders(leaders);
+            setPgMarketing(marketing);
+            setPgSales(sales);
+            setPgEvent(event);
+
+            // Big list of lists
+            setAllMembers([leaders, marketing, sales, event]);
+        });
+    }, []);
+
+    const groups: Record<string, TeamMember[]> = {
+        leaders: pgLeaders,
+        marketing: pgMarketing,
+        sales: pgSales,
+        event: pgEvent
+    };
 
     return (
         <div
@@ -34,6 +78,50 @@ const Contactpage: FC = () => {
             }}
         >
             <IntroScreenTitle noGradient = {true} > {TranslationModel.translate(phrases.contact_us)} </IntroScreenTitle>
+
+            {/* Group Contact */}
+            <ContentSection>
+            {
+                teamContact.map((group)=>{
+                    const members = groups[group.member_key] ?? [];
+                    const isOdd = onMobile? false : !(group.id%2);
+
+                    const partOne = {
+                        content: <div className='content contact-card'>
+                                    <h3>{TranslationModel.translate(group.name)}</h3>
+                                    <p>
+                                        {members.map((member, i)=> {
+                                            const reverseOrder = members.length-1-i;
+                                            
+                                            return (member.name.split(" ")[0] + (reverseOrder? 
+                                                (reverseOrder==1? ' & ' : ', ') 
+                                                :''))
+                                        })
+                                        }
+                                    </p>
+                                    
+                                    <div className='contact-details'>
+                                        <a
+                                            href={"mailto:" + group.email}
+                                        >
+                                            <p><b>{group.email}</b></p>
+                                        </a>
+                                    </div>
+                                </div>
+                    }
+                    const partTwo = {
+                        content: <img src={group.image} className='image'/>
+                    }
+
+                    return (
+                        <HalfHalfCard key={group.member_key}
+                        left_content={isOdd? partOne.content : partTwo.content}
+                        right_content={isOdd? partTwo.content : partOne.content}
+                        />
+                    )
+                })
+            }
+            </ContentSection>
 
             {/* Contact form*/}
             <ContentSection>

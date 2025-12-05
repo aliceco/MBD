@@ -57,3 +57,17 @@ export async function getProjectLeaders(): Promise<TeamMember[]> {
     )
     return parseMembersJson(response)
 }
+
+export async function getEventTeamMembers(): Promise<TeamMember[]> {
+    const response = await fetch(
+        BACKEND_PATH + 'getTeam.php?action=event-responsible'
+    )
+    return parseMembersJson(response)
+}
+
+export async function getMarketingTeamMembers(): Promise<TeamMember[]> {
+    const response = await fetch(
+        BACKEND_PATH + 'getTeam.php?action=marketing-responsible'
+    )
+    return parseMembersJson(response)
+}

@@ -9,6 +9,10 @@
     row-gap: 20px;
 }
 
+.contactpage .contact-card {
+    align-self: center;
+}
+
 /* .photographer-thanks {
     padding-top: 2em;
     text-align: center;

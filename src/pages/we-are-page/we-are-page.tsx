@@ -130,6 +130,7 @@ const WeArePage: FC = () => {
                 <div className='master-container'>
                     {Masters.map((field) => {
                         const isOdd = onMobile? false : !(field.id%2);
+                        
                         const partOne = {
                             width: '60%',
                             content: <div className='content'>
@@ -145,6 +146,7 @@ const WeArePage: FC = () => {
                         return(
                         <div key={field.id}>
                             <HalfHalfCard
+                                left_max_h='200px'
                                 left_width={onMobile? undefined : (isOdd? partOne.width : partTwo.width)}
                                 right_width={onMobile? undefined : isOdd? partTwo.width : partOne.width}
                                 left_content={isOdd? partOne.content : partTwo.content}
