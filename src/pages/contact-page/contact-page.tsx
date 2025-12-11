@@ -12,12 +12,9 @@ import { TeamMember,
     getProjectLeaders, 
     getSalesTeamMemebers 
 } from '../model/teamModel'
-import ProfileCard from '../../components/profile-card/profile-card'
+
 import TextSection, {TextSectionAlignment}from '../../components/text-section/text-section'
 import ContactForm from './contact-form/contact-form'
-
-import masterBackground from '../../assets/master_background.png'
-
 
 import SectionTitle from '../../components/section-title/section-title'
 import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/intro-screen-title'
@@ -58,7 +55,7 @@ const Contactpage: FC = () => {
             setPgEvent(event);
 
             // Big list of lists
-            setAllMembers([leaders, marketing, sales, event]);
+                
         });
     }, []);
 
@@ -70,13 +67,7 @@ const Contactpage: FC = () => {
     };
 
     return (
-        <div
-            className='contactpage'
-            style={{
-                backgroundImage: `url(${masterBackground})`,
-                backgroundSize: 'cover',
-            }}
-        >
+        <div>
             <IntroScreenTitle noGradient = {true} > {TranslationModel.translate(phrases.contact_us)} </IntroScreenTitle>
 
             {/* Group Contact */}

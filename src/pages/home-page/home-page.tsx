@@ -21,14 +21,13 @@ import companyIcon from '../../assets/icons/other/company.svg'
 import studentBackgroundImage from '../../assets/backgrounds/kth_stone_ground.jpg'
 import studentIcon from '../../assets/icons/other/book.png'
 
-import masterBackground from '../../assets/master_background.png'
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
 
 const Homepage: FC = () => {
     
     return (
-        <div className='homepage' style={{backgroundImage: `url(${masterBackground})`, backgroundSize: 'cover'}}>
+        <div className='homepage'>
             {/* Logo and countdown */}
             <IntroScreen noButton={false}>
                 <div className='homepage-intro-content'>

@@ -37,9 +37,6 @@ const AboutUsPage: FC = () => {
                         {TranslationModel.translate({
                             se: (
                                 <span>
-                                    Hej och välkommen!
-                                    <br />
-                                    <br />
                                     Vi är Näringslivsgruppen (NLG) inom
                                     Sektionen för Medieteknik på KTH, länken
                                     mellan studenterna och arbetslivet.
@@ -91,9 +88,6 @@ const AboutUsPage: FC = () => {
 
                             en: (
                                 <span>
-                                    <b>Hello and welcome!</b>
-                                    <br />
-                                    <br />
                                     We are NLG (the Business Relations Group)
                                     within the Media Technology Chapter at KTH,
                                     the link between students and working life.
