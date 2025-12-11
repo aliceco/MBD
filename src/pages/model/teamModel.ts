@@ -31,7 +31,6 @@ export class TeamMember {
 
 async function parseMembersJson(response: Response): Promise<TeamMember[]> {
     const teamMembersJson = await response.json()
-    console.log(teamMembersJson)
     let teamMembers: TeamMember[] = []
     teamMembersJson.forEach((json: any) => {
         teamMembers.push(TeamMember.memberFromJSON(json))
