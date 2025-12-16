@@ -15,14 +15,40 @@ import SectionTitle, {
 
 import masterBackground from '../../assets/master_background.png'
 import teamImage from '../../assets/backgrounds/team2026.jpg'
+import teamList from '../contact-page/team-contact.json'
 
 const AboutUsPage: FC = () => {
-    const [pgMembers, setPgMembers] = useState<TeamMember[]>([])
+    const [pgLeaders, setPgLeaders] = useState<TeamMember[]>([])
+        const [pgMarketing, setPgMarketing] = useState<TeamMember[]>([])
+        const [pgSales, setPgSales] = useState<TeamMember[]>([])
+        const [pgEvent, setPgEvent] = useState<TeamMember[]>([])
+    
+    
+        const [pgMembers, setAllMembers] = useState<TeamMember[][]>([]);
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        getAllTeamMembers().then(setPgMembers)
+        getAllTeamMembers().then((team) => {
+                    setPgLeaders(team.filter((member) => member.priority === '1'));
+                    setPgSales(team.filter(
+                                        (member) =>
+                                            member.priority === '2' ||
+                                            member.priority === '3'
+                                    ));
+                    setPgEvent(team.filter((member) => member.priority === '4'));
+                    setPgMarketing(team.filter((member) => member.priority === '5'));
+        
+                    // Big list of lists
+                    setAllMembers([pgLeaders, pgSales, pgEvent, pgMarketing]);
+                });
     }, [])
+
+    const groups: Record<string, TeamMember[]> = {
+            leaders: pgLeaders,
+            marketing: pgMarketing,
+            sales: pgSales,
+            event: pgEvent
+        };
 
     return (
         <div>
@@ -139,104 +165,44 @@ const AboutUsPage: FC = () => {
 
             {/* List of every memeber in PG */}
             <ContentSection>
-                {/* Project Leaders */}
-                <div>
-                    <SectionTitle align={TitleSectionAlignment.center}>
-                        {TranslationModel.translate(phrases.project_leaders)}
-                    </SectionTitle>
-                    <div id='project-leaders'>
-                        {pgMembers
-                            .filter((member) => member.priority === '1')
-                            .map((member) => (
-                                <ProfileCard
-                                    key={member.name}
-                                    imagePath={member.imagePath}
-                                    email={member.email}
-                                    linkedinLink={member.linkedInURL}
-                                    name={member.name}
-                                    role={TranslationModel.translate(
-                                        member.position
-                                    )}
-                                    priority={member.priority}
-                                />
-                            ))}
-                    </div>
-                </div>
 
-                {/* Sales team */}
-                <div className='aboutpage-teams'>
-                    <SectionTitle align={TitleSectionAlignment.center}>
-                        {TranslationModel.translate(phrases.sales_team)}
-                    </SectionTitle>
-                    <div className='aboutpage-pg-members'>
-                        {pgMembers
-                            .filter(
-                                (member) =>
-                                    member.priority === '2' ||
-                                    member.priority === '3'
-                            )
-                            .map((member) => (
-                                <ProfileCard
-                                    key={member.name}
-                                    imagePath={member.imagePath}
-                                    email={member.email}
-                                    linkedinLink={member.linkedInURL}
-                                    name={member.name}
-                                    role={TranslationModel.translate(
-                                        member.position
-                                    )}
-                                    priority={member.priority}
-                                />
-                            ))}
-                    </div>
-                </div>
-                {/* Event team */}
-                <div className='aboutpage-teams'>
-                    <SectionTitle align={TitleSectionAlignment.center}>
-                        {TranslationModel.translate(phrases.event_team)}
-                    </SectionTitle>
-                    <div className='aboutpage-pg-members'>
-                        {pgMembers
-                            .filter((member) => member.priority === '4')
-                            .map((member) => (
-                                <ProfileCard
-                                    key={member.name}
-                                    imagePath={member.imagePath}
-                                    email={member.email}
-                                    linkedinLink={member.linkedInURL}
-                                    name={member.name}
-                                    role={TranslationModel.translate(
-                                        member.position
-                                    )}
-                                    priority={member.priority}
-                                />
-                            ))}
-                    </div>
-                </div>
+                {
+                    teamList.map((group)=>{
+                        const members = groups[group.member_key] ?? [];
 
-                {/* Marketing team */}
-                <div className='aboutpage-teams'>
-                    <SectionTitle align={TitleSectionAlignment.center}>
-                        {TranslationModel.translate(phrases.marketing_team)}
-                    </SectionTitle>
-                    <div className='aboutpage-pg-members'>
-                        {pgMembers
-                            .filter((member) => member.priority === '5')
-                            .map((member) => (
-                                <ProfileCard
-                                    key={member.name}
-                                    imagePath={member.imagePath}
-                                    email={member.email}
-                                    linkedinLink={member.linkedInURL}
-                                    name={member.name}
-                                    role={TranslationModel.translate(
-                                        member.position
-                                    )}
-                                    priority={member.priority}
-                                />
-                            ))}
-                    </div>
-                </div>
+                        const three_columns = members.length % 3 === 0;
+
+                        return (
+                            <div className={
+                                   group.member_key !== "leaders" ? 'aboutpage-teams' : ''
+                                } 
+                                key={group.member_key}
+                            >
+                                <SectionTitle align={TitleSectionAlignment.center} key={group.member_key}>
+                                    {TranslationModel.translate(group.name)}
+                                </SectionTitle>
+                                <div className={'aboutpage-pg-members ' + 
+                                (three_columns? 'three-columns' : 'two-columns')
+                                }>
+                                    {members
+                                        .map((member) => (
+                                            <ProfileCard
+                                                key={member.name}
+                                                imagePath={member.imagePath}
+                                                email={member.email}
+                                                linkedinLink={member.linkedInURL}
+                                                name={member.name}
+                                                role={TranslationModel.translate(
+                                                    member.position
+                                                )}
+                                                priority={member.priority}
+                                            />
+                                        ))}
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </ContentSection>
         </div>
     )
