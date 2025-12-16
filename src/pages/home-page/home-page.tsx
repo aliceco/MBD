@@ -36,72 +36,48 @@ const Homepage: FC = () => {
             {/* Introduction page */}
             <ContentSection>
                 <TextSection>
-                    <h1>Medias Branschdag</h1>
-                    <MBDDateContext.Consumer>
-                        {(mbdDate) =>
-                            TranslationModel.translate({
-                                se: (
-                                    <span className='homepag-text'>
-                                        Vad kul att just du hittat hit! Medias
-                                        Branschdag kommer att äga rum {17}{' '}
-                                        {TranslationModel.translate(
-                                            phrases.months.february
-                                        )}{' '}
-                                        {2026} i kårhuset Nymble på KTH campus
-                                        Valhallavägen.
-                                        <br />
-                                        <br />
-                                        Studerar du medieteknik, datateknik
-                                        eller maskininlärning och letar efter
-                                        din framtida arbetsplats eller är ett
-                                        företag som söker din framtida kollega
-                                        är Medias Branschdag dagen för
-                                        dig. Mässan ger dig som student
-                                        möjlighet att hitta extrajobb,
-                                        examensjobb eller helt enkelt bara knyta
-                                        värdefulla kontakter inför framtiden.
-                                        Till utställande företag garanterar vi
-                                        en maxad dag med allt vad medieteknik
-                                        har att erbjuda. Helt enkelt något du
-                                        inte vill missa!
-                                        <br />
-                                        <br />
-                                        Ses vi där? Klart vi gör!
-                                    </span>
-                                ),
+                            <h1>
+                                Medias Branschdag
+                            </h1>
+                            <MBDDateContext.Consumer>
+                                {(mbdDate) =>
+                                    TranslationModel.translate({
+                                        se: (
+                                            <span className='homepage-text'>
+                                                MBD (Medias Branschdag) är den årliga 
+                                                arbetsmarknadsmässan som Sektionen för 
+                                                Medieteknik arrangerar under vårterminen. 
+                                                Mässan hålls i kårhuset Nymble och ger 
+                                                studenter, både från medieteknikprogrammet 
+                                                och övriga KTH, en värdefull möjlighet att 
+                                                möta företag inom branschen, knyta kontakter 
+                                                och få en tydligare bild av tiden efter 
+                                                studierna. För många kan mötena på mässan 
+                                                leda vidare till praktik, examensarbete 
+                                                eller till och med framtida anställning.
+                                            </span>
+                                        ),
 
-                                en: (
-                                    <span className='homepag-text'>
-                                        Fancy seeing you here! The fair will
-                                        take place on the 17th of{' '}
-                                        {TranslationModel.translate(
-                                            phrases.months.february
-                                        )}{' '}
-                                        {2026} in the student union house Nymble
-                                        at KTH campus Valhallavägen.
-                                        <br />
-                                        <br />
-                                        If you are a media technology, computer
-                                        science or machine learning student
-                                        looking for a future employer or a
-                                        company looking for your future employee
-                                        Media Branchday is the place to be. The
-                                        fair gives students the opportunity to
-                                        find a part-time job, thises job or
-                                        valuable contact for the future. For
-                                        companies, we are guaranteeing a full
-                                        day with everything Media technology has
-                                        to offer. You don't want to miss this!
-                                        <br />
-                                        <br />
-                                        Will we see you there? Of course we
-                                        will!
-                                    </span>
-                                ),
-                            })
-                        }
-                    </MBDDateContext.Consumer>
-                </TextSection>
+                                        en: (
+                                            <span className='homepage-text'>
+                                                MBD (Medias Branschdag) is the annual career 
+                                                fair organized by the Media Technology 
+                                                Chapter during the spring semester. The fair 
+                                                is held in the student union building Nymble 
+                                                and offers students — both from the Media 
+                                                Technology programme and the rest of KTH — a 
+                                                valuable opportunity to meet companies in the 
+                                                industry, make new connections, and gain a 
+                                                clearer picture of life after their studies. 
+                                                For many, the meetings at the fair can even 
+                                                lead to internships, thesis projects, or future 
+                                                employment.
+                                            </span>
+                                        ),
+                                    })
+                                }
+                            </MBDDateContext.Consumer>
+                        </TextSection>
 
                 {/* Navigation cards */}
                 <ContentSection>
