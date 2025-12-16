@@ -15,6 +15,7 @@ import SectionTitle, {
 
 import UndergraduateFields from './undergraduate-fields.json'
 import Masters from './master-fields.json'
+import UndergraduateDescription from './undergraduate-description.json'
 
 import TextSection, { TextSectionAlignment } from '../../components/text-section/text-section'
 import TextWithContent from '../../components/text-with-content/text-with-content'
@@ -119,27 +120,32 @@ const WeArePage: FC = () => {
             </div>
             <div>
                 
-                <SectionTitle align={TitleSectionAlignment.center}>
+                
+                <ContentSection>
+                    <SectionTitle>
                     {TranslationModel.translate(
                         phrases.we_are_media_technology.undergraduate_degrgee
                     )}
                 </SectionTitle>
-                <TextSection align={TextSectionAlignment.center}>
-                    {TranslationModel.translate({
-                        se: (<span>
-                            Mer information kommer strax...
-                        </span>),
-                        en: (<span>
-                            More information to come...
-                        </span>)
-                    })}
-                </TextSection>
+                    <TextSection>
+
+                        {Object.values(UndergraduateDescription.undergraduate_description).map(
+                            (year, index) => (
+                            <p key={index}>
+                                {TranslationModel.translate(year)}
+                            </p>
+                            )
+                        )}
+                    </TextSection>
+                </ContentSection>
+
+                
                 
             </div>
 
             <div id='master-programmes' />
             <ContentSection>
-                <SectionTitle align={TitleSectionAlignment.center}>
+                <SectionTitle>
                     {TranslationModel.translate(
                         phrases.we_are_media_technology.masters
                     )}
