@@ -92,7 +92,7 @@ ul {
         
     }
 
-    .navigation-cards {
+    .navigation-cards-company {
         flex-direction: column;
         align-items: center;
         row-gap: 30px;
