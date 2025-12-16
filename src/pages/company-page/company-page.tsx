@@ -256,18 +256,49 @@ const Companypage = () => {
                     <NavigationCard 
                         backgroundImage={companyBackgroundImage}
                         icon={companyIcon}
-                        title="Kontakta oss"
-                        description="Är ni intresserade av att medverka och nå ut till KTH studenter? Kontakta oss så diskuterar vi lösningar för just er!"
-                        buttonText="Kontakt"
+                        title= {TranslationModel.translate(
+                          {
+                                se: (<span>
+                                    Vill ni kontakta oss
+                                </span>),
+                                en: (<span>
+                                    Do you want to reach us
+                                </span>),
+                            })
+                        }
+                        description={TranslationModel.translate({
+                                se: (
+                                    <span>
+                                        Är du intresserad av att delta i Medias Branschdag? Kontakta oss!
+                                    </span>
+                                ),
+                                en: (
+                                    <span>
+                                        Are you interested in participating in Medias Branschdag? Contct us!
+                                    </span>
+                                ),
+                            })}
+                        buttonText= {TranslationModel.translate(phrases.contact_us)}
                         nav="/contact"
                     />
 
                     <NavigationCard 
                         backgroundImage={studentBackgroundImage}
                         icon={studentIcon}
-                        title="Vad är medieteknik?"
-                        description="Läs mer om vår utbildning!"
-                        buttonText="Om Medieteknik"
+                        title={TranslationModel.translate(phrases.we_are_media_technology.what_is_media_technology)}
+                        description={TranslationModel.translate({
+                                se: (
+                                    <span>
+                                      Lär mer om vår utbildning här
+                                    </span>
+                                ),
+                                en: (
+                                    <span>
+                                        Read more about our education here
+                                    </span>
+                                ),
+                            })}
+                        buttonText= {TranslationModel.translate(phrases.read_more)}
                         nav="/medieteknik"
                     />
                 </div>

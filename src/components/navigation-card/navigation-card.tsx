@@ -18,7 +18,7 @@ interface NavigationCardProps {
     backgroundImage: string,
     icon: string,
     title: React.ReactNode,
-    description: string,
+    description: React.ReactNode,
     buttonText: React.ReactNode,
     nav: string
 }

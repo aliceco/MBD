@@ -131,6 +131,10 @@
         "se": "Utställare",
         "en": "Exhibitors"
     },
+    "this_years_exhibitors": {
+        "se": "Årets Utställare",
+        "en": "This Years Exhibitors"
+    },
     "lecturers": {
         "se": "Föreläsare",
         "en": "Lecturers"
@@ -786,6 +790,10 @@
         "undergraduate_fields": {
             "se": "Kandidatområden",
             "en": "Bachelor's Fields"
+        },
+         "undergraduate_degrgee": {
+            "se": "Kandidatprogrammet",
+            "en": "Bachelor's degree"
         },
         "courses_within": {
             "se": "Kurser inom området",

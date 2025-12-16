@@ -16,7 +16,7 @@ import SectionTitle, {
 import UndergraduateFields from './undergraduate-fields.json'
 import Masters from './master-fields.json'
 
-import TextSection from '../../components/text-section/text-section'
+import TextSection, { TextSectionAlignment } from '../../components/text-section/text-section'
 import TextWithContent from '../../components/text-with-content/text-with-content'
 import { MBDDateContext } from '../../contexts/mbd-date-provider'
 import MapBackground from '../../assets/backgrounds/we-are-medieteknik.png'
@@ -25,6 +25,7 @@ import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/i
 
 import HalfHalfCard from '../../components/half-half-card/half-half-card'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
+import { spawn } from 'child_process'
 
 const WeArePage: FC = () => {
 
@@ -116,8 +117,25 @@ const WeArePage: FC = () => {
                             </TextSection>
                 </ContentSection>
             </div>
-
-            
+            <div>
+                
+                <SectionTitle align={TitleSectionAlignment.center}>
+                    {TranslationModel.translate(
+                        phrases.we_are_media_technology.undergraduate_degrgee
+                    )}
+                </SectionTitle>
+                <TextSection align={TextSectionAlignment.center}>
+                    {TranslationModel.translate({
+                        se: (<span>
+                            Mer information kommer strax...
+                        </span>),
+                        en: (<span>
+                            More information to come...
+                        </span>)
+                    })}
+                </TextSection>
+                
+            </div>
 
             <div id='master-programmes' />
             <ContentSection>

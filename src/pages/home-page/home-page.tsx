@@ -25,7 +25,6 @@ import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
 
 const Homepage: FC = () => {
-    
     return (
         <div className='homepage'>
             {/* Logo and countdown */}
@@ -37,109 +36,131 @@ const Homepage: FC = () => {
             {/* Introduction page */}
             <ContentSection>
                 <TextSection>
-                            <h1>
-                                Medias Branschdag
-                            </h1>
-                            <MBDDateContext.Consumer>
-                                {(mbdDate) =>
-                                    TranslationModel.translate({
-                                        se: (
-                                            <span className='homepag-text'>
-                                                Vad kul att just du hittat hit!
-                                                Medias Branschdag kommer att äga
-                                                rum {17}{' '}
-                                                {TranslationModel.translate(
-                                                    phrases.months.february
-                                                )}{' '}
-                                                {2026} i kårhuset Nymble på KTH
-                                                campus Valhallavägen.
-                                                <br />
-                                                <br />
-                                                Studerar du medieteknik,
-                                                datateknik eller maskininlärning
-                                                och letar efter din framtida
-                                                arbetsplats eller är ett företag
-                                                som söker din framtida kollega
-                                                är Medias Branschdag dagen för
-                                                dig. Mässan ger dig som student
-                                                möjlighet att hitta extrajobb,
-                                                examensjobb eller helt enkelt
-                                                bara knyta värdefulla kontakter
-                                                inför framtiden. Till
-                                                utställande företag garanterar
-                                                vi en maxad dag med allt vad
-                                                medieteknik har att erbjuda.
-                                                Helt enkelt något du inte vill
-                                                missa!
-                                                <br />
-                                                <br />
-                                                Ses vi där? Klart vi gör!
-                                            </span>
-                                        ),
+                    <h1>Medias Branschdag</h1>
+                    <MBDDateContext.Consumer>
+                        {(mbdDate) =>
+                            TranslationModel.translate({
+                                se: (
+                                    <span className='homepag-text'>
+                                        Vad kul att just du hittat hit! Medias
+                                        Branschdag kommer att äga rum {17}{' '}
+                                        {TranslationModel.translate(
+                                            phrases.months.february
+                                        )}{' '}
+                                        {2026} i kårhuset Nymble på KTH campus
+                                        Valhallavägen.
+                                        <br />
+                                        <br />
+                                        Studerar du medieteknik, datateknik
+                                        eller maskininlärning och letar efter
+                                        din framtida arbetsplats eller är ett
+                                        företag som söker din framtida kollega
+                                        är Medias Branschdag dagen för
+                                        dig. Mässan ger dig som student
+                                        möjlighet att hitta extrajobb,
+                                        examensjobb eller helt enkelt bara knyta
+                                        värdefulla kontakter inför framtiden.
+                                        Till utställande företag garanterar vi
+                                        en maxad dag med allt vad medieteknik
+                                        har att erbjuda. Helt enkelt något du
+                                        inte vill missa!
+                                        <br />
+                                        <br />
+                                        Ses vi där? Klart vi gör!
+                                    </span>
+                                ),
 
-                                        en: (
-                                            <span className='homepag-text'>
-                                                Fancy seeing you here! The fair
-                                                will take place on the 17th of{' '}
-                                                {TranslationModel.translate(
-                                                    phrases.months.february
-                                                )}{' '}
-                                                {2026} in the student union
-                                                house Nymble at KTH campus
-                                                Valhallavägen.
-                                                <br />
-                                                <br />
-                                                If you are a media technology,
-                                                computer science or machine
-                                                learning student looking for a
-                                                future employer or a company
-                                                looking for your future employee
-                                                Media Branchday is the place to
-                                                be. The fair gives students the
-                                                opportunity to find a part-time
-                                                job, thises job or valuable
-                                                contact for the future. For
-                                                companies, we are guaranteeing a
-                                                full day with everything Media
-                                                technology has to offer. You
-                                                don't want to miss this!
-                                                <br />
-                                                <br />
-                                                Will we see you there? Of course
-                                                we will!
-                                            </span>
-                                        ),
-                                    })
-                                }
-                            </MBDDateContext.Consumer>
-                        </TextSection>
+                                en: (
+                                    <span className='homepag-text'>
+                                        Fancy seeing you here! The fair will
+                                        take place on the 17th of{' '}
+                                        {TranslationModel.translate(
+                                            phrases.months.february
+                                        )}{' '}
+                                        {2026} in the student union house Nymble
+                                        at KTH campus Valhallavägen.
+                                        <br />
+                                        <br />
+                                        If you are a media technology, computer
+                                        science or machine learning student
+                                        looking for a future employer or a
+                                        company looking for your future employee
+                                        Media Branchday is the place to be. The
+                                        fair gives students the opportunity to
+                                        find a part-time job, thises job or
+                                        valuable contact for the future. For
+                                        companies, we are guaranteeing a full
+                                        day with everything Media technology has
+                                        to offer. You don't want to miss this!
+                                        <br />
+                                        <br />
+                                        Will we see you there? Of course we
+                                        will!
+                                    </span>
+                                ),
+                            })
+                        }
+                    </MBDDateContext.Consumer>
+                </TextSection>
 
-                        {/* Navigation cards */}
-                        <ContentSection>
-                            <div className='navigation-cards-home'>
-                                <NavigationCard 
-                                    backgroundImage={companyBackgroundImage}
-                                    icon={companyIcon}
-                                    title= {TranslationModel.translate(phrases.company)}
-                                    description="Vill ni nå ut till hundratals civilingenjörsstudenter på KTH? Läs mer om hur ni kan delta i Medias Branschdag 2026."
-                                    buttonText= {TranslationModel.translate(phrases.for_companies)}
-                                    nav="/company"
-                                />
+                {/* Navigation cards */}
+                <ContentSection>
+                    <div className='navigation-cards-home'>
+                        <NavigationCard
+                            backgroundImage={companyBackgroundImage}
+                            icon={companyIcon}
+                            title={TranslationModel.translate(phrases.company)}
+                            description={TranslationModel.translate({
+                                se: (
+                                    <span>
+                                        Vill ni nå ut till hundratals
+                                        civilingenjörsstudenter på KTH? Läs mer
+                                        om hur ni kan delta i Medias Branschdag.
+                                    </span>
+                                ),
+                                en: (
+                                    <span>
+                                        Do you want to reach out to hundres of
+                                        engineering students at KTH? Read more
+                                        about how you can participate in Medias
+                                        Branschdag.
+                                    </span>
+                                ),
+                            })}
+                            buttonText={TranslationModel.translate(
+                                phrases.for_companies
+                            )}
+                            nav='/company'
+                        />
 
-                                <NavigationCard 
-                                    backgroundImage={studentBackgroundImage}
-                                    icon={studentIcon}
-                                    title= "Student"
-                                    description="Nån text om vad man kan göra som student"
-                                    buttonText={TranslationModel.translate(phrases.for_students)}
-                                    nav="/exhibitors"
-                                />
-                            </div>
-                        </ContentSection>
+                        <NavigationCard
+                            backgroundImage={studentBackgroundImage}
+                            icon={studentIcon}
+                            title='Student'
+                            description={TranslationModel.translate({
+                                se: (
+                                    <span>
+                                        Är du student och letar efter möjligheter att mingla med företag? Läs mer
+                                        om vilka företag som deltar i Medias
+                                        Branschdag.
+                                    </span>
+                                ),
+                                en: (
+                                    <span>
+                                        Are you a student looking for opportunities to speak to companies? Read more
+                                        about the companies participating in
+                                        Medias Branschdag.
+                                    </span>
+                                ),
+                            })}
+                            buttonText={TranslationModel.translate(
+                                phrases.for_students
+                            )}
+                            nav='/exhibitors'
+                        />
+                    </div>
+                </ContentSection>
             </ContentSection>
-
-            
-
 
             {/* Instagram section  Currently not in use*/}
             {/* {instagramPosts.length > 0 ? (
@@ -167,7 +188,6 @@ const Homepage: FC = () => {
             ) : (
                 <></>
             )} */}
-
         </div>
     )
 }
@@ -198,21 +218,21 @@ export default Homepage
 
 //Inside const Homepage = {}
 // const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([])
-    // const [projectLeaders, setProjectLeaders] = useState<TeamMember[]>([])
+// const [projectLeaders, setProjectLeaders] = useState<TeamMember[]>([])
 
-    //Not in use
-    // useEffect(() => {
-    //     window.scrollTo(0, 0)
+//Not in use
+// useEffect(() => {
+//     window.scrollTo(0, 0)
 
-    //     // Should only be loaded once
-    //     InstagramModel.getInstagramImages().then((posts) => {
-    //         setInstagramPosts(posts)
-    //     })
-    //     getProjectLeaders().then(setProjectLeaders)
-    // }, [])
+//     // Should only be loaded once
+//     InstagramModel.getInstagramImages().then((posts) => {
+//         setInstagramPosts(posts)
+//     })
+//     getProjectLeaders().then(setProjectLeaders)
+// }, [])
 
-
-{/* <TextWithContent
+{
+    /* <TextWithContent
                     text={
                         <TextSection>
                             <h1>
@@ -318,10 +338,11 @@ export default Homepage
                             </div>
                         </>
                     }
-                /> */}
+                /> */
+}
 
-
-                            {/*
+{
+    /*
                             <div className='read-more'>
                                 <CircleIcon imagePath={BookIcon}/>
                                 <br />
@@ -351,70 +372,71 @@ export default Homepage
                                         {TranslationModel.translate(phrases.read_more)}
                                     </Button>
                                 </NavLink>
-                            </div>*/}
+                            </div>*/
+}
 
+{
+    /* Read more section */
+}
+// // <CenterBackground background={ReadMoreBackground}>
+// //     <ContentSection size={ContentSectionSize.small}>
+// //         <TextSection align={TextSectionAlignment.center}>
+// //             <div className='read-more-section'>
+// //                 <div className='read-more'>
+// //                     <CircleIcon imagePath={CompanyIcon} />
+// //                     <br />
+// //                     <h1>
+// //                         {TranslationModel.translate(
+// //                             phrases.are_you_company
+// //                         )}
+// //                     </h1>
+// //                     <MBDDateContext.Consumer>
+// //                         {(mbdDate) =>
+// //                             TranslationModel.translate({
+// //                                 se: (
+// //                                     <span>
+// //                                         Vill ni nå ut till
+// //                                         hundratals
+// //                                         civilingenjörsstudenter på
+// //                                         KTH?
+// //                                         <br />
+// //                                         Läs mer om hur ni kan delta
+// //                                         i Medias Branschdag{' '}
+// //                                         {
+// //                                             /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
+// //                                         }
+// //                                         .
+// //                                     </span>
+// //                                 ),
+// //                                 en: (
+// //                                     <span>
+// //                                         Read more about how you can
+// //                                         participate in Medias
+// //                                         Branschdag{' '}
+// //                                         {
+// //                                             /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
+// //                                         }
+// //                                         . Your future employees are
+// //                                         waiting for you!
+// //                                     </span>
+// //                                 ),
+// //                             })
+// //                         }
+// //                     </MBDDateContext.Consumer>
+//                     <br />
+//                     <br />
+//                     <NavLink to='/company'>
+//                         <Button
+//                             buttonType={ButtonTypes.normalCompact}
+//                         >
+//                             {TranslationModel.translate(
+//                                 phrases.read_more
+//                             )}
+//                         </Button>
+//                     </NavLink>
+//                 </div>
 
-
-            {/* Read more section */}
-            // // <CenterBackground background={ReadMoreBackground}>
-            // //     <ContentSection size={ContentSectionSize.small}>
-            // //         <TextSection align={TextSectionAlignment.center}>
-            // //             <div className='read-more-section'>
-            // //                 <div className='read-more'>
-            // //                     <CircleIcon imagePath={CompanyIcon} />
-            // //                     <br />
-            // //                     <h1>
-            // //                         {TranslationModel.translate(
-            // //                             phrases.are_you_company
-            // //                         )}
-            // //                     </h1>
-            // //                     <MBDDateContext.Consumer>
-            // //                         {(mbdDate) =>
-            // //                             TranslationModel.translate({
-            // //                                 se: (
-            // //                                     <span>
-            // //                                         Vill ni nå ut till
-            // //                                         hundratals
-            // //                                         civilingenjörsstudenter på
-            // //                                         KTH?
-            // //                                         <br />
-            // //                                         Läs mer om hur ni kan delta
-            // //                                         i Medias Branschdag{' '}
-            // //                                         {
-            // //                                             /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
-            // //                                         }
-            // //                                         .
-            // //                                     </span>
-            // //                                 ),
-            // //                                 en: (
-            // //                                     <span>
-            // //                                         Read more about how you can
-            // //                                         participate in Medias
-            // //                                         Branschdag{' '}
-            // //                                         {
-            // //                                             /*mbdDate.getStartYear()*/ 2026 // Need to hardcode as server connection is not working
-            // //                                         }
-            // //                                         . Your future employees are
-            // //                                         waiting for you!
-            // //                                     </span>
-            // //                                 ),
-            // //                             })
-            // //                         }
-            // //                     </MBDDateContext.Consumer>
-            //                     <br />
-            //                     <br />
-            //                     <NavLink to='/company'>
-            //                         <Button
-            //                             buttonType={ButtonTypes.normalCompact}
-            //                         >
-            //                             {TranslationModel.translate(
-            //                                 phrases.read_more
-            //                             )}
-            //                         </Button>
-            //                     </NavLink>
-            //                 </div>
-
-            //             </div>
-            //         </TextSection>
-            //     </ContentSection>
-            // </CenterBackground>
+//             </div>
+//         </TextSection>
+//     </ContentSection>
+// </CenterBackground>

@@ -49,7 +49,7 @@ const ContactForm: FC = () => {
                 setDoneMessage(
                     TranslationModel.translate({
                         se: 'Något gick fel, testa gärna igen.',
-                        en: 'Something went wrong, pls test again.',
+                        en: 'Something went wrong, please try again.',
                     })
                 )
             })

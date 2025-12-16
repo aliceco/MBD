@@ -82,7 +82,7 @@ const Navbar = () => {
                     {/* For Students */}
                     <NavItem
                         label={TranslationModel.translate(phrases.for_students)}
-                        path={Routes.forStudentsPage.path} // doesn't have a page yet
+                        path={Routes.studentPage.path} // doesn't have a page yet
                         items={[
                             {
                                 label: TranslationModel.translate(
@@ -96,12 +96,12 @@ const Navbar = () => {
                                 ),
                                 path: Routes.mapPage.path,
                             },
-                            {
-                                label: TranslationModel.translate(
-                                    phrases.for_students
-                                ),
-                                path: Routes.forStudentsPage.path, 
-                            },
+                            // {
+                            //     label: TranslationModel.translate(
+                            //         phrases.for_students
+                            //     ),
+                            //     path: Routes.forStudentsPage.path, 
+                            // },
                         ]}
                         mobileMenuOpen={mobileMenuOpen}
                         onClick={closeMobileMenu}

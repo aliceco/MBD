@@ -59,6 +59,11 @@
     transition: height 0.5s; */
 }
 
+.in-preperataion-text {
+    text-align: center;
+    padding: 3rem;
+}
+
 /* The gradient is now removed, used to be a white gradient when the background was white.*/
 /* .studentpage-company-description-overflow {
     bottom: 0;
@@ -98,4 +103,5 @@
     .studentpage-employments .filter { 
         width: 100%
     }
+
 }
