@@ -10,7 +10,8 @@ import { TeamMember,
     getMarketingTeamMembers, 
     getEventTeamMembers, 
     getProjectLeaders, 
-    getSalesTeamMemebers 
+    getSalesTeamMemebers,
+    getAllTeamMembers 
 } from '../model/teamModel'
 
 import TextSection, {TextSectionAlignment}from '../../components/text-section/text-section'
@@ -43,19 +44,18 @@ const Contactpage: FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
 
-        Promise.all([
-            getProjectLeaders(),
-            getMarketingTeamMembers(),
-            getSalesTeamMemebers(),
-            getEventTeamMembers()
-        ]).then(([leaders, marketing, sales, event]) => {
-            setPgLeaders(leaders);
-            setPgMarketing(marketing);
-            setPgSales(sales);
-            setPgEvent(event);
+        getAllTeamMembers().then((team) => {
+            setPgLeaders(team.filter((member) => member.priority === '1'));
+            setPgSales(team.filter(
+                                (member) =>
+                                    member.priority === '2' ||
+                                    member.priority === '3'
+                            ));
+            setPgEvent(team.filter((member) => member.priority === '4'));
+            setPgMarketing(team.filter((member) => member.priority === '5'));
 
             // Big list of lists
-                
+            setAllMembers([pgLeaders, pgSales, pgEvent, pgMarketing]);
         });
     }, []);
 
