@@ -6,12 +6,16 @@
 }
 
 .contactpage .contact-card {
+    display:flex;
     align-self: center;
+    justify-self: center;
 }
+
 .hello {
     display: flex;
     flex-direction: row;
 }
+
 /* .photographer-thanks {
     padding-top: 2em;
     text-align: center;
