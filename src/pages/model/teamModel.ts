@@ -10,7 +10,8 @@ export class TeamMember {
         public priority: string,
         public imagePath: string,
         public email: string,
-        public linkedInURL: string
+        public linkedInURL: string,
+        public personId: string,
     ) {}
 
     public static memberFromJSON(json: any): TeamMember {
@@ -24,7 +25,8 @@ export class TeamMember {
             json.priority,
             '/assets/team/' + img,
             json.email,
-            json.linkedin
+            json.linkedin,
+            json.personId
         )
     }
 }

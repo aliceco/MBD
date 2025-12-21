@@ -7,6 +7,7 @@
         },
         "email": "naringsliv@medieteknik.com",
         "image": "./assets/team/projectleaders.jpg",
+        "image_order": ["1", "2"],
         "member_key": "leaders"
     },
     {
@@ -17,6 +18,7 @@
         },
         "email": "foretag@nlg.medieteknik.com",
         "image": "./assets/team/sales.jpg",
+        "image_order": ["3", "5", "4", "6", "7", "8"],
         "member_key": "sales"
     },
     {
@@ -27,6 +29,7 @@
         },
         "email": "event@nlg.medieteknik.com",
         "image": "./assets/team/event.jpg",
+        "image_order": ["9", "11", "10", "12"],
         "member_key": "event"
     },
     {
@@ -37,6 +40,7 @@
         },
         "email": "pr@nlg.medieteknik.com",
         "image": "./assets/team/marketing.jpg",
+        "image_order": ["15", "13", "18", "16", "14", "17"],
         "member_key": "marketing"
     }
 ]

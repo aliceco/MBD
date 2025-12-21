@@ -41,21 +41,39 @@ const Contactpage: FC = () => {
 
     const [allMembers, setAllMembers] = useState<TeamMember[][]>([]);
 
+
     useEffect(() => {
         window.scrollTo(0, 0);
 
         getAllTeamMembers().then((team) => {
-            setPgLeaders(team.filter((member) => member.priority === '1'));
-            setPgSales(team.filter(
-                                (member) =>
-                                    member.priority === '2' ||
-                                    member.priority === '3'
-                            ));
-            setPgEvent(team.filter((member) => member.priority === '4'));
-            setPgMarketing(team.filter((member) => member.priority === '5'));
+            // Seperating team into the smaller groups
+            const leaders = team.filter(m => m.priority === '1');
+            const sales = team.filter(m => m.priority === '2' || m.priority === '3');
+            const event = team.filter(m => m.priority === '4');
+            const marketing = team.filter(m => m.priority === '5');
+
+            // Sort each group based on the order they are standing in the photo (image_order in json file)
+            function sortByImageOrder(members: TeamMember[], order: string[]) {
+                const orderIndex = new Map(order.map((id, i) => [id, i]));
+                return [...members].sort((a, b) => 
+                    (orderIndex.get(a.personId) ?? Infinity) - (orderIndex.get(b.personId) ?? Infinity)
+                );
+            };
+
+            const sortedLeaders = sortByImageOrder(leaders, teamContact[0].image_order);
+            const sortedSales = sortByImageOrder(sales, teamContact[1].image_order);
+            const sortedEvent = sortByImageOrder(event, teamContact[2].image_order);
+            const sortedMarketing = sortByImageOrder(marketing, teamContact[3].image_order);
+
+
+            // Update state
+            setPgLeaders(sortedLeaders);
+            setPgSales(sortedSales);
+            setPgEvent(sortedEvent);
+            setPgMarketing(sortedMarketing);
 
             // Big list of lists
-            setAllMembers([pgLeaders, pgSales, pgEvent, pgMarketing]);
+            setAllMembers([sortedLeaders, sortedSales, sortedEvent, sortedMarketing]);
         });
     }, []);
 
@@ -84,7 +102,7 @@ const Contactpage: FC = () => {
                                         {members.map((member, i)=> {
                                             const reverseOrder = members.length-1-i;
                                             
-                                            return (member.name.split(" ")[0] + (reverseOrder? 
+                                            return (member.name.split(" ")[0]+ (reverseOrder? 
                                                 (reverseOrder==1? ' & ' : ', ') 
                                                 :''))
                                         })
