@@ -64,8 +64,8 @@ const Homepage: FC = () => {
                                                 fair organized by the Media Technology 
                                                 Chapter during the spring semester. The fair 
                                                 is held in the student union building Nymble 
-                                                and offers students — both from the Media 
-                                                Technology programme and the rest of KTH — a 
+                                                and offers students, both from the Media 
+                                                Technology programme and the rest of KTH, a 
                                                 valuable opportunity to meet companies in the 
                                                 industry, make new connections, and gain a 
                                                 clearer picture of life after their studies. 
