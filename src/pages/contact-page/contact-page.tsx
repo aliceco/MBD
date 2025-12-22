@@ -47,10 +47,10 @@ const Contactpage: FC = () => {
 
         getAllTeamMembers().then((team) => {
             // Seperating team into the smaller groups
-            const leaders = team.filter(m => m.priority === '1');
-            const sales = team.filter(m => m.priority === '2' || m.priority === '3');
-            const event = team.filter(m => m.priority === '4');
-            const marketing = team.filter(m => m.priority === '5');
+            const leaders = team.filter(m => m.priority === 1);
+            const sales = team.filter(m => m.priority === 2 || m.priority === 3);
+            const event = team.filter(m => m.priority === 4);
+            const marketing = team.filter(m => m.priority === 5);
 
             // Sort each group based on the order they are standing in the photo (image_order in json file)
             function sortByImageOrder(members: TeamMember[], order: string[]) {

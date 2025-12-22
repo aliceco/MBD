@@ -29,15 +29,15 @@ const AboutUsPage: FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
         getAllTeamMembers().then((team) => {
-                    setPgLeaders(team.filter((member) => member.priority === '1'));
+                    setPgLeaders(team.filter((member) => member.priority === 1));
                     setPgSales(team.filter(
                                         (member) =>
-                                            member.priority === '2' ||
-                                            member.priority === '3'
+                                            member.priority === 2 ||
+                                            member.priority === 3
                                     ));
-                    setPgEvent(team.filter((member) => member.priority === '4'));
-                    setPgMarketing(team.filter((member) => member.priority === '5'));
-        
+                    setPgEvent(team.filter((member) => member.priority === 4));
+                    setPgMarketing(team.filter((member) => member.priority === 5));
+
                     // Big list of lists
                     setAllMembers([pgLeaders, pgSales, pgEvent, pgMarketing]);
                 });

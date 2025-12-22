@@ -7,7 +7,7 @@ export class TeamMember {
             se: string
             en: string
         },
-        public priority: string,
+        public priority: number,
         public imagePath: string,
         public email: string,
         public linkedInURL: string,

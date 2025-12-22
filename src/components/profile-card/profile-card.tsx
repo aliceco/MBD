@@ -11,7 +11,7 @@ interface ProfileCardProps {
     role: React.ReactNode,
     email?: string,
     linkedinLink?: string
-    priority: string,
+    priority: number,
 }
 
 const ProfileCard: FC<ProfileCardProps> = (props) => {
