@@ -131,6 +131,10 @@
         "se": "Utställare",
         "en": "Exhibitors"
     },
+    "this_years_exhibitors": {
+        "se": "Årets Utställare",
+        "en": "This Years Exhibitors"
+    },
     "lecturers": {
         "se": "Föreläsare",
         "en": "Lecturers"
@@ -146,6 +150,10 @@
     "intro_movie_credit": {
         "se": "Introfilm gjord av Kommunikationsnämnden.",
         "en": "Intro movie made by Kommunikationsnämnden."
+    },
+    "company": {
+        "se": "Företag",
+        "en": "Company"
     },
     "for_companies": {
         "se": "För företag",
@@ -172,6 +180,10 @@
     "the_fair": {
         "se": "Mässan",
         "en": "The fair"
+    },
+    "about_the_fair": {
+        "se": "Om Medias Branschdag",
+        "en": "About Medias Branschdag"
     },
     "company_contact": {
         "se": "Företagskontakter",
@@ -233,7 +245,7 @@
         "se": "e",
         "en": "th"
     },
-    "sales_team": {
+    "our_sales_team": {
         "se": "Företagsansvariga",
         "en": "Our sales team"
     },
@@ -299,6 +311,22 @@
         "se": "Projektgruppen",
         "en": "The Project Group"
     },
+    "project_leaders": {
+        "se": "Projektledarna",
+        "en": "Project Leaders"
+    },
+    "sales_team": {
+        "se": "Företagsgruppen",
+        "en": "Sales team"
+    },
+    "event_team": {
+        "se": "Eventgruppen",
+        "en": "Event team"
+    },
+    "marketing_team": {
+        "se": "Marknadsföringsgruppen",
+        "en": "Marketing team"
+    },
     "project_leader": {
         "se": "Projektledare",
         "en": "Project Leader"
@@ -349,7 +377,7 @@
             "en": "Contact us by using this form, or email directly at foretag@nlg.medieteknik.com"
         },
         "contact_form": {
-            "se": "Kontaktaformulär",
+            "se": "Kontaktformulär",
             "en": "Contact form"
         },
         "contact_person": {
@@ -371,6 +399,14 @@
         "send": {
             "se": "Skicka",
             "en": "Send"
+        }, 
+        "message_sent": {
+            "se": "Tack för ditt mejl, vi hör av oss så snart som möjligt",
+            "en": "Thank you for your email, we will be in touch shortly"
+        }, 
+        "send_again": {
+            "se": "Skicka ett nytt meddelande",
+            "en": "Send a new message"
         }
     },
     "map": {
@@ -749,11 +785,15 @@
         },
         "masters": {
             "se": "Masterprogram",
-            "en": "Masters"
+            "en": "Master programmes"
         },
         "undergraduate_fields": {
             "se": "Kandidatområden",
             "en": "Bachelor's Fields"
+        },
+         "undergraduate_degrgee": {
+            "se": "Kandidatprogrammet",
+            "en": "Bachelor's degree"
         },
         "courses_within": {
             "se": "Kurser inom området",

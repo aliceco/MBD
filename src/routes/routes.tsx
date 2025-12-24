@@ -11,6 +11,8 @@ import WeArePage from '../pages/we-are-page/we-are-page'
 import MapPage from '../pages/map-page/map-page'
 import Eventpage from '../pages/event-page/event-page'
 import Temppage from '../pages/under-construction-page/temp-page'
+import AboutUspage from '../pages/about-us-page/about-us-page'
+import ForStudentsPage from '../pages/for-students-page/for-students-page'
 
 class Route {
     path: string
@@ -45,6 +47,8 @@ const Routes = {
     mapPage: new Route('/map', phrases.map, MapPage),
 
     contactPage: new Route('/contact', phrases.contact, Contactpage),
+    aboutUsPage: new Route('/about-us', phrases.about_us, AboutUspage),
+    forStudentsPage: new Route('/for-students', phrases.for_students, ForStudentsPage)
 
     //dinnerPartyPage: new Route('/dinner', phrases.dinner_party, Dinnerpage),
     //dinnerAdminPage: new Route('/dinner-admin', phrases.dinner_admin, DinnerAdmin, false),

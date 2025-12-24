@@ -6,6 +6,15 @@
     flex-direction: column;
 }
 
+.contact-input-info {
+    padding-top: 20px;
+}
+
+.contact-input-info, .contact-input-message {
+    align-self: center;
+    width: 75%;
+}
+
 .contactform .contact-input-info {
     flex: 4.5;
 }
@@ -18,6 +27,12 @@
     background: none;
     border: none;
     font-size: inherit;
+}
+
+.message-sent {
+    display: inline-block;
+    align-content: center;
+    min-height: 150px;
 }
 
 @media screen and (max-width: 650px) {

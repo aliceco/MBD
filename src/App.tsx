@@ -10,17 +10,21 @@ import { theme } from './theme/material-ui'
 import { ThemeProvider } from '@material-ui/core/styles';
 import './index.css';
 import ScrollToTop from "./hooks/scrollToTop"
+import ScrollToHash from "./hooks/scrollToHash"
+import background from "./assets/master_background.png"
+
 
 const App: FC = () => {
     return (
         <ThemeProvider theme={theme}>
             <Router>
-                <div className="App">
+                <div className="App" style={{backgroundImage: `url(${background})`, backgroundSize: 'cover'}}>
                     <Navbar />
                     <PageWrapper>
                         <MBDCompanyProvider>
                             <MBDDateProvider>
-                                <ScrollToTop/>
+                                <ScrollToTop/>  {/* Scrolls to top on route change */}
+                                <ScrollToHash/>  {/* Scrolls to specific section on hash change */}
                                 <Switch>
                                     {
                                         Object.values(Routes).map(route => {
