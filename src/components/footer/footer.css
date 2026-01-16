@@ -95,7 +95,7 @@
 
 /* Medium screens (tablets)*/
 
-@media (min-width: 850px) and (max-width: 1279px) {
+@media (min-width: 850px) and (max-width: 1279.9px) {
   .footer-container {
     flex-direction: row; /* side by side */
     align-items: center;

@@ -9,7 +9,6 @@ import './student-page.css'
 
 import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
-import Footer from '../../components/footer/footer' // not in use in this page anymore
 import ContentSection from '../../components/layout/content-section/content-section'
 import TextSection, {
     TextSectionAlignment,
@@ -21,23 +20,19 @@ import SectionTitle from '../../components/section-title/section-title'
 import { Company } from '../model/companyModel'
 import { MBDCompanyContext } from '../../contexts/mbd-company-provider'
 import CompanyCard from '../../components/company-card/company-card'
-import LoadingText from '../../components/loading-text'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
 import Chip from '../../components/chip/chip'
 
+import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/intro-screen-title'
+
 const Studentpage = () => {
-    const companiesContext = useContext(MBDCompanyContext) //gets company daya from nearest provider (mbd-company-provider.tsx)
-    const closedDescriptionHeight = 300
+    //const companiesContext = useContext(MBDCompanyContext) //gets company data from nearest provider (mbd-company-provider.tsx)
 
     const windowDimensions = useWindowDimensions()
 
     const [companyDescriptionRef, _setCompanyDescriptionRef] =
         useState<HTMLDivElement>()
     const [activeCompany, _setActiveCompany] = useState<Company | null>(null)
-    const [descriptionOpen, _setDescriptionOpen] = useState<boolean>(false)
-    const [descriptionHeight, _setDescriptionHeight] = useState<number>(
-        closedDescriptionHeight
-    )
     const [showMore, _setShowMore] = useState(true)
     const [onMobile, _setOnMobile] = useState(false)
     const [employments, _setEmployments]: any = useState({})
@@ -54,24 +49,23 @@ const Studentpage = () => {
         Run this, whenever onMobile, isMainSponsor, or isExhibitor changes
         On desktop, pre-seöects a compamny (main sponsor)
         Tries main sponsor first, if null or undefined, falls back to first exhibitor
+
+        NOTE: This code is not in use    right now
     */
-    useEffect(() => {
-        if (!onMobile)
-            _setActiveCompany(
-                companiesContext.isMainSponsor[0] ??
-                    companiesContext.isExhibitor[0]
-            )
-    }, [onMobile, companiesContext.isMainSponsor, companiesContext.isExhibitor])
+    // useEffect(() => {
+    //     // if (!onMobile)
+    //     //     _setActiveCompany(
+    //     //         companiesContext.isMainSponsor[0] ??
+    //     //             companiesContext.isExhibitor[0]
+    //     //     )
+    // }, [onMobile, companiesContext.isMainSponsor, companiesContext.isExhibitor])
 
     const getActiveEmployments = () => {
         return Object.keys(employments).filter((id) => employments[id])
     }
 
-    const onCompanyRefChange = useCallback((node) => { //
+    const onCompanyRefChange = useCallback((node) => {
         _setCompanyDescriptionRef(node)
-        if (node !== null) {
-            _setShowMore(node.scrollHeight! > closedDescriptionHeight)
-        }
     }, [])
 
     const changeActiveCompany = (company: Company) => {
@@ -83,17 +77,6 @@ const Studentpage = () => {
                 behavior: 'smooth',
                 top: document.getElementById('active-company')?.offsetTop! - 90,
             })
-        toggleDescription(true)
-    }
-
-    const toggleDescription = (forceClose: boolean = false) => {
-        const shouldClose = descriptionOpen || forceClose
-        _setDescriptionOpen(!shouldClose)
-        _setDescriptionHeight(
-            shouldClose
-                ? closedDescriptionHeight
-                : companyDescriptionRef?.scrollHeight ?? 200
-        )
     }
 
     const sortByName = (a: Company, b: Company) => {
@@ -106,7 +89,7 @@ const Studentpage = () => {
 
     const getActiveCompanyContent = () => {
         if (activeCompany === null || activeCompany === undefined) {
-            return <LoadingText />
+            return
         }
 
         return (
@@ -141,15 +124,24 @@ const Studentpage = () => {
                         }}
                     ></div>
                 </div>
-                {showMore && !descriptionOpen ? (
-                    <div className='studentpage-company-description-overflow'></div>
-                ) : (
-                    <></>
-                )}
+                <div className='studentpage-active-company-actions'>
+                    <a
+                        href={`http://${activeCompany?.url}`}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
+                        <Button>
+                            {TranslationModel.translate(
+                                phrases.go_to_companies
+                            )}
+                        </Button>
+                    </a>
+                </div>
             </div>
         )
     }
 
+    // All of the information from the database such as Description, CompanyName, and image (not link to website) AND Buttons
     const exhibitors = (
         <>
             {onMobile ? (
@@ -159,41 +151,9 @@ const Studentpage = () => {
                     <div
                         key={activeCompany?.id}
                         ref={onCompanyRefChange}
-                        style={{
-                            height: `${descriptionHeight}px`,
-                        }}
                         className='studentpage-company-description'
                     >
                         <TextSection>{getActiveCompanyContent()}</TextSection>
-                    </div>
-                    <div className='studentpage-active-company-actions'>
-                        {showMore ? (
-                            <Button
-                                onClick={toggleDescription}
-                                className='studentpage-show-more-button'
-                            >
-                                {descriptionOpen
-                                    ? TranslationModel.translate(
-                                          phrases.show_less
-                                      )
-                                    : TranslationModel.translate(
-                                          phrases.read_more
-                                      )}
-                            </Button>
-                        ) : (
-                            <></>
-                        )}
-                        <a
-                            href={`http://${activeCompany?.url}`}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                        >
-                            <Button>
-                                {TranslationModel.translate(
-                                    phrases.go_to_companies
-                                )}
-                            </Button>
-                        </a>
                     </div>
                 </div>
             )}
@@ -310,22 +270,53 @@ const Studentpage = () => {
     )
 
     return (
-        /*
-        <div>{TranslationModel.translate({
-            se: (
-                <>
-                <h1 style={{textAlign:"center", padding:"3rem"}}>Mer information kommer snart...</h1>
-                </>),
-            en: (
-                <>
-                <h1 style={{textAlign:"center", padding:"3rem"}}>More information coming soon...</h1>
-                </>)
-                })}</div>*/
+        //In preperation- text
+        // <CenterContent>
+        //     <div style={{color: "white"}}>
+        //     {TranslationModel.translate({
+        //         se: (
+        //             <>
+        //                 <h1>Mer information kommer snart...</h1>
+        //             </>
+        //         ),
+        //         en: (
+        //             <>
+        //                 <h1>More information coming soon...</h1>
+        //             </>
+        //         ),
+        //     })}
+        // </div>
+        // </CenterContent>
+
         <div className='studentpage'>
             <div id='studentpage-exhibitors'>
+                <IntroScreenTitle noGradient={true} bottomPadding={true}>
+                    {TranslationModel.translate(phrases.exhibitors)}
+                </IntroScreenTitle>
+                <TextSection align={TextSectionAlignment.center}>
+                    {TranslationModel.translate({
+                        se: (
+                            <span>
+                                Är du student? Här hittar du information om
+                                årets utställare som deltar i branschdagen!
+                                Kanske din nästa arbetsplats?
+                            </span>
+                        ),
+                        en: (
+                            <span>
+                                Are you a student? Here you will find
+                                information about this years participants in the
+                                career fair! Maybe your next employer will be
+                                there?
+                            </span>
+                        ),
+                    })}
+                </TextSection>
                 <ContentSection>
                     <SectionTitle>
-                        {TranslationModel.translate(phrases.exhibitors)}
+                        {TranslationModel.translate(
+                            phrases.this_years_exhibitors
+                        )}
                     </SectionTitle>
                     <MBDCompanyContext.Consumer>
                         {(companies) => {
@@ -344,9 +335,7 @@ const Studentpage = () => {
                     </MBDCompanyContext.Consumer>
                 </ContentSection>
             </div>
-            
         </div>
-        
     )
 }
 
