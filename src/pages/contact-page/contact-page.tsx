@@ -5,6 +5,7 @@ import TranslationModel from '../model/translationModel'
 import phrases from '../../data/translations.json'
 import ContentSection, {
     ContentSectionBackground,
+    ContentSectionSize,
 } from '../../components/layout/content-section/content-section'
 import { TeamMember, 
     getMarketingTeamMembers, 
@@ -22,6 +23,7 @@ import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/i
 import HalfHalfCard from '../../components/half-half-card/half-half-card'
 import teamContact from './team-contact.json'
 import useWindowDimensions from '../../hooks/useWindowDimensions'
+import Card from '../../components/card/card'
 
 
 const Contactpage: FC = () => {
@@ -89,7 +91,9 @@ const Contactpage: FC = () => {
             <IntroScreenTitle noGradient = {true} > {TranslationModel.translate(phrases.contact_us)} </IntroScreenTitle>
 
             {/* Group Contact */}
-            <ContentSection>
+            <ContentSection size={ContentSectionSize.large}>
+                <div className="test-container">
+                <div className="test-cards">
             {
                 teamContact.map((group)=>{
                     const members = groups[group.member_key] ?? [];
@@ -130,10 +134,15 @@ const Contactpage: FC = () => {
                     )
                 })
             }
-            </ContentSection>
-
-            {/* Contact form*/}
-            <ContentSection>
+            <div style={{margin: '20px'}}>
+            <Card transparent>
+                <div className='webb-card'>
+                    <p>Vid frågor om hemsidan, kontakta <a href="mailto:webb@nlg.medieteknik.com">webb@nlg.medieteknik.com</a></p>
+                </div>
+            </Card>
+            </div>
+            </div>
+            <div className='test-sticky'>
                 <TextSection align={TextSectionAlignment.center}>
                     <SectionTitle>
                         {TranslationModel.translate(
@@ -148,6 +157,8 @@ const Contactpage: FC = () => {
                     </p>
                     <ContactForm />
                 </TextSection>
+            </div>
+            </div>
             </ContentSection>
         </div>
     )

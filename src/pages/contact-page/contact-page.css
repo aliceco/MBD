@@ -16,6 +16,45 @@
     flex-direction: row;
 }
 
+.test-container {
+    display: flex;
+}
+
+.test-cards {
+    width:60%;
+}
+
+.test-sticky{
+    width: 40%;
+    position: sticky;
+    top: 66px;
+    align-self: flex-start;
+    padding-top: 15px;
+}
+
+.webb-card {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    background:  rgba(0,0,0,0.2);
+    color: white;
+}
+
+@media screen and (max-width: 1200px){
+    .test-container {
+        flex-direction: column;
+    }
+    
+    .test-cards {
+        width: 100%;
+    }
+
+    .test-sticky{
+        width: 100%;
+        position: static;
+    }
+}
+
 /* .photographer-thanks {
     padding-top: 2em;
     text-align: center;

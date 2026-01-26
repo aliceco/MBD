@@ -145,7 +145,7 @@ const WeArePage: FC = () => {
 
             <div id='master-programmes' />
             <ContentSection>
-                <SectionTitle>
+                <SectionTitle align={TitleSectionAlignment.center}>
                     {TranslationModel.translate(
                         phrases.we_are_media_technology.masters
                     )}
