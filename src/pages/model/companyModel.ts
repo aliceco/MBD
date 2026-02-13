@@ -78,10 +78,10 @@ export default class CompanyModel {
                         company.mapPositionX,
                         company.mapPositionY,
                         company.mapOrder,
-                        company.isSponsor === 1,
-                        company.isExhibitor === 1,
-                        company.isMainSponsor === 1,
-                        company.isLecturer === 1,
+                        company.isSponsor === "1",
+                        company.isExhibitor === "1",
+                        company.isMainSponsor === "1",
+                        company.isLecturer === "1",
                         employments
                     )
                     
