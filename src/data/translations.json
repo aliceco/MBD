@@ -127,6 +127,10 @@
         "se": "Sponsrat av",
         "en": "Sponsored by"
     },
+    "silver_sponsor": {
+        "se": "Silver Sponsorer",
+        "en": "Silver Sponsors"
+    },
     "exhibitors": {
         "se": "Utställare",
         "en": "Exhibitors"

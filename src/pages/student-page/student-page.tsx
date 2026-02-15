@@ -15,8 +15,6 @@ import TextSection, {
 } from '../../components/text-section/text-section'
 import { Button } from '../../components/button/button'
 
-import Close from '../../assets/icons/other/close_outline.svg'
-import SectionTitle from '../../components/section-title/section-title'
 import { Company } from '../model/companyModel'
 import { MBDCompanyContext } from '../../contexts/mbd-company-provider'
 import CompanyCard from '../../components/company-card/company-card'
@@ -24,6 +22,12 @@ import useWindowDimensions from '../../hooks/useWindowDimensions'
 import Chip from '../../components/chip/chip'
 
 import IntroScreenTitle from '../../components/intro-screen/intro-screen-title/intro-screen-title'
+import SectionTitle, {TitleSectionAlignment} from '../../components/section-title/section-title'
+import { Card } from '@material-ui/core'
+import Tag from '../../components/tag/tag'
+import Close from '../../assets/icons/other/close_outline.svg'
+
+import masskarta from '../../assets/masskarta2026.jpg'
 
 const Studentpage = () => {
     //const companiesContext = useContext(MBDCompanyContext) //gets company data from nearest provider (mbd-company-provider.tsx)
@@ -36,6 +40,8 @@ const Studentpage = () => {
     const [showMore, _setShowMore] = useState(true)
     const [onMobile, _setOnMobile] = useState(false)
     const [employments, _setEmployments]: any = useState({})
+    const [mainSponsor, _setMainSponsor] = useState<Company>()
+    const [showMapPopup, _setShowMapPopup] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -44,21 +50,6 @@ const Studentpage = () => {
     useEffect(() => {
         _setOnMobile(windowDimensions.width < 700)
     }, [windowDimensions.width])
-
-    /* 
-        Run this, whenever onMobile, isMainSponsor, or isExhibitor changes
-        On desktop, pre-seöects a compamny (main sponsor)
-        Tries main sponsor first, if null or undefined, falls back to first exhibitor
-
-        NOTE: This code is not in use    right now
-    */
-    // useEffect(() => {
-    //     // if (!onMobile)
-    //     //     _setActiveCompany(
-    //     //         companiesContext.isMainSponsor[0] ??
-    //     //             companiesContext.isExhibitor[0]
-    //     //     )
-    // }, [onMobile, companiesContext.isMainSponsor, companiesContext.isExhibitor])
 
     const getActiveEmployments = () => {
         return Object.keys(employments).filter((id) => employments[id])
@@ -94,26 +85,39 @@ const Studentpage = () => {
 
         return (
             <div className='student-page'>
-                <h2>{activeCompany.name}</h2>
-                <div>
-                    <div className='studentpage-active-company-right'>
-                        <div
-                            className='studentpage-active-company-logo'
-                            style={{
-                                backgroundImage: `url('/assets/companies/${activeCompany.logo_path}')`,
-                            }}
-                        />
-                        <div className='studentpage-active-company-employments'>
-                            {activeCompany.employments.map((employment) => (
-                                <Chip key={'chip_' + employment.id} selected>
-                                    {TranslationModel.translate(
-                                        employment.name
-                                    )}
-                                </Chip>
-                            ))}
-                        </div>
-                    </div>
+                <div className='studentpage-active-company-header'>
+                    <h2>{activeCompany.name}</h2>
+                    {activeCompany.isMainSponsor ? (
+                        <Tag gold className='tag'>
+                            {TranslationModel.translate(phrases.main_sponsor)}
+                        </Tag>
+                        ) : activeCompany.isSponsor ? (
+                        <Tag silver className='tag'>
+                            {TranslationModel.translate(phrases.silver_sponsor)}
+                        </Tag>
+                        ) : null}
 
+                    {activeCompany.isLecturer && (
+                            <Tag gray className='tag'>
+                                {TranslationModel.translate(
+                                    phrases.lecturers
+                                )}
+                            </Tag>
+                           
+                    )}
+
+                    <button
+                        type='button'
+                        className='studentpage-close-button close no-tap-highlight'
+                        onClick={() => _setActiveCompany(null)}
+                    >
+                         <img src={Close} alt='close' />
+
+                    </button>
+                </div>
+
+                <div className='active-company'>
+               
                     <div
                         className='studentpage-company-description'
                         dangerouslySetInnerHTML={{
@@ -122,20 +126,30 @@ const Studentpage = () => {
                                     activeCompany.getDescription()
                                 )?.toString() ?? '',
                         }}
-                    ></div>
-                </div>
-                <div className='studentpage-active-company-actions'>
-                    <a
-                        href={`http://${activeCompany?.url}`}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                    >
-                        <Button>
-                            {TranslationModel.translate(
-                                phrases.go_to_companies
-                            )}
-                        </Button>
-                    </a>
+                    />
+                    <div className='studentpage-active-company-left'>
+
+                        <div
+                            className='studentpage-active-company-logo'
+                            style={{
+                                backgroundImage: `url('/assets/companies/${activeCompany.logo_path}')`,
+                            }}
+                        />
+                        <div className='studentpage-active-company-actions'>
+                            <a
+                                href={`http://${activeCompany?.url}`}
+                                target='_blank'
+                                rel='noopener noreferrer'
+                            >
+                                <Button>
+                                    {TranslationModel.translate(
+                                        phrases.go_to_companies
+                                    )}
+                                </Button>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         )
@@ -213,12 +227,6 @@ const Studentpage = () => {
                                                 )}
                                             </Chip>
                                         ))}
-                                    <div
-                                        className='employments-clear no-tap-highlight'
-                                        onClick={() => _setEmployments({})}
-                                    >
-                                        <img src={Close} alt='clear' />
-                                    </div>
                                 </>
                             ) : (
                                 <></>
@@ -313,7 +321,7 @@ const Studentpage = () => {
                     })}
                 </TextSection>
                 <ContentSection>
-                    <SectionTitle>
+                    <SectionTitle align={TitleSectionAlignment.center}>
                         {TranslationModel.translate(
                             phrases.this_years_exhibitors
                         )}
@@ -334,7 +342,33 @@ const Studentpage = () => {
                         }}
                     </MBDCompanyContext.Consumer>
                 </ContentSection>
+                <ContentSection>
+                    <SectionTitle align={TitleSectionAlignment.center}>
+                        {TranslationModel.translate(
+                            phrases.map
+                        )}
+                    </SectionTitle>
+                    <div>  
+                        <img src={masskarta} alt='map' className='map-image' style={{ width: '100%', cursor: 'pointer' }} onClick={() => _setShowMapPopup(true)}/>
+                    </div>
+                </ContentSection>
             </div>
+
+            {showMapPopup && (
+                <div className='map-popup-overlay' onClick={() => _setShowMapPopup(false)}>
+                    <div className='map-popup-content' onClick={(e) => e.stopPropagation()}>
+                        <button
+                            type='button'
+                            className='studentpage-close-button close no-tap-highlight'
+                            onClick={() => _setShowMapPopup(false)}
+                            style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 1001 }}
+                        >
+                            <img src={Close} alt='close' />
+                        </button>
+                        <img src={masskarta} alt='map' className='map-popup-image' />
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
