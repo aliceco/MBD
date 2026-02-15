@@ -80,7 +80,7 @@ const Navbar = () => {
                     />
 
                     {/* For Students */}
-                    <NavItem
+                    {/* <NavItem
                         label={TranslationModel.translate(phrases.for_students)}
                         path={Routes.studentPage.path} // doesn't have a page yet
                         items={[
@@ -105,7 +105,19 @@ const Navbar = () => {
                         ]}
                         mobileMenuOpen={mobileMenuOpen}
                         onClick={closeMobileMenu}
+                    /> */}
+
+                    <NavItem
+                        label={TranslationModel.translate(
+                            Routes.studentPage.name
+                        )}
+                        path={Routes.studentPage.path}
+                        items={[]}
+                        mobileMenuOpen={mobileMenuOpen}
+                        onClick={closeMobileMenu}
                     />
+
+                    
                 </div>
                 {/* Contact and About us */}
                 <div className='navbar-list'>

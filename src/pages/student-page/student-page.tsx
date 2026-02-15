@@ -27,6 +27,7 @@ import { Card } from '@material-ui/core'
 import Tag from '../../components/tag/tag'
 import Close from '../../assets/icons/other/close_outline.svg'
 
+import masskarta from '../../assets/masskarta2026.jpg'
 
 const Studentpage = () => {
     //const companiesContext = useContext(MBDCompanyContext) //gets company data from nearest provider (mbd-company-provider.tsx)
@@ -40,6 +41,7 @@ const Studentpage = () => {
     const [onMobile, _setOnMobile] = useState(false)
     const [employments, _setEmployments]: any = useState({})
     const [mainSponsor, _setMainSponsor] = useState<Company>()
+    const [showMapPopup, _setShowMapPopup] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -115,25 +117,7 @@ const Studentpage = () => {
                 </div>
 
                 <div className='active-company'>
-                    {/* <div className='studentpage-active-company-right'>
-                        <div
-                            className='studentpage-active-company-logo'
-                            style={{
-                                backgroundImage: `url('/assets/companies/${activeCompany.logo_path}')`,
-                            }}
-                        />
-                        
-                        <div className='studentpage-active-company-employments'>
-                            {activeCompany.employments.map((employment) => (
-                                <Chip key={'chip_' + employment.id} selected>
-                                    {TranslationModel.translate(
-                                        employment.name
-                                    )}
-                                </Chip>
-                            ))}
-                        </div>  
-                    </div> */}
-                
+               
                     <div
                         className='studentpage-company-description'
                         dangerouslySetInnerHTML={{
@@ -358,7 +342,33 @@ const Studentpage = () => {
                         }}
                     </MBDCompanyContext.Consumer>
                 </ContentSection>
+                <ContentSection>
+                    <SectionTitle align={TitleSectionAlignment.center}>
+                        {TranslationModel.translate(
+                            phrases.map
+                        )}
+                    </SectionTitle>
+                    <div>  
+                        <img src={masskarta} alt='map' className='map-image' style={{ width: '100%', cursor: 'pointer' }} onClick={() => _setShowMapPopup(true)}/>
+                    </div>
+                </ContentSection>
             </div>
+
+            {showMapPopup && (
+                <div className='map-popup-overlay' onClick={() => _setShowMapPopup(false)}>
+                    <div className='map-popup-content' onClick={(e) => e.stopPropagation()}>
+                        <button
+                            type='button'
+                            className='studentpage-close-button close no-tap-highlight'
+                            onClick={() => _setShowMapPopup(false)}
+                            style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 1001 }}
+                        >
+                            <img src={Close} alt='close' />
+                        </button>
+                        <img src={masskarta} alt='map' className='map-popup-image' />
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

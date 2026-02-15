@@ -5,8 +5,10 @@
 }
 
 .student-page {
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: rgba(107, 107, 107, 0.8);
     padding: 10px 20px;
+    border-radius: 10px;
 }
 
 .studentpage-companies-container {
@@ -165,4 +167,39 @@
         width: 100%
     }
 
+    .map-popup-content {
+    max-width: 90vw;
+    }
+}
+
+.map-image {
+    width: 100%;
+}
+
+.map-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.map-popup-content {
+    position: relative;
+    max-width: 80vw;
+    max-height: 90vh;
+    background-color: white;
+    border-radius: 8px;
+    overflow: auto;
+}
+
+.map-popup-image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
