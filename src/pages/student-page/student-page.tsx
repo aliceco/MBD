@@ -348,8 +348,8 @@ const Studentpage = () => {
                             phrases.map
                         )}
                     </SectionTitle>
-                    <div>  
-                        <img src={masskarta} alt='map' className='map-image' style={{ width: '100%', cursor: 'pointer' }} onClick={() => _setShowMapPopup(true)}/>
+                    <div className='map-image-container'>  
+                        <img src={masskarta} alt='map' className='map-image'  onClick={() => _setShowMapPopup(true)}/>
                     </div>
                 </ContentSection>
             </div>

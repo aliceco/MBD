@@ -172,8 +172,14 @@
     }
 }
 
+.map-image-container {
+    display: flex;
+    justify-content: center;
+}
+
 .map-image {
-    width: 100%;
+    width: 80%;
+    cursor: pointer;
 }
 
 .map-popup-overlay {
@@ -191,8 +197,8 @@
 
 .map-popup-content {
     position: relative;
-    max-width: 80vw;
-    max-height: 90vh;
+    max-width: 35vw;
+    max-height: 100vh;
     background-color: white;
     border-radius: 8px;
     overflow: auto;
