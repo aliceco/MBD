@@ -349,26 +349,10 @@ const Studentpage = () => {
                         )}
                     </SectionTitle>
                     <div className='map-image-container'>  
-                        <img src={masskarta} alt='map' className='map-image'  onClick={() => _setShowMapPopup(true)}/>
+                        <img src={masskarta} alt='map' className='map-image'/>
                     </div>
                 </ContentSection>
             </div>
-
-            {showMapPopup && (
-                <div className='map-popup-overlay' onClick={() => _setShowMapPopup(false)}>
-                    <div className='map-popup-content' onClick={(e) => e.stopPropagation()}>
-                        <button
-                            type='button'
-                            className='studentpage-close-button close no-tap-highlight'
-                            onClick={() => _setShowMapPopup(false)}
-                            style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 1001 }}
-                        >
-                            <img src={Close} alt='close' />
-                        </button>
-                        <img src={masskarta} alt='map' className='map-popup-image' />
-                    </div>
-                </div>
-            )}
         </div>
     )
 }
